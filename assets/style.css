@@ -185,3 +185,14 @@ p,ul{
         height: 46px;
     }
 }
+
+/* Horizontal phones */
+@media (max-height: 600px) {
+    .navbar-brand img {
+        width: 186px;
+        height: 54px;
+    }
+    .panel-row h1, #mantra {
+        margin-top: 50px;
+    }
+}
