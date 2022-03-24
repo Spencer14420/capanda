@@ -75,6 +75,9 @@ p,ul{
     font-size:18px;
     margin-bottom:40px
 }
+.panel-row p, .panel-row h1 {
+    margin-bottom: 22px;
+}
 
 #message-alert{
     display:none
