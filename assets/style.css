@@ -187,6 +187,15 @@ p,ul{
 }
 
 /* Horizontal phones */
+@media (max-height: 465px) {
+    .top-panel .btn-capanda1 {
+        display: none;
+    }
+    #openingpara {
+        background-color: rgba(255, 255, 255, 0.7);
+        border: 2px solid black;
+    }
+}
 @media (max-height: 600px) {
     .navbar-brand img {
         width: 186px;
