@@ -19,6 +19,12 @@ function setPositions() {
     panel.style.top = `${correctTop}px`;
   }
 
+  //First text-panel is too low on certain phones
+  if (window.innerHeight >= 775 && window.innerWidth <= 450) {
+    let panel = document.querySelector(".panel2");
+    panel.style.top = `${parseInt(panel.style.top) - 200}px`;
+  }
+
   // Set footer position
   const mainHeight = document.querySelector('main').offsetHeight;
   const footerHeight = document.querySelector('footer').offsetHeight;
