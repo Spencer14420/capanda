@@ -79,6 +79,10 @@ p,ul{
     margin-bottom: 22px;
 }
 
+.navbar-nav .text-danger {
+    font-weight: bold;
+}
+
 #message-alert{
     display:none
 }

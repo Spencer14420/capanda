@@ -94,22 +94,42 @@ function changeColour(colour) {
     panels.css('background-color', '#ededed');
   }
 }
+
+// Highlight header links based on which panel is visible
+function headerLinks(highlightLink) {
+  const headerLinks = document.querySelector(".navbar-nav").children;
+  
+  for (let i = 0; i < headerLinks.length; i++) {
+    headerLinks[i].classList.remove("text-danger", "text-dark");
+    if (i === highlightLink) {
+      headerLinks[i].classList.add("text-danger")
+    } else {
+      headerLinks[i].classList.add("text-dark")
+    }
+  }
+}
+
 $(window).scroll(() => {
   const screenTop = $(window).scrollTop();
 
   if (screenTop < scrollPoints[0]) {
     showTopPanel();
+    headerLinks(-1);
   } else if (screenTop >= scrollPoints[0] && screenTop < scrollPoints[1]) {
     changeColour('blue');
     showText(1);
+    headerLinks(0);
   } else if (screenTop >= scrollPoints[1] && screenTop < scrollPoints[2]) {
     changeColour('white');
     showText(2);
+    headerLinks(1);
   } else if (screenTop >= scrollPoints[2] && screenTop < scrollPoints[3]) {
     changeColour('black');
     showText(3);
+    headerLinks(2);
   } else if (screenTop >= scrollPoints[3]) {
     changeColour('grey');
     showText(4);
+    headerLinks(3);
   }
 });
