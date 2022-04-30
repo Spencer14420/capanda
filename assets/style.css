@@ -95,7 +95,8 @@ p,ul{
 }
 
 .navbar-nav .text-danger {
-    font-weight: bold;
+    /* Make text bold without affecting spacing */
+    text-shadow: -0.05ex 0 currentColor, 0.05ex 0 currentColor;
 }
 
 #message-alert{
