@@ -1,3 +1,18 @@
+/* Bootstrap theme overrides */
+:root {
+    --bs-danger: #aa0000
+}
+
+.btn-danger {
+    background-color: var(--bs-danger) !important;
+}
+
+.text-danger, .alert-danger {
+    color: var(--bs-danger) !important;
+}
+/* -- */
+
+
 h1,h5{
     font-family:roboto,sans-serif
 }
