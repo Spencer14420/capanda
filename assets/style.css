@@ -103,6 +103,10 @@ p,ul{
     display:none
 }
 
+#phoneandemail a {
+    text-decoration: none;
+}
+
 @media (max-width: 1200px) {
     #mantra, #companyname {
         font-size: 3.7rem !important;
@@ -162,6 +166,9 @@ p,ul{
 
     #companyname {
         letter-spacing: -2.5px;
+    }
+    #phoneandemail {
+        display: none !important;
     }
 
     #openingpara {
