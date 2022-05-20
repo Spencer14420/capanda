@@ -46,6 +46,7 @@ nav{
 .panel-row{
     display:flex;
     align-items:center;
+    justify-content:center;
     min-height:90vh
 }
 .panel2,main,body{
