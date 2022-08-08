@@ -26,7 +26,6 @@ h1,h5{
 .top-panel{
     min-height:100vh;
     position:relative;
-    top:60vh;
     display:flex;
     align-items:center;
     z-index:1;
@@ -47,25 +46,21 @@ nav{
     display:flex;
     align-items:center;
     justify-content:center;
-    min-height:90vh
-}
-.panel2,main,body{
-    background-color:#0e2c57
 }
 .panel2{
-    position: absolute;
+    position: relative;
     pointer-events:none
 }
 .panel3{
-    position: absolute;
+    position: relative;
     background-color:#fff
 }
 .panel4{
-    position: absolute;
+    position: relative;
     background-color:#14171c
 }
 .panel5{
-    position: absolute;
+    position: relative;
     background-color:#ededed
 }
 .panel2,.panel3,.panel4,.panel5{
@@ -73,18 +68,16 @@ nav{
     opacity:0;
     transition:background-color 400ms ease-in-out,opacity 400ms ease-in-out
 }
-main{
+body{
+    background-color:#0e2c57;
     transition:background-color 400ms ease-in-out,opacity 400ms ease-in-out;
-    position:relative;
-    top:-60vh
 }
 footer{
-    z-index:100
-}
-
-footer {
+    position: relative;
+    z-index:100;
     background-color:white;
 }
+
 p,ul{
     font-family:open sans,sans-serif;
     font-weight:500;
@@ -215,7 +208,7 @@ p,ul{
 }
 
 /* Horizontal phones */
-@media (max-height: 465px) {
+/* @media (max-height: 465px) {
     .top-panel .btn-capanda1 {
         display: none;
     }
@@ -232,4 +225,4 @@ p,ul{
     .panel-row h1, #mantra {
         margin-top: 50px;
     }
-}
+} */

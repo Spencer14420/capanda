@@ -1,36 +1,18 @@
-let scrollPoints = [200];
+let scrollPoints = [];
+const numPanels = 5 //Total number of panels, including top image, counted starting at 1
+const navHeight = document.querySelector("nav").offsetHeight; //Height of navbar
 
-function setPositions() {
-  // Set panels position
-  for (let i = 0; i < 4; i += 1) {
-    const panel = document.querySelector(`.panel${i + 2}`);
-    const screenHeight = window.innerHeight - document.querySelector('nav').offsetHeight;
+//Get the height of each panel
+const panelHeight = panel => document.querySelector(`.panel${panel}`).offsetHeight;
 
-    if (i > 0) {
-      let addition = panel.offsetHeight / 2;
-      if (screenHeight / 2 < addition) {
-        addition = panel.offsetHeight;
-      }
-      scrollPoints[i] = scrollPoints[i - 1] + addition;
-    }
-
-    const correctTop = scrollPoints[i] + screenHeight;
-
-    panel.style.top = `${correctTop}px`;
+const setPositions = () => {
+  //Set transition points and position of panels
+  scrollPoints = [200]; //Position of first transition when scrolling down
+  for (let i = 2; i <= numPanels; i++) {
+    let scrollPoint = scrollPoints[i-2] + panelHeight(i);
+    scrollPoints.push(scrollPoint);
+    document.querySelector(`.panel${i}`).style.top = `-${window.innerHeight/2 - scrollPoints[0] - navHeight}px`; // Places the top of the panel at the middle of the screen (excluding the navbar) when the transition occurs
   }
-
-  //First text-panel is too low on certain phones
-  if (window.innerHeight >= 775 && window.innerWidth <= 450) {
-    let panel = document.querySelector(".panel2");
-    panel.style.top = `${parseInt(panel.style.top) - 200}px`;
-  }
-
-  // Set footer position
-  const mainHeight = document.querySelector('main').offsetHeight;
-  const footerHeight = document.querySelector('footer').offsetHeight;
-  const bodyBottom = document.body.getBoundingClientRect().bottom;
-  const lastBottom = bodyBottom - document.querySelector('.panel5').getBoundingClientRect().bottom;
-  document.querySelector('main').style.height = `${mainHeight - lastBottom + footerHeight}px`;
 }
 
 $(document).ready(setPositions);
@@ -82,7 +64,7 @@ function showText(panel) {
 }
 
 function changeColour(colour) {
-  const panels = $('main, body, .panel2, .panel3, .panel4, .panel5');
+  const panels = $('body, .panel2, .panel3, .panel4, .panel5');
   hideTopPanel();
   if (colour === 'blue') {
     panels.css('background-color', '#0e2c57');
@@ -110,7 +92,7 @@ function headerLinks(highlightLink) {
 }
 
 $(window).scroll(() => {
-  const screenTop = $(window).scrollTop();
+  const screenTop = window.scrollY;
 
   if (screenTop < scrollPoints[0]) {
     showTopPanel();
