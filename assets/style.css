@@ -207,8 +207,7 @@ p,ul{
     }
 }
 
-/* Horizontal phones */
-/* @media (max-height: 465px) {
+@media (max-height: 465px) {
     .top-panel .btn-capanda1 {
         display: none;
     }
@@ -217,12 +216,3 @@ p,ul{
         border: 2px solid black;
     }
 }
-@media (max-height: 600px) {
-    .navbar-brand img {
-        width: 186px;
-        height: 54px;
-    }
-    .panel-row h1, #mantra {
-        margin-top: 50px;
-    }
-} */

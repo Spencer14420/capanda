@@ -13,6 +13,10 @@ const setPositions = () => {
     scrollPoints.push(scrollPoint);
     document.querySelector(`.panel${i}`).style.top = `-${window.innerHeight/2 - scrollPoints[0] - navHeight}px`; // Places the top of the panel at the middle of the screen (excluding the navbar) when the transition occurs
   }
+
+  //Set padding for top panel (so text doesn't go under header)
+  const headerHeight = document.querySelector(".navbar").clientHeight;
+  document.querySelector(".top-panel").style.paddingTop = `${headerHeight}px`;
 }
 
 $(document).ready(setPositions);
