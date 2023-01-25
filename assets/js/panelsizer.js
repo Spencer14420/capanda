@@ -23,8 +23,6 @@ const setPositions = () => {
   document.querySelector("#value").style.height = `${valueTopBottom}px`;
   document.querySelector("#value").style.marginTop = `-${valueTopBottom}px`;
 
-  //console.log(`(${window.innerHeight} - ${document.querySelector("#value-panel").clientHeight} + ${headerHeight})/2 = ${(window.innerHeight - document.querySelector("#value-panel").clientHeight + headerHeight)/2}`);
-
   let leadershipTopBottom = (window.innerHeight - document.querySelector("#leadership-panel").clientHeight + headerHeight)/2;
   document.querySelector("#leadership").style.height = `${leadershipTopBottom}px`;
   document.querySelector("#leadership").style.marginTop = `-${leadershipTopBottom}px`;
