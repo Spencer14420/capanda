@@ -216,3 +216,7 @@ p,ul{
         border: 2px solid black;
     }
 }
+
+#value, #leadership, #dedication, #focus {
+    display: inline-block;
+}
