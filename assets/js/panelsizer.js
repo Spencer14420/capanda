@@ -7,10 +7,13 @@ const setPositions = () => {
 
   //Set transition points and position of panels
   scrollPoints = [200]; //Position of first transition when scrolling down
+  let extraneousArea = scrollPoints[0] + headerHeight;
   for (let i = 2; i <= numPanels; i++) {
     let scrollPoint = scrollPoints[i-2] + panelHeight(i);
     scrollPoints.push(scrollPoint);
-    document.querySelector(`.panel${i}`).style.top = `-${window.innerHeight/2 - scrollPoints[0] - headerHeight}px`; // Places the top of the panel at the middle of the screen (excluding the navbar) when the transition occurs
+    document.querySelector(`.panel${i}`).style.top = `-${(panelHeight(i) + window.innerHeight - 2*extraneousArea)/2}px`;
+
+    
   }
 
   //Set padding for top panel (so text doesn't go under header)
