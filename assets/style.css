@@ -31,6 +31,9 @@ h1,h5{
     z-index:1;
     transition:background-color 400ms,opacity 400ms
 }
+.top-panel div {
+    height: 50%;
+}
 .btn-capanda1{
     border-radius:0;
     border:3px solid #000

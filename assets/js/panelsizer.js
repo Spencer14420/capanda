@@ -5,15 +5,27 @@ const setPositions = () => {
   let panelHeight = panel => document.querySelector(`.panel${panel}`).offsetHeight;
   let headerHeight = document.querySelector("nav").clientHeight;
 
-  //Set transition points and position of panels
+  let largestPanelHeight = Math.max(
+    document.querySelector("#value-panel").clientHeight, 
+    document.querySelector("#leadership-panel").clientHeight, 
+    document.querySelector("#dedication-panel").clientHeight, 
+    document.querySelector("#focus-panel").clientHeight
+    );
+
+  //Set transition points, position of panels, and visibility of header links
   scrollPoints = [200]; //Position of first transition when scrolling down
   let extraneousArea = scrollPoints[0] + headerHeight;
   for (let i = 2; i <= numPanels; i++) {
     let scrollPoint = scrollPoints[i-2] + panelHeight(i);
     scrollPoints.push(scrollPoint);
-    document.querySelector(`.panel${i}`).style.top = `-${(panelHeight(i) + window.innerHeight - 2*extraneousArea)/2}px`;
 
-    
+    if (window.innerHeight - headerHeight <= largestPanelHeight) {
+      document.querySelector(".navbar-nav").style.display = "none";
+      document.querySelector(`.panel${i}`).style.top = `${extraneousArea - window.innerHeight*0.9}px`; //Position the panels near the top of the screen if the largest panel would be placed too high
+    } else {
+      document.querySelector(".navbar-nav").style.display = "flex";
+      document.querySelector(`.panel${i}`).style.top = `-${(panelHeight(i) + window.innerHeight - 2*extraneousArea)/2}px`; //Place the middle of the text in the middle of the screen
+    }
   }
 
   //Set padding for top panel (so text doesn't go under header)
@@ -31,21 +43,6 @@ const setPositions = () => {
     document.querySelector(`#${selector}`).style.height = `${topBottom}px`;
     document.querySelector(`#${selector}`).style.marginTop = `-${topBottom}px`;
   });
-
-  //Hide the header links if the screen is shorter than the largest panel (in height)
-  //because they don't work if that's the case
-  let largestPanelHeight = Math.max(
-    document.querySelector("#value-panel").clientHeight, 
-    document.querySelector("#leadership-panel").clientHeight, 
-    document.querySelector("#dedication-panel").clientHeight, 
-    document.querySelector("#focus-panel").clientHeight
-    );
-
-    if (window.innerHeight - headerHeight <= largestPanelHeight) {
-      document.querySelector(".navbar-nav").style.display = "none";
-    } else {
-      document.querySelector(".navbar-nav").style.display = "flex";
-    }
 }
 
 window.addEventListener('load', setPositions);
