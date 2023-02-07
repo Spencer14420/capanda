@@ -13,10 +13,12 @@ const setPositions = () => {
     );
 
   //Set transition points, position of panels, and visibility of header links
-  scrollPoints = [200]; //Position of first transition when scrolling down
+  let firstTransition = 200;
+  scrollPoints = [firstTransition]; //Position of first transition when scrolling down
   let extraneousArea = scrollPoints[0] + headerHeight;
+  const raiseBy = 400; //Raise each panel by this number of pixels
   for (let i = 2; i <= numPanels; i++) {
-    let scrollPoint = scrollPoints[i-2] + panelHeight(i);
+    let scrollPoint = (scrollPoints[i-2] + panelHeight(i));
     scrollPoints.push(scrollPoint);
 
     if (window.innerHeight - headerHeight <= largestPanelHeight) {
@@ -24,9 +26,13 @@ const setPositions = () => {
       document.querySelector(`.panel${i}`).style.top = `${extraneousArea - window.innerHeight*0.9}px`; //Position the panels near the top of the screen if the largest panel would be placed too high
     } else {
       document.querySelector(".navbar-nav").style.display = "flex";
-      document.querySelector(`.panel${i}`).style.top = `-${(panelHeight(i) + window.innerHeight - 2*extraneousArea)/2}px`; //Place the middle of the text in the middle of the screen
+      document.querySelector(`.panel${i}`).style.top = `-${raiseBy + (panelHeight(i) + window.innerHeight - 2*extraneousArea)/2}px`; //Place the middle of the text in the middle of the screen
+      if (i === 2) {
+        document.querySelector(`.panel${i}`).style.top = `-${(panelHeight(i) + window.innerHeight - 2*extraneousArea)/2}px`;
+      }
     }
   }
+ scrollPoints = [firstTransition, scrollPoints[1] - raiseBy, scrollPoints[2] - raiseBy, scrollPoints[3] - raiseBy, scrollPoints[4] - raiseBy]
 
   //Set padding for top panel (so text doesn't go under header)
   document.querySelector(".top-panel").style.paddingTop = `${headerHeight}px`;
@@ -122,6 +128,21 @@ function headerLinks(highlightLink) {
 }
 
 $(window).scroll(() => {
+
+  //True if the top of the panel is above the bottom of the header
+  let panelTopHigh = [
+    document.querySelector(".panel2").getBoundingClientRect().y < document.querySelector("nav").clientHeight ? true : false,
+    document.querySelector(".panel3").getBoundingClientRect().y < document.querySelector("nav").clientHeight ? true : false,
+    document.querySelector(".panel4").getBoundingClientRect().y < document.querySelector("nav").clientHeight ? true : false
+  ];
+
+  //True if the bottom of the panel is above the bottom of the screen
+  let panelBottomHigh = [
+    document.querySelector(".panel2").getBoundingClientRect().bottom < window.innerHeight ? true : false,
+    document.querySelector(".panel3").getBoundingClientRect().bottom < window.innerHeight ? true : false,
+    document.querySelector(".panel4").getBoundingClientRect().bottom < window.innerHeight ? true : false
+  ];
+
   const screenTop = window.scrollY;
 
   if (screenTop < scrollPoints[0]) {
