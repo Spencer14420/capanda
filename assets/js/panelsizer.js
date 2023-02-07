@@ -22,21 +22,15 @@ const setPositions = () => {
   //Position #value element, etc. (for header links)
   //When the middle of the panel is in the middle of the screen
   //these elements should be located at the top of the screen
-  let valueTopBottom = (window.innerHeight - document.querySelector("#value-panel").clientHeight + headerHeight)/2;
-  document.querySelector("#value").style.height = `${valueTopBottom}px`;
-  document.querySelector("#value").style.marginTop = `-${valueTopBottom}px`;
+  const selectors = ['value', 'leadership', 'dedication', 'focus'];
 
-  let leadershipTopBottom = (window.innerHeight - document.querySelector("#leadership-panel").clientHeight + headerHeight)/2;
-  document.querySelector("#leadership").style.height = `${leadershipTopBottom}px`;
-  document.querySelector("#leadership").style.marginTop = `-${leadershipTopBottom}px`;
+  selectors.forEach(selector => {
+    const panel = document.querySelector(`#${selector}-panel`);
+    const topBottom = (window.innerHeight - panel.clientHeight + headerHeight) /2;
 
-  let dedicationTopBottom = (window.innerHeight - document.querySelector("#dedication-panel").clientHeight + headerHeight)/2;
-  document.querySelector("#dedication").style.height = `${dedicationTopBottom}px`;
-  document.querySelector("#dedication").style.marginTop = `-${dedicationTopBottom}px`;
-
-  let focusTopBottom = (window.innerHeight - document.querySelector("#focus-panel").clientHeight + headerHeight)/2;
-  document.querySelector("#focus").style.height = `${focusTopBottom}px`;
-  document.querySelector("#focus").style.marginTop = `-${focusTopBottom}px`;
+    document.querySelector(`#${selector}`).style.height = `${topBottom}px`;
+    document.querySelector(`#${selector}`).style.marginTop = `-${topBottom}px`;
+  });
 
   //Hide the header links if the screen is shorter than the largest panel (in height)
   //because they don't work if that's the case
