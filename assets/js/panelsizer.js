@@ -15,7 +15,7 @@ const setPositions = () => {
   const largestPanelHeight = Math.max(...panels.map(panel => panel.clientHeight));
   const firstTransition = 200; //Position of first transition when scrolling down
   const extraneousArea = firstTransition + headerHeight;
-  const raiseBy = 400; //Raise each panel by this number of pixels
+  const raiseBy = 300; //Raise each panel by this number of pixels
 
   //Set transition points, position of panels, and visibility of header links
   scrollPoints = [firstTransition]; 
@@ -126,6 +126,7 @@ window.addEventListener('scroll', function() {
     document.querySelector(`${panelPrefix}3`).getBoundingClientRect().bottom < window.innerHeight ? true : false,
     document.querySelector(`${panelPrefix}4`).getBoundingClientRect().bottom < window.innerHeight ? true : false
   ];
+  console.log(panelTopHigh)
 
   const screenTop = window.scrollY;
 
@@ -136,15 +137,18 @@ window.addEventListener('scroll', function() {
     changeColour('#0e2c57');
     showText(1);
     headerLinks(0);
-  } else if (screenTop >= scrollPoints[1] && screenTop < scrollPoints[2]) {
+  //} else if (screenTop >= scrollPoints[1] && screenTop < scrollPoints[2]) {
+  } else if (panelTopHigh[0] === true && panelTopHigh[1] === false && panelTopHigh[2] === false) {
     changeColour('white');
     showText(2);
     headerLinks(1);
-  } else if (screenTop >= scrollPoints[2] && screenTop < scrollPoints[3]) {
+  //} else if (screenTop >= scrollPoints[2] && screenTop < scrollPoints[3]) {
+  } else if (panelTopHigh[0] === true && panelTopHigh[1] === true && panelTopHigh[2] === false) {
     changeColour('#14171c');
     showText(3);
     headerLinks(2);
-  } else if (screenTop >= scrollPoints[3]) {
+  //} else if (screenTop >= scrollPoints[3]) {
+  } else if (panelTopHigh[0] === true && panelTopHigh[1] === true && panelTopHigh[2] === true) {
     changeColour('#ededed');
     showText(4);
     headerLinks(3);
