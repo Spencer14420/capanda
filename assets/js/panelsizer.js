@@ -47,6 +47,12 @@ const setPositions = () => {
     document.querySelector(`#${selector}`).style.height = `${topBottom}px`;
     document.querySelector(`#${selector}`).style.marginTop = `-${topBottom}px`;
   });
+
+  //Set height of the body at the bottom of the last panel
+  let lastPanelBottom = document.querySelector(`.panel${numPanels}`).getBoundingClientRect().bottom + window.scrollY;
+  document.querySelector("body").style.height = `${lastPanelBottom}px`;
+  console.log(`${raiseBy + (panelHeight(numPanels) + window.innerHeight - 2*extraneousArea)/2}px`)
+  document.querySelector("#footer").style.marginTop = `${(window.innerHeight - 2*extraneousArea)/2}px`;
 }
 
 window.addEventListener('load', setPositions);
