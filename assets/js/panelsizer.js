@@ -51,7 +51,7 @@ const setPositions = () => {
 
   //Set height of the body at the bottom of the last panel
   const lastPanelBottom = document.querySelector(`${panelPrefix+numPanels}`).getBoundingClientRect().bottom + window.scrollY;
-  document.querySelector("body").style.height = `${lastPanelBottom}px`;
+  document.body.style.height = `${lastPanelBottom}px`;
   document.querySelector("#footer").style.marginTop = `${(window.innerHeight - 2*extraneousArea)/2}px`;
 }
 
@@ -126,7 +126,6 @@ window.addEventListener('scroll', function() {
     document.querySelector(`${panelPrefix}3`).getBoundingClientRect().bottom < window.innerHeight ? true : false,
     document.querySelector(`${panelPrefix}4`).getBoundingClientRect().bottom < window.innerHeight ? true : false
   ];
-  console.log(panelTopHigh)
 
   const screenTop = window.scrollY;
 
@@ -138,17 +137,17 @@ window.addEventListener('scroll', function() {
     showText(1);
     headerLinks(0);
   //} else if (screenTop >= scrollPoints[1] && screenTop < scrollPoints[2]) {
-  } else if (panelTopHigh[0] === true && panelTopHigh[1] === false && panelTopHigh[2] === false) {
+  } else if (panelTopHigh[0] === true && panelTopHigh[1] === false && panelTopHigh[2] === false && panelBottomHigh[0] === true) {
     changeColour('white');
     showText(2);
     headerLinks(1);
   //} else if (screenTop >= scrollPoints[2] && screenTop < scrollPoints[3]) {
-  } else if (panelTopHigh[0] === true && panelTopHigh[1] === true && panelTopHigh[2] === false) {
+  } else if (panelTopHigh[0] === true && panelTopHigh[1] === true && panelTopHigh[2] === false && panelBottomHigh[1] === true) {
     changeColour('#14171c');
     showText(3);
     headerLinks(2);
   //} else if (screenTop >= scrollPoints[3]) {
-  } else if (panelTopHigh[0] === true && panelTopHigh[1] === true && panelTopHigh[2] === true) {
+  } else if (panelTopHigh[0] === true && panelTopHigh[1] === true && panelTopHigh[2] === true && panelBottomHigh[2] === true) {
     changeColour('#ededed');
     showText(4);
     headerLinks(3);
