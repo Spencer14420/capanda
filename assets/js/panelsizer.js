@@ -1,8 +1,10 @@
-let scrollPoints = [];
 const numPanels = 5 //Total number of panels, including top image, counted starting at 1
 const panelPrefix = ".panel";
+const firstTransition = 200; //Position of first transition when scrolling down
+const getElementY = el => el.getBoundingClientRect().y + window.scrollY;
 
 const setPositions = () => {
+  let transitionY = [];
   const headerHeight = document.querySelector("nav").clientHeight;
   const panelHeight = panel => document.querySelector(`${panelPrefix+panel}`).offsetHeight;
   const selectors = ['value', 'leadership', 'dedication', 'focus'];
@@ -13,27 +15,28 @@ const setPositions = () => {
     document.querySelector(`#${selectors[3]}-panel`)
   ];
   const largestPanelHeight = Math.max(...panels.map(panel => panel.clientHeight));
-  const firstTransition = 200; //Position of first transition when scrolling down
-  const extraneousArea = firstTransition + headerHeight;
-  const raiseBy = 300; //Raise each panel by this number of pixels
+  const useableArea = window.innerHeight - headerHeight;
 
   //Set transition points, position of panels, and visibility of header links
-  scrollPoints = [firstTransition]; 
   for (let i = 2; i <= numPanels; i++) {
-    let scrollPoint = (scrollPoints[i-2] + panelHeight(i));
-    scrollPoints.push(scrollPoint);
-  
     let navbar = document.querySelector(".navbar-nav");
     let panel = document.querySelector(`${panelPrefix+i}`);
-  
-    navbar.style.display = (window.innerHeight - headerHeight <= largestPanelHeight) ? "none" : "flex";
-  
-    panel.style.top = (window.innerHeight - headerHeight <= largestPanelHeight) ?
-      `${extraneousArea - window.innerHeight*0.9}px` : //Position the panels near the top of the screen if the largest panel would be placed too high
-      `-${(i === 2 ? 0 : raiseBy) + (panelHeight(i) + window.innerHeight - 2*extraneousArea)/2}px`; //Place the middle of the text in the middle of the screen
+
+    panel.style.marginTop = "0px";
+
+    if (window.innerHeight - headerHeight > largestPanelHeight) {
+      navbar.style.display = "flex";
+      if (i === 2) {
+        panel.style.marginTop = `${-(useableArea + panelHeight(i))/2 + firstTransition}px`;
+      } else {
+        panel.style.marginTop = `${transitionY[i-3] - getElementY(panel) + useableArea - panelHeight(i)}px`;
+      }
+      //The point in which the next panel will show per panelTopHigh();
+      transitionY.push(document.querySelector(`${panelPrefix}${i}`).getBoundingClientRect().y - document.querySelector("nav").clientHeight + window.scrollY)
+    } else {
+      navbar.style.display = "none";
+    }
   }
-  
- scrollPoints = [firstTransition, scrollPoints[1] - raiseBy, scrollPoints[2] - raiseBy, scrollPoints[3] - raiseBy, scrollPoints[4] - raiseBy]
 
   //Set padding for top panel (so text doesn't go under header)
   document.querySelector(".top-panel").style.paddingTop = `${headerHeight}px`;
@@ -48,11 +51,6 @@ const setPositions = () => {
     document.querySelector(`#${selector}`).style.height = `${topBottom}px`;
     document.querySelector(`#${selector}`).style.marginTop = `-${topBottom}px`;
   });
-
-  //Set height of the body at the bottom of the last panel
-  const lastPanelBottom = document.querySelector(`${panelPrefix+numPanels}`).getBoundingClientRect().bottom + window.scrollY;
-  document.body.style.height = `${lastPanelBottom}px`;
-  document.querySelector("#footer").style.marginTop = `${(window.innerHeight - 2*extraneousArea)/2}px`;
 }
 
 window.addEventListener('load', setPositions);
@@ -129,25 +127,22 @@ window.addEventListener('scroll', function() {
 
   const screenTop = window.scrollY;
 
-  if (screenTop < scrollPoints[0]) {
+  if (screenTop < firstTransition) {
     toggleTopPanel(1);
     headerLinks(-1);
-  } else if (screenTop >= scrollPoints[0] && screenTop < scrollPoints[1]) {
+  } else if (screenTop >= firstTransition && panelTopHigh[0] === false) {
     changeColour('#0e2c57');
     showText(1);
     headerLinks(0);
-  //} else if (screenTop >= scrollPoints[1] && screenTop < scrollPoints[2]) {
   } else if (panelTopHigh[0] === true && panelTopHigh[1] === false && panelTopHigh[2] === false && panelBottomHigh[0] === true) {
     changeColour('white');
     showText(2);
     headerLinks(1);
-  //} else if (screenTop >= scrollPoints[2] && screenTop < scrollPoints[3]) {
-  } else if (panelTopHigh[0] === true && panelTopHigh[1] === true && panelTopHigh[2] === false && panelBottomHigh[1] === true) {
+  } else if (panelTopHigh[1] === true && panelTopHigh[2] === false && panelBottomHigh[1] === true) {
     changeColour('#14171c');
     showText(3);
     headerLinks(2);
-  //} else if (screenTop >= scrollPoints[3]) {
-  } else if (panelTopHigh[0] === true && panelTopHigh[1] === true && panelTopHigh[2] === true && panelBottomHigh[2] === true) {
+  } else if (panelTopHigh[2] === true && panelBottomHigh[2] === true) {
     changeColour('#ededed');
     showText(4);
     headerLinks(3);

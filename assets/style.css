@@ -51,19 +51,15 @@ nav{
     justify-content:center;
 }
 .panel2{
-    position: relative;
     pointer-events:none
 }
 .panel3{
-    position: relative;
     background-color:#fff
 }
 .panel4{
-    position: relative;
     background-color:#14171c
 }
 .panel5{
-    position: relative;
     background-color:#ededed
 }
 .panel2,.panel3,.panel4,.panel5{
@@ -75,10 +71,8 @@ body{
     background-color:#0e2c57;
     transition:background-color 400ms ease-in-out,opacity 400ms ease-in-out;
 }
-#footer{
-    position: relative;
-    z-index:100;
-    background-color:white;
+footer {
+    margin-top: 150px;
 }
 
 p,ul{
