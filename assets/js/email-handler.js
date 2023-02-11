@@ -1,37 +1,48 @@
-function isEmail(email) {
-  const regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-  return regex.test(email);
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const emailInput = document.querySelector("#email");
+  const messageInput = document.querySelector("#message");
+  const nameInput = document.querySelector("#name");
+  const alertMessage = document.querySelector("#message-alert");
+  const messageCancel = document.querySelector("#messagecancel");
+  const successModal = document.querySelector("#success");
 
-function messageSuccess() {
-  $("#name").val("");
-  $("#email").val("");
-  $("#message").val("");
-  $("#messagecancel").click();
-  $("#success").modal("show");
-}
-
-$("#sendmessage").click(() => {
-  if (!$("#email").val() || !isEmail($("#email").val())) {
-    $("#message-alert").html("Please enter an email address");
-    $("#message-alert").show();
-  } else if (!$("#message").val()) {
-    $("#message-alert").html("Please enter a message");
-    $("#message-alert").show();
-  } else {
-    const data = {
-      name: $("#name").val(),
-      email: $("#email").val(),
-      message: $("#message").val(),
-    };
-
-    $.ajax({
-      type: "POST",
-      url: "assets/js/email-handler.php",
-      data,
-      success: () => {
-        messageSuccess();
-      },
-    });
+  function isEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
+
+  function resetForm() {
+    nameInput.value = "";
+    emailInput.value = "";
+    messageInput.value = "";
+    messageCancel.click();
+    successModal.classList.add("show");
+  }
+
+  document.querySelector("#sendmessage").addEventListener("click", () => {
+    if (!isEmail(emailInput.value)) {
+      alertMessage.textContent = "Please enter a valid email address";
+      alertMessage.style.display = "block";
+    } else if (!messageInput.value.trim()) {
+      alertMessage.textContent = "Please enter a message";
+      alertMessage.style.display = "block";
+    } else {
+      const data = {
+        name: nameInput.value,
+        email: emailInput.value,
+        message: messageInput.value,
+      };
+
+      fetch("assets/js/email-handler.php", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then(() => {
+          resetForm();
+        })
+        .catch((error) => console.error(error));
+    }
+  });
 });
