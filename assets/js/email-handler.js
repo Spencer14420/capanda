@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const nameInput = document.querySelector("#name");
   const alertMessage = document.querySelector("#message-alert");
   const messageCancel = document.querySelector("#messagecancel");
-  const successModal = new bootstrap.Modal(document.querySelector("#success"));
+  const successModal = document.querySelector("#success");
 
   function isEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     emailInput.value = "";
     messageInput.value = "";
     messageCancel.click();
-    successModal.show();
+    successModal.classList.add("show");
   }
 
   document.querySelector("#sendmessage").addEventListener("click", () => {
