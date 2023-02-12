@@ -31,7 +31,6 @@ h5 {
   align-items: center;
   z-index: 1;
   transition: background-color 400ms, opacity 400ms;
-  background-color: white;
 }
 .top-panel div {
   height: 50%;
