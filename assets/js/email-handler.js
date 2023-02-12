@@ -1,21 +1,24 @@
 const isEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+// eslint-disable-next-line no-undef
+const successModal = new bootstrap.Modal(document.querySelector("#success"));
 
 const messageSuccess = () => {
   ["#name", "#email", "#message"].forEach((element) => {
     document.querySelector(element).value = "";
   });
   document.querySelector("#messagecancel").click();
-  document.querySelector("#success").style.display = "block";
+  successModal.show();
 };
 
 const sendMessage = async (data) => {
   try {
+    const formData = new FormData();
+    for (const key in data) {
+      formData.append(key, data[key]);
+    }
     const response = await fetch("assets/js/email-handler.php", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
+      body: formData,
     });
     if (response.ok) {
       messageSuccess();
