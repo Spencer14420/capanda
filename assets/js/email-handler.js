@@ -1,37 +1,51 @@
-function isEmail(email) {
-  const regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-  return regex.test(email);
-}
+const isEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+// eslint-disable-next-line no-undef
+const successModal = new bootstrap.Modal(document.querySelector("#success"));
 
-function messageSuccess() {
-  $("#name").val("");
-  $("#email").val("");
-  $("#message").val("");
-  $("#messagecancel").click();
-  $("#success").modal("show");
-}
+const messageSuccess = () => {
+  ["#name", "#email", "#message"].forEach((element) => {
+    document.querySelector(element).value = "";
+  });
+  document.querySelector("#messagecancel").click();
+  successModal.show();
+};
 
-$("#sendmessage").click(() => {
-  if (!$("#email").val() || !isEmail($("#email").val())) {
-    $("#message-alert").html("Please enter an email address");
-    $("#message-alert").show();
-  } else if (!$("#message").val()) {
-    $("#message-alert").html("Please enter a message");
-    $("#message-alert").show();
+const sendMessage = async (data) => {
+  try {
+    const formData = new FormData();
+    for (const key in data) {
+      formData.append(key, data[key]);
+    }
+    const response = await fetch("assets/js/email-handler.php", {
+      method: "POST",
+      body: formData,
+    });
+    if (response.ok) {
+      messageSuccess();
+    }
+  } catch (error) {
+    console.error("Error sending message", error);
+  }
+};
+
+const messageAlert = document.querySelector("#message-alert");
+
+document.querySelector("#sendmessage").addEventListener("click", () => {
+  const email = document.querySelector("#email").value;
+  const message = document.querySelector("#message").value;
+
+  if (!email || !isEmail(email)) {
+    messageAlert.innerHTML = "Please enter a valid email address";
+    messageAlert.style.display = "block";
+  } else if (!message) {
+    messageAlert.innerHTML = "Please enter a message";
+    messageAlert.style.display = "block";
   } else {
     const data = {
-      name: $("#name").val(),
-      email: $("#email").val(),
-      message: $("#message").val(),
+      name: document.querySelector("#name").value,
+      email,
+      message,
     };
-
-    $.ajax({
-      type: "POST",
-      url: "assets/js/email-handler.php",
-      data,
-      success: () => {
-        messageSuccess();
-      },
-    });
+    sendMessage(data);
   }
 });
