@@ -32,21 +32,9 @@ h5 {
   z-index: 1;
   transition: background-color 400ms, opacity 400ms;
   background-color: white;
-}
-#headerImgContainer {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  z-index: -100;
-}
-#headerWhiteSpace {
-  height: 360px;
-}
-#headerImage {
   background-size: auto auto;
   background-repeat: no-repeat;
-  background-position: bottom 0 left 0;
+  background-position: bottom 0px left 0px;
 }
 .top-panel div {
   height: 50%;
