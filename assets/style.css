@@ -32,6 +32,9 @@ h5 {
   z-index: 1;
   transition: background-color 400ms, opacity 400ms;
   background-color: white;
+  background-size: auto auto;
+  background-repeat: no-repeat;
+  background-position: bottom 0px left 0px;
 }
 .top-panel div {
   height: 50%;
