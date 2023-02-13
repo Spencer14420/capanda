@@ -81,7 +81,7 @@ body {
   transition: background-color 400ms ease-in-out, opacity 400ms ease-in-out;
 }
 footer {
-  margin-top: 150px;
+  margin-top: 200px;
 }
 
 p,
@@ -139,6 +139,12 @@ ul {
 
   #openingpara {
     font-size: 1.2rem;
+  }
+}
+
+@media (min-height: 1000px) {
+  footer {
+    margin-top: 350px;
   }
 }
 

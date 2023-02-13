@@ -35,17 +35,21 @@ const setPositions = () => {
         }px`;
       } else {
         panel.style.marginTop = `${
-          transitionY[i - 3] - getElementY(panel) + useableArea - panelHeight(i)
+          transitionY[i - 3] -
+          getElementY(panel) +
+          (window.innerHeight - panelHeight(i)) / 2
         }px`;
       }
       //The point in which the next panel will show per panelTopHigh();
       transitionY.push(
         document.querySelector(`${panelPrefix}${i}`).getBoundingClientRect().y -
           document.querySelector("nav").clientHeight +
-          window.scrollY
+          window.scrollY +
+          50
       );
     } else {
       navbar.style.display = "none";
+      panel.style.marginTop = `${-useableArea / 2}px`;
     }
   }
 
@@ -129,34 +133,34 @@ function headerLinks(highlightLink) {
 }
 
 window.addEventListener("scroll", function () {
-  //True if the top of the panel is above the bottom of the header
+  //True if the top of the panel is 50px above the bottom of the header
   let panelTopHigh = [
     document.querySelector(`${panelPrefix}2`).getBoundingClientRect().y <
-    document.querySelector("nav").clientHeight
+    document.querySelector("nav").clientHeight - 50
       ? true
       : false,
     document.querySelector(`${panelPrefix}3`).getBoundingClientRect().y <
-    document.querySelector("nav").clientHeight
+    document.querySelector("nav").clientHeight - 50
       ? true
       : false,
     document.querySelector(`${panelPrefix}4`).getBoundingClientRect().y <
-    document.querySelector("nav").clientHeight
+    document.querySelector("nav").clientHeight - 50
       ? true
       : false,
   ];
 
-  //True if the bottom of the panel is above the bottom of the screen
+  //True if the bottom of the panel is 100px above the bottom of the screen
   let panelBottomHigh = [
     document.querySelector(`${panelPrefix}2`).getBoundingClientRect().bottom <
-    window.innerHeight
+    window.innerHeight - 100
       ? true
       : false,
     document.querySelector(`${panelPrefix}3`).getBoundingClientRect().bottom <
-    window.innerHeight
+    window.innerHeight - 100
       ? true
       : false,
     document.querySelector(`${panelPrefix}4`).getBoundingClientRect().bottom <
-    window.innerHeight
+    window.innerHeight - 100
       ? true
       : false,
   ];
