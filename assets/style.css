@@ -30,7 +30,12 @@ h5 {
   display: flex;
   align-items: center;
   z-index: 1;
+  background-color: white;
+  background-image: url(media/ottawa-panorama.webp);
   transition: background-color 400ms, opacity 400ms;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
 }
 .top-panel div {
   height: 50%;
@@ -122,7 +127,7 @@ ul {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px), (max-height: 550px) {
   #mantra,
   #companyname {
     font-size: 3.4rem !important;
