@@ -1,6 +1,11 @@
 const numPanels = 5; //Total number of panels, including top image, counted starting at 1
-const panelPrefix = ".panel";
 const firstTransition = 200; //Position of first transition when scrolling down
+const topHighOffset = 50; //Panels won't transition until the top of the panel is *this number of pixels* above the bottom of the header
+const bottomHighOffset = 100; //Panels won't transition until the bottom of the panel is *this number of pixels* above the bottom of the screen
+const panelPrefix = ".panel";
+const blue = "#0e2c57";
+const white = "#ededed";
+const black = "#14171c";
 const getElementY = (el) => el.getBoundingClientRect().y + window.scrollY;
 
 const setPositions = () => {
@@ -46,7 +51,7 @@ const setPositions = () => {
         document.querySelector(`${panelPrefix}${i}`).getBoundingClientRect().y -
           document.querySelector("nav").clientHeight +
           window.scrollY +
-          50
+          topHighOffset
       );
     } else {
       navbar.style.display = "none";
@@ -63,7 +68,8 @@ const setPositions = () => {
   selectors.forEach((selector) => {
     const panel = document.querySelector(`#${selector}-panel`);
     const topBottom =
-      (window.innerHeight - panel.clientHeight + headerHeight) / 2 - 50;
+      (window.innerHeight - panel.clientHeight + headerHeight) / 2 -
+      topHighOffset;
 
     document.querySelector(`#${selector}`).style.height = `${topBottom}px`;
     document.querySelector(`#${selector}`).style.marginTop = `-${topBottom}px`;
@@ -134,37 +140,21 @@ function headerLinks(highlightLink) {
 }
 
 window.addEventListener("scroll", function () {
-  //True if the top of the panel is 50px above the bottom of the header
-  let panelTopHigh = [
-    document.querySelector(`${panelPrefix}2`).getBoundingClientRect().y <
-    document.querySelector("nav").clientHeight - 50
-      ? true
-      : false,
-    document.querySelector(`${panelPrefix}3`).getBoundingClientRect().y <
-    document.querySelector("nav").clientHeight - 50
-      ? true
-      : false,
-    document.querySelector(`${panelPrefix}4`).getBoundingClientRect().y <
-    document.querySelector("nav").clientHeight - 50
-      ? true
-      : false,
-  ];
-
-  //True if the bottom of the panel is 100px above the bottom of the screen
-  let panelBottomHigh = [
-    document.querySelector(`${panelPrefix}2`).getBoundingClientRect().bottom <
-    window.innerHeight - 100
-      ? true
-      : false,
-    document.querySelector(`${panelPrefix}3`).getBoundingClientRect().bottom <
-    window.innerHeight - 100
-      ? true
-      : false,
-    document.querySelector(`${panelPrefix}4`).getBoundingClientRect().bottom <
-    window.innerHeight - 100
-      ? true
-      : false,
-  ];
+  let panelTopHigh = [];
+  let panelBottomHigh = [];
+  for (let i = 2; i <= numPanels - 1; i++) {
+    //True if the top of the panel is above the bottom of the header, plus topHighOffset
+    panelTopHigh.push(
+      document.querySelector(`${panelPrefix + i}`).getBoundingClientRect().y <
+        document.querySelector("nav").clientHeight - topHighOffset
+    );
+    //True if the bottom of the panel is above the bottom of the screen, by at least bottomHighOffset
+    panelBottomHigh.push(
+      document.querySelector(`${panelPrefix + i}`).getBoundingClientRect()
+        .bottom <
+        window.innerHeight - bottomHighOffset
+    );
+  }
 
   const screenTop = window.scrollY;
 
@@ -172,7 +162,7 @@ window.addEventListener("scroll", function () {
     toggleTopPanel(1);
     headerLinks(-1);
   } else if (screenTop >= firstTransition && panelTopHigh[0] === false) {
-    changeColour("#0e2c57");
+    changeColour(blue);
     showText(1);
     headerLinks(0);
   } else if (
@@ -181,7 +171,7 @@ window.addEventListener("scroll", function () {
     panelTopHigh[2] === false &&
     panelBottomHigh[0] === true
   ) {
-    changeColour("white");
+    changeColour(white);
     showText(2);
     headerLinks(1);
   } else if (
@@ -189,11 +179,11 @@ window.addEventListener("scroll", function () {
     panelTopHigh[2] === false &&
     panelBottomHigh[1] === true
   ) {
-    changeColour("#14171c");
+    changeColour(black);
     showText(3);
     headerLinks(2);
   } else if (panelTopHigh[2] === true && panelBottomHigh[2] === true) {
-    changeColour("#ededed");
+    changeColour(white);
     showText(4);
     headerLinks(3);
   }
