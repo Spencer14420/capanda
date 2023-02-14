@@ -27,6 +27,7 @@ const setPositions = () => {
 
     panel.style.marginTop = "0px";
 
+    //If the height of the screen is shorter than the largest panel
     if (window.innerHeight - headerHeight > largestPanelHeight) {
       navbar.style.display = "flex";
       if (i === 2) {
