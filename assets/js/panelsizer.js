@@ -2,6 +2,8 @@ const numPanels = 5; //Total number of panels, including top image, counted star
 const firstTransition = 200; //Position of first transition when scrolling down
 const topHighOffset = 50; //Panels won't transition until the top of the panel is *this number of pixels* above the bottom of the header
 const bottomHighOffset = 100; //Panels won't transition until the bottom of the panel is *this number of pixels* above the bottom of the screen
+const minTopBottomSpace = 100; //Extra space is added if there would be less than *this number of pixels* at the top and bottom of the panel when a transition occurs.
+const shortScreenAddition = 300; //Push panels down by *this number of pixels* on short screens (per minTopBottomSpace)
 const panelPrefix = ".panel";
 const blue = "#0e2c57";
 const white = "#ededed";
@@ -24,6 +26,8 @@ const setPositions = () => {
     ...panels.map((panel) => panel.clientHeight)
   );
   const useableArea = window.innerHeight - headerHeight;
+  const shortScreen = (panel) =>
+    useableArea < panel.clientHeight + minTopBottomSpace * 2;
 
   //Set transition points, position of panels, and visibility of header links
   for (let i = 2; i <= numPanels; i++) {
@@ -33,19 +37,23 @@ const setPositions = () => {
     panel.style.marginTop = "0px";
 
     //If the height of the screen is shorter than the largest panel
-    if (window.innerHeight - headerHeight > largestPanelHeight) {
+    if (useableArea > largestPanelHeight) {
       navbar.style.display = "flex";
       if (i === 2) {
         panel.style.marginTop = `${
-          -(useableArea + panelHeight(i)) / 2 + firstTransition
+          -(useableArea + panelHeight(i)) / 2 +
+          firstTransition +
+          (shortScreen(panel) ? shortScreenAddition : 0)
         }px`;
       } else {
         panel.style.marginTop = `${
           transitionY[i - 3] -
           getElementY(panel) +
-          (window.innerHeight - panelHeight(i)) / 2
+          (window.innerHeight - panelHeight(i)) / 2 +
+          (shortScreen(panel) ? shortScreenAddition : 0)
         }px`;
       }
+
       //The point in which the next panel will show per panelTopHigh();
       transitionY.push(
         document.querySelector(`${panelPrefix}${i}`).getBoundingClientRect().y -
