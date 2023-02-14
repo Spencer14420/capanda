@@ -62,7 +62,7 @@ const setPositions = () => {
   selectors.forEach((selector) => {
     const panel = document.querySelector(`#${selector}-panel`);
     const topBottom =
-      (window.innerHeight - panel.clientHeight + headerHeight) / 2;
+      (window.innerHeight - panel.clientHeight + headerHeight) / 2 - 50;
 
     document.querySelector(`#${selector}`).style.height = `${topBottom}px`;
     document.querySelector(`#${selector}`).style.marginTop = `-${topBottom}px`;
