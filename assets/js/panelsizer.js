@@ -13,6 +13,7 @@ const getElementY = (el) => el.getBoundingClientRect().y + window.scrollY;
 const setPositions = () => {
   let transitionY = [];
   const headerHeight = document.querySelector("nav").clientHeight;
+  const navbar = document.querySelector(".navbar-nav");
   const panelHeight = (panel) =>
     document.querySelector(`${panelPrefix + panel}`).offsetHeight;
   const selectors = ["value", "leadership", "dedication", "focus"];
@@ -31,14 +32,12 @@ const setPositions = () => {
 
   //Set transition points, position of panels, and visibility of header links
   for (let i = 2; i <= numPanels; i++) {
-    let navbar = document.querySelector(".navbar-nav");
     let panel = document.querySelector(`${panelPrefix + i}`);
 
     panel.style.marginTop = "0px";
 
     //If the height of the screen is shorter than the largest panel
     if (useableArea > largestPanelHeight) {
-      navbar.style.display = "flex";
       if (i === 2) {
         panel.style.marginTop = `${
           -(useableArea + panelHeight(i)) / 2 +
@@ -62,9 +61,15 @@ const setPositions = () => {
           topHighOffset
       );
     } else {
-      navbar.style.display = "none";
       panel.style.marginTop = `${-useableArea / 2}px`;
     }
+  }
+
+  //Hide header links on short screens
+  if (useableArea < largestPanelHeight + 50) {
+    navbar.style.display = "none";
+  } else {
+    navbar.style.display = "flex";
   }
 
   //Set padding for top panel (so text doesn't go under header)
