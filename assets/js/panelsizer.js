@@ -3,7 +3,8 @@ const firstTransition = 200; //Position of first transition when scrolling down
 const topHighOffset = 50; //Panels won't transition until the top of the panel is *this number of pixels* above the bottom of the header
 const bottomHighOffset = 100; //Panels won't transition until the bottom of the panel is *this number of pixels* above the bottom of the screen
 const minTopBottomSpace = 100; //Extra space is added if there would be less than *this number of pixels* at the top and bottom of the panel when a transition occurs.
-const shortScreenAddition = 300; //Push panels down by *this number of pixels* on short screens (per minTopBottomSpace)
+const shortScreenAddition = 300; //Push panels down by *this number of pixels* on short screens (define by minTopBottomSpace)
+const largeScreenAddition = 50; //Push panels down by *this number of pixels* on non-short screens
 const panelPrefix = ".panel";
 const blue = "#0e2c57";
 const white = "#ededed";
@@ -30,7 +31,7 @@ const setPositions = () => {
   const shortScreen = useableArea < largestPanelHeight + minTopBottomSpace * 2;
 
   //Set transition points, position of panels, and visibility of header links
-  let shortScreenOffset = shortScreen ? shortScreenAddition : 0;
+  let addition = shortScreen ? shortScreenAddition : largeScreenAddition;
   for (let i = 2; i <= numPanels; i++) {
     let panel = document.querySelector(`${panelPrefix + i}`);
     let panelH = panelHeight(i);
@@ -41,11 +42,11 @@ const setPositions = () => {
     if (useableArea > largestPanelHeight) {
       panel.style.marginTop = `${
         i === 2
-          ? -(useableArea + panelH) / 2 + firstTransition + shortScreenOffset
+          ? -(useableArea + panelH) / 2 + firstTransition + addition
           : transitionY[i - 3] -
             getElementY(panel) +
             (window.innerHeight - panelH) / 2 +
-            shortScreenOffset
+            addition
       }px`;
 
       //The point in which the next panel will show per panelTopHigh();
