@@ -233,10 +233,9 @@ ul {
   }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 575px) or (max-height: 600px) {
   div:has(> .contact-info) {
     align-items: center;
-    margin-bottom: -17px !important;
   }
   .contact-info {
     width: max-content;
@@ -247,6 +246,12 @@ ul {
   .contact-info img {
     height: 20px;
     width: 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  div:has(> .contact-info) {
+    margin-bottom: -17px !important;
   }
 }
 
