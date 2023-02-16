@@ -27,35 +27,30 @@ const setPositions = () => {
     ...panels.map((panel) => panel.clientHeight)
   );
   const useableArea = window.innerHeight - headerHeight;
-  const shortScreen = (panel) =>
-    useableArea < panel.clientHeight + minTopBottomSpace * 2;
+  const shortScreen = useableArea < largestPanelHeight + minTopBottomSpace * 2;
 
   //Set transition points, position of panels, and visibility of header links
+  let shortScreenOffset = shortScreen ? shortScreenAddition : 0;
   for (let i = 2; i <= numPanels; i++) {
     let panel = document.querySelector(`${panelPrefix + i}`);
+    let panelH = panelHeight(i);
 
     panel.style.marginTop = "0px";
 
     //If the height of the screen is shorter than the largest panel
     if (useableArea > largestPanelHeight) {
-      if (i === 2) {
-        panel.style.marginTop = `${
-          -(useableArea + panelHeight(i)) / 2 +
-          firstTransition +
-          (shortScreen(panel) ? shortScreenAddition : 0)
-        }px`;
-      } else {
-        panel.style.marginTop = `${
-          transitionY[i - 3] -
-          getElementY(panel) +
-          (window.innerHeight - panelHeight(i)) / 2 +
-          (shortScreen(panel) ? shortScreenAddition : 0)
-        }px`;
-      }
+      panel.style.marginTop = `${
+        i === 2
+          ? -(useableArea + panelH) / 2 + firstTransition + shortScreenOffset
+          : transitionY[i - 3] -
+            getElementY(panel) +
+            (window.innerHeight - panelH) / 2 +
+            shortScreenOffset
+      }px`;
 
       //The point in which the next panel will show per panelTopHigh();
       transitionY.push(
-        document.querySelector(`${panelPrefix}${i}`).getBoundingClientRect().y -
+        panel.getBoundingClientRect().y -
           document.querySelector("nav").clientHeight +
           window.scrollY +
           topHighOffset
