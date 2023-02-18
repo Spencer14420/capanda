@@ -125,6 +125,10 @@ ul {
   gap: 6px;
 }
 
+h2 {
+  font-family: roboto, sans-serif;
+}
+
 @media (max-width: 1200px) {
   #mantra,
   #companyname {
