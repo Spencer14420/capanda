@@ -3,7 +3,7 @@
         //Send email to info@capanda.ca
         $name = $_POST["name"];
         $email = $_POST["email"];
-        $headers = "From: admin@capanda.ca" . "\r\n" . "Reply-To: $email";
+        $headers = "From: admin@capanda.ca\r\nReply-To: $email";
         $message = "From: {$name} ({$email})\n\nMessage:\n". wordwrap($_POST["message"], 70);
 
         mail("info@capanda.ca", "Message from {$name} via capanda.ca", $message, $headers);
