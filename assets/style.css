@@ -257,7 +257,7 @@ h2 {
   .contact-info {
     width: max-content;
     font-size: 1.1rem;
-    padding: 3px 6px 3px 6px;
+    padding: 3px 6px;
     border: 1px solid black;
   }
   .contact-info img {
