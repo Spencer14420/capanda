@@ -6,7 +6,7 @@ const messageSuccess = () => {
   ["#name", "#email", "#message"].forEach((element) => {
     document.querySelector(element).value = "";
   });
-  document.querySelector("#messagecancel").click();
+  document.querySelector("#contactCancel").click();
   successModal.show();
 };
 

@@ -1,0 +1,24 @@
+{
+  "name": "capanda",
+  "version": "1.0.0",
+  "description": "CAPANDA website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spencer14420/capanda.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Spencer14420/capanda/issues"
+  },
+  "homepage": "https://github.com/Spencer14420/capanda#readme",
+  "devDependencies": {
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1"
+  }
+}

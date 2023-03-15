@@ -14,15 +14,21 @@
 /* -- */
 
 h1,
-h5 {
+h3 {
   font-family: roboto, sans-serif;
+}
+
+h3 {
+  font-size: 1.25rem;
 }
 #mantra {
   font-weight: 300;
+  margin-bottom: 8px;
 }
 #companyname {
   font-weight: 400;
   letter-spacing: -6px;
+  margin-bottom: 8px;
 }
 .top-panel {
   min-height: 100vh;
@@ -125,8 +131,19 @@ ul {
   gap: 6px;
 }
 
+
 #headerText {
   height: 100%;
+  
+h2 {
+  font-family: roboto, sans-serif;
+}
+
+#openingpara {
+  font-family: roboto, sans-serif;
+  margin-bottom: 8px;
+  line-height: 1.2;
+  font-size: 1.25rem;
 }
 
 @media (max-width: 1200px) {
@@ -264,7 +281,7 @@ ul {
   .contact-info {
     width: max-content;
     font-size: 1.1rem;
-    padding: 3px 6px 3px 6px;
+    padding: 3px 6px;
     border: 1px solid black;
   }
   .contact-info img {
