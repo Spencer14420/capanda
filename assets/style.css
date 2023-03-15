@@ -225,8 +225,11 @@ h2 {
   (min-width: 1000px) and (max-width: 1200px) and (max-height: 415px) {
   #mantra,
   #companyname {
-    font-weight: bold;
+    font-weight: bolder;
     text-shadow: 1px 0 white, -1px 0 white, 0 1px white, 0 -1px white;
+  }
+  #companyname {
+    font-weight: bold;
   }
 }
 
