@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/Spencer14420/capanda#readme",
   "devDependencies": {
-    "eslint": "^8.48.0",
+    "eslint": "^8.55.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0"
   }
