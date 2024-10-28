@@ -8,7 +8,6 @@ export class PanelManager {
       this.transitionY = [];
       this.headerHeight = document.querySelector("nav").clientHeight;
       this.navbar = document.querySelector(".navbar-nav");
-      this.selectors = ["value", "leadership", "dedication", "focus"];
       this.panels = this.getPanels();
       this.largestPanelHeight = Math.max(...this.panels.map((panel) => panel.getHeight()));
       this.useableArea = window.innerHeight - this.headerHeight;
@@ -66,26 +65,9 @@ export class PanelManager {
       this.navbar.style.display = this.useableArea < this.largestPanelHeight + 50 ? "none" : "flex";
     }
   
-    //Sets the heights of specific elements based on panel and window dimensions.
-    setPanelHeights() {
-      this.panels.forEach((panel) => {
-        const topBottom =
-          (window.innerHeight - panel.getHeight() + this.headerHeight) / 2 - CONFIG.topHighOffset;
-  
-        const targetElement = document.querySelector(`#${this.selectors[panel.index - 2]}`);
-        if (!targetElement) {
-          console.error(`Element with selector ${this.selectors[panel.index - 2]} not found.`);
-          return;
-        }
-        targetElement.style.height = `${topBottom}px`;
-        targetElement.style.marginTop = `-${topBottom}px`;
-      });
-    }
-  
     setPositions() {
       this.setPanelMargins();
       this.setNavbarVisibility();
       document.querySelector(".top-panel").style.paddingTop = `${this.headerHeight}px`;
-      this.setPanelHeights();
     }
 }
