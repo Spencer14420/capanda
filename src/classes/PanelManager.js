@@ -14,15 +14,6 @@ export class PanelManager {
       this.useableArea = window.innerHeight - this.headerHeight;
     }
   
-    getPanels() {
-      return this.selectors
-        .map((selector, index) => {
-          const panelElement = document.querySelector(`#${selector}-panel`);
-          return panelElement ? new Panel(panelElement, index + 2) : null;
-        })
-        .filter((panel) => panel !== null);
-    }
-  
     getPanel(index) {
       const panelElement = document.querySelector(`${CONFIG.panelPrefix}${index}`);
       if (!panelElement) {
@@ -30,6 +21,18 @@ export class PanelManager {
         return null;
       }
       return new Panel(panelElement, index);
+    }
+
+    getPanels() {
+      let panels = [];
+
+      for (let i = 2; i <= CONFIG.numPanels; i++) {
+        const panelElement = document.querySelector(`${CONFIG.panelPrefix}${i} > div`);
+        if (panelElement !== null) {
+          panels.push(new Panel(panelElement, i+2));
+        }
+      }
+      return panels;
     }
   
     //Calculates and sets the top margins for all panels, based on available area and panel height.
