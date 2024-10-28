@@ -14,6 +14,7 @@ export class PanelManager {
       this.useableArea = window.innerHeight - this.headerHeight;
     }
   
+    //Returns a Panel object representing one of the .panel class <section> elements
     getPanel(index) {
       const panelElement = document.querySelector(`${CONFIG.panelPrefix}${index}`);
       if (!panelElement) {
@@ -23,6 +24,8 @@ export class PanelManager {
       return new Panel(panelElement, index);
     }
 
+    //Returns an array consisting Panel objects, 
+    //each representing the inner divs of each of the .panel <section> elements
     getPanels() {
       let panels = [];
 
