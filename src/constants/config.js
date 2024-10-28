@@ -1,5 +1,4 @@
 export const CONFIG = {
-    numPanels: 5,
     firstTransition: 200, //Minimum amount to scroll before the first transision occurs.
     topHighOffset: 50, //Minimum amount to scroll before each subsequent transition occurs
     bottomHighOffset: 100, //Minimum amount of blank space below each panel before transition can occur

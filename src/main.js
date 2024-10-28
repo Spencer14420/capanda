@@ -1,4 +1,5 @@
 import { CONFIG } from './constants/config.js';
+import { derivedValues } from './constants/derivedValues.js';
 import { PanelManager } from './classes/PanelManager.js';
 import { UIManager } from './classes/UIManager.js';
 
@@ -16,7 +17,7 @@ window.addEventListener("resize", () => {
 window.addEventListener("scroll", () => {
     const panelTopHigh = [];
     const panelBottomHigh = [];
-    for (let i = 2; i <= CONFIG.numPanels - 1; i++) {
+    for (let i = 2; i <= derivedValues.numPanels - 1; i++) {
       const panel = panelManager.getPanel(i);
       if (!panel) continue;
       panelTopHigh.push(

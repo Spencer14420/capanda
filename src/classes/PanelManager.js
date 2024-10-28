@@ -1,4 +1,5 @@
 import { CONFIG } from '../constants/config.js';
+import { derivedValues } from '../constants/derivedValues.js';
 import { Panel } from './Panel.js';
 import { Utils } from "../utils/utils.js";
 
@@ -25,7 +26,7 @@ export class PanelManager {
     getPanels() {
       let panels = [];
 
-      for (let i = 2; i <= CONFIG.numPanels; i++) {
+      for (let i = 2; i <= derivedValues.numPanels; i++) {
         const panelElement = document.querySelector(`${CONFIG.panelPrefix}${i} > div`);
         if (panelElement !== null) {
           panels.push(new Panel(panelElement, i+2));
@@ -36,7 +37,7 @@ export class PanelManager {
   
     //Calculates and sets the top margins for all panels, based on available area and panel height.
     setPanelMargins() {
-      for (let i = 2; i <= CONFIG.numPanels; i++) {
+      for (let i = 2; i <= derivedValues.numPanels; i++) {
         const panel = this.getPanel(i);
         if (!panel) continue;
         const panelHeight = panel.getHeight();
