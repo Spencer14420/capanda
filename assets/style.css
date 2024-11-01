@@ -11,99 +11,100 @@
 .alert-danger {
   color: var(--bs-danger) !important;
 }
-/* -- */
 
-h1,
-h3 {
+/* General styling */
+h1, h3, h2, #openingpara {
   font-family: roboto, sans-serif;
 }
 
 h3 {
   font-size: 1.25rem;
 }
-#mantra {
+
+#mantra, #companyname {
   font-weight: 300;
   margin-bottom: 8px;
 }
+
 #companyname {
   font-weight: 400;
   letter-spacing: -6px;
-  margin-bottom: 8px;
 }
+
 .top-panel {
   min-height: 100vh;
   position: relative;
   display: flex;
   align-items: center;
   z-index: 1;
-  background-color: white;
-  background-image: url(media/ottawa-panorama.webp);
-  transition: background-color 400ms, opacity 400ms;
+  background: white url(media/ottawa-panorama.webp) no-repeat bottom;
   background-size: cover;
-  background-position: bottom;
-  background-repeat: no-repeat;
+  transition: background-color 400ms, opacity 400ms;
 }
+
 .top-panel div {
   height: 50%;
 }
+
 .btn-capanda1 {
   border-radius: 0;
   border: 3px solid #000;
 }
+
 .btn-capanda1:hover {
   background-color: #000;
   color: #fff;
 }
+
 nav {
   border-bottom: 3px solid #ededed;
 }
+
 .panel-row {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.panel2 {
-  pointer-events: none;
-}
-.panel3 {
-  background-color: #fff;
-}
-.panel4 {
-  background-color: #14171c;
-}
-.panel5 {
-  background-color: #ededed;
-}
-.panel2,
-.panel3,
-.panel4,
-.panel5 {
+
+.panel2, .panel3, .panel4, .panel5 {
   z-index: 0;
   opacity: 0;
   transition: background-color 400ms ease-in-out, opacity 400ms ease-in-out;
 }
+
+.panel3 {
+  background-color: #fff;
+}
+
+.panel4 {
+  background-color: #14171c;
+}
+
+.panel5 {
+  background-color: #ededed;
+}
+
 body {
   background-color: #0e2c57;
   transition: background-color 400ms ease-in-out, opacity 400ms ease-in-out;
 }
+
 footer {
   margin-top: 200px;
 }
 
-p,
-ul {
+p, ul {
   font-family: open sans, sans-serif;
   font-weight: 500;
   font-size: 18px;
   margin-bottom: 40px;
 }
-.panel-row p,
-.panel-row h1 {
+
+.panel-row p, .panel-row h1 {
   margin-bottom: 22px;
 }
 
 .navbar-nav .text-danger {
-  /* Make text bold without affecting spacing */
   text-shadow: -0.05ex 0 currentColor, 0.05ex 0 currentColor;
 }
 
@@ -115,10 +116,7 @@ ul {
   text-decoration: none;
 }
 
-#value,
-#leadership,
-#dedication,
-#focus {
+#value, #leadership, #dedication, #focus {
   display: inline-block;
 }
 
@@ -131,38 +129,29 @@ ul {
   gap: 6px;
 }
 
-h2 {
-  font-family: roboto, sans-serif;
-}
-
 #openingpara {
-  font-family: roboto, sans-serif;
   margin-bottom: 8px;
   line-height: 1.2;
   font-size: 1.25rem;
 }
 
+/* Media Queries */
 @media (max-width: 1200px) {
-  #mantra,
-  #companyname {
+  #mantra, #companyname {
     font-size: 3.7rem !important;
   }
-
   #companyname {
     letter-spacing: -5px;
   }
 }
 
 @media (max-width: 900px), (max-height: 550px) {
-  #mantra,
-  #companyname {
+  #mantra, #companyname {
     font-size: 3.4rem !important;
   }
-
   #companyname {
     letter-spacing: -4px;
   }
-
   #openingpara {
     font-size: 1.2rem;
   }
@@ -175,30 +164,24 @@ h2 {
 }
 
 @media (max-width: 800px) {
-  #mantra,
-  #companyname {
+  #mantra, #companyname {
     font-size: 3rem !important;
   }
-
   #companyname {
     letter-spacing: -3.5px;
   }
-
   #openingpara {
     font-size: 1.1rem;
   }
 }
 
 @media (max-width: 700px) {
-  #mantra,
-  #companyname {
+  #mantra, #companyname {
     font-size: 2.5rem !important;
   }
-
   #companyname {
     letter-spacing: -3px;
   }
-
   #openingpara {
     font-size: 1rem;
   }
@@ -218,13 +201,12 @@ h2 {
   }
 }
 
-/* If #companyname and #mantra are above non-white space, make them more-bold and add a text-shadow */
+/* If #companyname and #mantra are above non-white space */
 @media (min-width: 1901px) and (max-height: 660px),
   (min-width: 1501px) and (max-width: 1900px) and (max-height: 590px),
   (min-width: 1201px) and (max-width: 1500px) and (max-height: 460px),
   (min-width: 1000px) and (max-width: 1200px) and (max-height: 415px) {
-  #mantra,
-  #companyname {
+  #mantra, #companyname {
     font-weight: bolder;
     text-shadow: 1px 0 white, -1px 0 white, 0 1px white, 0 -1px white;
   }
@@ -233,24 +215,20 @@ h2 {
   }
 }
 
-/* Single columnm */
+/* Single column */
 @media (max-width: 600px) {
-  #mantra,
-  #companyname {
+  #mantra, #companyname {
     font-size: 2rem !important;
   }
-
   #companyname {
     letter-spacing: -2.5px;
   }
   #phoneandemail {
     display: none !important;
   }
-
   #openingpara {
     font-size: 0.95rem;
   }
-
   .panel-row {
     flex-direction: column;
   }
@@ -261,9 +239,7 @@ h2 {
   .px-5 {
     padding: 1rem !important;
   }
-  /* Display images first on mobile */
-  .panel3 .panel-row,
-  .panel5 .panel-row {
+  .panel3 .panel-row, .panel5 .panel-row {
     flex-direction: column-reverse;
   }
 }
