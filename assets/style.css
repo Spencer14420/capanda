@@ -37,7 +37,7 @@ h3 {
   display: flex;
   align-items: center;
   z-index: 1;
-  background: white url(media/ottawa-panorama.webp) no-repeat bottom;
+  background: white url(https://ik.imagekit.io/capanda/capanda.ca/ottawa-panorama.webp) no-repeat bottom;
   background-size: cover;
   transition: background-color 400ms, opacity 400ms;
 }
@@ -137,13 +137,28 @@ p, ul {
 
 /* #### Media Queries ##### */
 
-/* Top panel text adjustments */
+/* Top panel text and image adjustments */
+@media (max-width: 1900px) {
+  .top-panel {
+    background: white url(https://ik.imagekit.io/capanda/tr:w-1920,h-0.9,cm-extract,fo-bottom/capanda.ca/ottawa-panorama.webp) no-repeat bottom;
+  }
+}
+
+@media (max-width: 1600px) {
+  .top-panel {
+    background: white url(https://ik.imagekit.io/capanda/tr:w-1366,h-0.9,cm-extract,fo-bottom/capanda.ca/ottawa-panorama.webp) no-repeat bottom;
+  }
+}
+
 @media (max-width: 1200px) {
   #mantra, #companyname {
     font-size: 3.7rem !important;
   }
   #companyname {
     letter-spacing: -5px;
+  }
+  .top-panel {
+    background: white url(https://ik.imagekit.io/capanda/tr:w-1200,h-0.9,cm-extract,fo-bottom/capanda.ca/ottawa-panorama.webp) no-repeat bottom;
   }
 }
 
@@ -169,6 +184,9 @@ p, ul {
   #openingpara {
     font-size: 1.1rem;
   }
+  .top-panel {
+    background: white url(https://ik.imagekit.io/capanda/tr:w-800,h-0.9,cm-extract,fo-bottom/capanda.ca/ottawa-panorama.webp) no-repeat bottom;
+  }
 }
 
 @media (max-width: 700px) {
@@ -181,11 +199,17 @@ p, ul {
   #openingpara {
     font-size: 1rem;
   }
+  .top-panel {
+    background: white url(https://ik.imagekit.io/capanda/tr:w-700,h-0.9,cm-extract,fo-bottom/capanda.ca/ottawa-panorama.webp) no-repeat bottom;
+  }
 }
 
 @media (max-width: 481px) {
   #mantra {
     font-size: 1.8rem !important;
+  }
+  .top-panel {
+    background: white url(https://ik.imagekit.io/capanda/tr:w-500,h-0.9,cm-extract,fo-bottom/capanda.ca/ottawa-panorama.webp) no-repeat bottom;
   }
 }
 
