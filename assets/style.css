@@ -140,6 +140,18 @@ p, ul {
   font-size: 1.25rem;
 }
 
+.contactBtnText {
+  font-weight: bold;
+}
+
+.contactBtnIcons {
+  display: none;
+}
+
+#logo img {
+  width: 250px;
+}
+
 /* #### Media Queries ##### */
 
 /* Top panel text and image adjustments */
@@ -298,5 +310,29 @@ p, ul {
 @media (max-width: 394px) {
   .top-panel .container-lg {
     padding: 0;
+  }
+}
+
+/* Show icons instead of text on the contact button
+and adjust logo sizing */
+
+@media (max-width: 450px), (max-height: 530px) {
+  #logo img {
+    width: 180px;
+  }
+}
+
+@media (max-width: 350px) {
+  .contactBtnText {
+    display: none;
+  }
+  
+  .contactBtnIcons {
+    display: flex;
+    gap: 5px
+  }
+
+  #logo img {
+    width: 163px;
   }
 }

@@ -26,11 +26,12 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light py-1">
         <div class="container-lg">
             <a href="#top" role="button" class="navbar-brand py-0">
-                <picture class="d-inline-block align-text-top">
-                    <source media="(max-width: 350px)" srcset="https://ik.imagekit.io/capanda/tr:w-162/Logos/CAPANDA-Logo-Black.png">
-                    <source media="(max-width: 450px)" srcset="https://ik.imagekit.io/capanda/tr:w-180/Logos/CAPANDA-Logo-Black.png">
-                    <source media="(max-height: 530px)" srcset="https://ik.imagekit.io/capanda/tr:w-180/Logos/CAPANDA-Logo-Black.png">
-                    <img id="logo" src="https://ik.imagekit.io/capanda/tr:w-250/Logos/CAPANDA-Logo-Black.png" alt="CAPANDA logo">
+                <picture id="logo" class="d-inline-block align-text-top">
+                    <source media="(max-width: 350px)" srcset="https://ik.imagekit.io/capanda/tr:w-324/Logos/CAPANDA-Logo-Black.png 2x, https://ik.imagekit.io/capanda/tr:w-162/Logos/CAPANDA-Logo-Black.png">
+                    <source media="(max-width: 450px)" srcset="https://ik.imagekit.io/capanda/tr:w-360/Logos/CAPANDA-Logo-Black.png 2x, https://ik.imagekit.io/capanda/tr:w-180/Logos/CAPANDA-Logo-Black.png">
+                    <source media="(min-width: 451px) and (max-resolution: 100dpi)" srcset="https://ik.imagekit.io/capanda/tr:w-250/Logos/CAPANDA-Logo-Black.png">
+                    <source media="(max-height: 530px)" srcset="https://ik.imagekit.io/capanda/tr:w-360/Logos/CAPANDA-Logo-Black.png 2x, https://ik.imagekit.io/capanda/tr:w-180/Logos/CAPANDA-Logo-Black.png">
+                    <img src="https://ik.imagekit.io/capanda/tr:w-500/Logos/CAPANDA-Logo-Black.png" alt="CAPANDA logo">
                 </picture>
             </a>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -44,15 +45,17 @@
             <div id="phoneandemail" class="d-flex flex-column flex-grow-1 align-items-end me-2">
                 <a href="tel:613-831-7639" class="d-flex align-items-center">
                     <span class="text-dark fs-6 me-1">613-831-7639</span>
-                    <img alt="Phone" src="assets/media/phone-sm.png" height="18" width="18">
+                    <img alt="Phone" src="https://ik.imagekit.io/capanda/tr:w-18/Icons/phone-sm.png?updatedAt=1730575091515">
                 </a>
                 <a href="mailto:info@capanda.ca" class="d-flex align-items-center">
                     <span class="text-dark fs-6 me-1">info@capanda.ca</span>
-                    <img alt="EMail" src="assets/media/email-sm.png" height="18" width="18">
+                    <img alt="EMail" src="https://ik.imagekit.io/capanda/tr:w-18/Icons/email-sm.png?updatedAt=1730575091514">
                 </a>
             </div>
-            <button type="button" class="btn btn-danger ms-0" data-bs-toggle="modal"
-                data-bs-target="#contact"><strong>Contact Us</strong></button>
+            <button type="button" class="btn btn-danger ms-0" data-bs-toggle="modal" data-bs-target="#contact">
+                <span class="contactBtnText">Contact Us</span>
+                <span class="contactBtnIcons"><img alt="Phone" src="https://ik.imagekit.io/capanda/tr:w-18/Icons/phone-sm.png?updatedAt=1730575091515"><img alt="EMail" src="https://ik.imagekit.io/capanda/tr:w-18/Icons/email-sm.png?updatedAt=1730575091514"></span>
+            </button>
         </div>
     </nav>
 
@@ -182,10 +185,10 @@
                     <div class="d-flex flex-row mb-0 py-2 justify-content-center modal-body">
                         <a href="tel:613-831-7639" class="d-flex align-items-center text-dark mx-1 contact-info">
                             <span>613-831-7639</span>
-                            <img alt="Phone" src="assets/media/phone-sm.png" height="26" width="26">
+                            <img alt="Phone" src="https://ik.imagekit.io/capanda/tr:w-26/Icons/phone-sm.png?updatedAt=1730575091515">
                         </a>
                         <a href="mailto:info@capanda.ca" class="d-flex align-items-center text-dark mx-1 contact-info">
-                            <img alt="EMail" src="assets/media/email-sm.png" height="26" width="26">
+                            <img alt="EMail" src="https://ik.imagekit.io/capanda/tr:w-26/Icons/email-sm.png?updatedAt=1730575091515">
                             <span>info@capanda.ca</span>
                         </a>
                     </div>
