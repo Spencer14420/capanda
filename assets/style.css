@@ -37,7 +37,10 @@ h3 {
   display: flex;
   align-items: center;
   z-index: 1;
-  background: white url(https://ik.imagekit.io/capanda/capanda.ca/server-room) no-repeat bottom;
+  background-image: url(https://ik.imagekit.io/capanda/capanda.ca/server-room);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   transition: background-color 400ms, opacity 400ms;
   color: #F0F0F0;
@@ -140,15 +143,14 @@ p, ul {
 /* #### Media Queries ##### */
 
 /* Top panel text and image adjustments */
+
+
 @media (max-width: 1200px) {
   #mantra, #companyname {
     font-size: 3.7rem !important;
   }
   #companyname {
     letter-spacing: -5px;
-  }
-  .top-panel {
-    background: white url(https://ik.imagekit.io/capanda/tr:w-1200,h-1400,cm-extract,fo-left/capanda.ca/server-room) no-repeat bottom;
   }
 }
 
@@ -174,9 +176,6 @@ p, ul {
   #openingpara {
     font-size: 1.1rem;
   }
-  .top-panel {
-    background: white url(https://ik.imagekit.io/capanda/tr:w-800,h-1400,cm-extract,fo-left/capanda.ca/server-room) no-repeat bottom;
-  }
 }
 
 @media (max-width: 700px) {
@@ -189,17 +188,11 @@ p, ul {
   #openingpara {
     font-size: 1rem;
   }
-  .top-panel {
-    background: white url(https://ik.imagekit.io/capanda/tr:w-700,h-1400,cm-extract,fo-left/capanda.ca/server-room) no-repeat bottom;
-  }
 }
 
 @media (max-width: 481px) {
   #mantra {
     font-size: 1.8rem !important;
-  }
-  .top-panel {
-    background: white url(https://ik.imagekit.io/capanda/tr:w-500,h-1400,cm-extract,fo-left/capanda.ca/server-room) no-repeat bottom;
   }
 }
 
@@ -219,13 +212,18 @@ p, ul {
   }
 }
 
+@media (orientation: portrait) {
+  .top-panel {
+    background-position: left;
+  }
+}
+
 @media (min-width: 1901px) and (max-height: 660px),
   (min-width: 1501px) and (max-width: 1900px) and (max-height: 590px),
   (min-width: 1201px) and (max-width: 1500px) and (max-height: 460px),
   (min-width: 1000px) and (max-width: 1200px) and (max-height: 415px) {
   #mantra, #companyname {
     font-weight: bolder;
-    /* text-shadow: 1px 0 white, -1px 0 white, 0 1px white, 0 -1px white; */
   }
   #companyname {
     font-weight: bold;
