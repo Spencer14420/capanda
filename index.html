@@ -26,8 +26,12 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light py-1">
         <div class="container-lg">
             <a href="#top" role="button" class="navbar-brand py-0">
-                <img id="logo" src="assets/media/capanda-logo.webp" alt="CAPANDA logo" width="248" height="72"
-                    class="d-inline-block align-text-top">
+                <picture class="d-inline-block align-text-top">
+                    <source media="(max-width: 350px)" srcset="https://ik.imagekit.io/capanda/tr:w-162/Logos/CAPANDA-Logo-Black.png">
+                    <source media="(max-width: 450px)" srcset="https://ik.imagekit.io/capanda/tr:w-180/Logos/CAPANDA-Logo-Black.png">
+                    <source media="(max-height: 530px)" srcset="https://ik.imagekit.io/capanda/tr:w-180/Logos/CAPANDA-Logo-Black.png">
+                    <img id="logo" src="https://ik.imagekit.io/capanda/tr:w-250/Logos/CAPANDA-Logo-Black.png" alt="CAPANDA logo">
+                </picture>
             </a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav">
