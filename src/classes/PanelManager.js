@@ -63,6 +63,18 @@ export class PanelManager {
           : this.transitionY[index - 3] - panelY + (window.innerHeight - panelHeight) / 2 + Utils.calculateAddition(this.useableArea, panelHeight)
         : -this.useableArea / 2;
     }
+
+    //Position #value element, etc. (for header links)
+    positionScrollPoints() {
+      for (let i = 2; i <= derivedValues.numPanels; i++) {
+        const panel = this.getPanel(i);
+        if (!panel) continue;
+        const scrollPoint = panel.element.querySelector(".scroll-point")
+        const scrollPositioning = (window.innerHeight - panel.getHeight() + this.headerHeight) / 2 - CONFIG.topHighOffset;
+        scrollPoint.style.height = `${scrollPositioning}px`;
+        scrollPoint.style.marginTop = `-${scrollPositioning}px`;
+      }
+    }
   
     //Shows or hides the navbar based on the available space compared to the largest panel height.
     setNavbarVisibility() {
@@ -72,6 +84,7 @@ export class PanelManager {
     setPositions() {
       this.setPanelMargins();
       this.setNavbarVisibility();
+      this.positionScrollPoints();
       document.querySelector(".top-panel").style.paddingTop = `${this.headerHeight}px`;
     }
 }
