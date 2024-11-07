@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Spencer14420/capanda#readme",
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^6.0.0",
+    "esbuild": "^0.24.0",
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0"
