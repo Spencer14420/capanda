@@ -148,6 +148,10 @@ p, ul {
   display: none;
 }
 
+.panel-img {
+  text-align: center;
+}
+
 #logo img {
   max-width: 100%;
   height: auto;
