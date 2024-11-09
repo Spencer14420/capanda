@@ -40,12 +40,7 @@ window.addEventListener("scroll", () => {
     UIManager.setPanelBackgroundColour(CONFIG.colors.blue);
     UIManager.showText(1);
     UIManager.headerLinks(0);
-  } else if (
-    panelTopHigh[0] &&
-    !panelTopHigh[1] &&
-    !panelTopHigh[2] &&
-    panelBottomHigh[0]
-  ) {
+  } else if (panelTopHigh[0] && !panelTopHigh[1] && panelBottomHigh[0]) {
     UIManager.setPanelBackgroundColour(CONFIG.colors.white);
     UIManager.showText(2);
     UIManager.headerLinks(1);

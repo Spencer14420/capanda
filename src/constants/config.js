@@ -4,7 +4,7 @@ export const CONFIG = {
   bottomHighOffset: 100, //Minimum amount of blank space below each panel before transition can occur
   minTopBottomSpace: 100, //Minimum space required above and below the tallest panel to consider the screen "large"
   shortScreenAddition: 300, //Pushes the panels down by this amount on short screens
-  largeScreenAddition: 50, //Pushes the panels down by this amount on large screens
+  largeScreenAddition: 0, //Pushes the panels down by this amount on large screens
   panelPrefix: ".panel",
   colors: {
     blue: "#0e2c57",
