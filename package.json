@@ -4,7 +4,9 @@
   "description": "CAPANDA website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon -w src -w assets -w index.html -e css,html,js --ignore assets/slimmed-bootstrap.css --ignore script.js -x npm run build",
+    "build": "npx purgecss --css assets/bootstrap.min.css --content index.html 'src/**/*.js' assets/bootstrap.bundle.min.js --output assets/slimmed-bootstrap.css && npx esbuild src/main.js --bundle --minify --outfile=script.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "globals": "^15.12.0",
+    "nodemon": "^3.1.7",
     "prettier": "3.3.3"
   }
 }
