@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "nodemon -w src -w assets -w index.html -e css,html,js --ignore assets/slimmed-bootstrap.css --ignore script.js -x npm run build",
-    "build": "npx purgecss --css assets/bootstrap.min.css --content index.html 'src/**/*.js' assets/bootstrap.bundle.min.js --output assets/slimmed-bootstrap.css && npx esbuild src/main.js --bundle --minify --outfile=script.js"
+    "build": "npx purgecss --css assets/bootstrap.min.css --content index.html 'src/**/*.js' 'assets/**/*.js' --output assets/slimmed-bootstrap.css && npx esbuild src/main.js --bundle --minify --outfile=script.js"
   },
   "repository": {
     "type": "git",
