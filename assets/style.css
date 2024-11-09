@@ -13,7 +13,10 @@
 }
 
 /* General styling */
-h1, h3, h2, #openingpara {
+h1,
+h3,
+h2,
+#openingpara {
   font-family: roboto, sans-serif;
 }
 
@@ -21,7 +24,8 @@ h3 {
   font-size: 1.25rem;
 }
 
-#mantra, #companyname {
+#mantra,
+#companyname {
   font-weight: 300;
   margin-bottom: 8px;
 }
@@ -42,8 +46,10 @@ h3 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  transition: background-color 400ms, opacity 400ms;
-  color: #F0F0F0;
+  transition:
+    background-color 400ms,
+    opacity 400ms;
+  color: #f0f0f0;
   text-shadow: 0 0 15px black;
 }
 
@@ -71,10 +77,15 @@ nav {
   justify-content: center;
 }
 
-.panel2, .panel3, .panel4, .panel5 {
+.panel2,
+.panel3,
+.panel4,
+.panel5 {
   z-index: 0;
   opacity: 0;
-  transition: background-color 400ms ease-in-out, opacity 400ms ease-in-out;
+  transition:
+    background-color 400ms ease-in-out,
+    opacity 400ms ease-in-out;
 }
 
 .panel3 {
@@ -91,26 +102,34 @@ nav {
 
 body {
   background-color: #0e2c57;
-  transition: background-color 400ms ease-in-out, opacity 400ms ease-in-out;
+  transition:
+    background-color 400ms ease-in-out,
+    opacity 400ms ease-in-out;
 }
 
 footer {
   margin-top: 200px;
 }
 
-p, ul {
-  font-family: open sans, sans-serif;
+p,
+ul {
+  font-family:
+    open sans,
+    sans-serif;
   font-weight: 500;
   font-size: 18px;
   margin-bottom: 40px;
 }
 
-.panel-row p, .panel-row h1 {
+.panel-row p,
+.panel-row h1 {
   margin-bottom: 22px;
 }
 
 .navbar-nav .text-danger {
-  text-shadow: -0.05ex 0 currentColor, 0.05ex 0 currentColor;
+  text-shadow:
+    -0.05ex 0 currentColor,
+    0.05ex 0 currentColor;
 }
 
 #message-alert {
@@ -121,7 +140,10 @@ p, ul {
   text-decoration: none;
 }
 
-#value, #leadership, #dedication, #focus {
+#value,
+#leadership,
+#dedication,
+#focus {
   display: inline-block;
 }
 
@@ -166,7 +188,8 @@ p, ul {
 
 /* Top panel text and image adjustments */
 @media (max-width: 1200px) {
-  #mantra, #companyname {
+  #mantra,
+  #companyname {
     font-size: 3.7rem !important;
   }
   #companyname {
@@ -175,7 +198,8 @@ p, ul {
 }
 
 @media (max-width: 900px), (max-height: 550px) {
-  #mantra, #companyname {
+  #mantra,
+  #companyname {
     font-size: 3.4rem !important;
   }
   #companyname {
@@ -187,7 +211,8 @@ p, ul {
 }
 
 @media (max-width: 800px) {
-  #mantra, #companyname {
+  #mantra,
+  #companyname {
     font-size: 3rem !important;
   }
   #companyname {
@@ -199,7 +224,8 @@ p, ul {
 }
 
 @media (max-width: 700px) {
-  #mantra, #companyname {
+  #mantra,
+  #companyname {
     font-size: 2.5rem !important;
   }
   #companyname {
@@ -242,7 +268,8 @@ p, ul {
   (min-width: 1501px) and (max-width: 1900px) and (max-height: 590px),
   (min-width: 1201px) and (max-width: 1500px) and (max-height: 460px),
   (min-width: 1000px) and (max-width: 1200px) and (max-height: 415px) {
-  #mantra, #companyname {
+  #mantra,
+  #companyname {
     font-weight: bolder;
   }
   #companyname {
@@ -252,7 +279,8 @@ p, ul {
 
 /* Single column layout and additional adjustments for screens up to 600px wide */
 @media (max-width: 600px) {
-  #mantra, #companyname {
+  #mantra,
+  #companyname {
     font-size: 2rem !important;
   }
   #companyname {
@@ -274,7 +302,8 @@ p, ul {
   .px-5 {
     padding: 1rem !important;
   }
-  .panel3 .panel-row, .panel5 .panel-row {
+  .panel3 .panel-row,
+  .panel5 .panel-row {
     flex-direction: column-reverse;
   }
 }
@@ -349,7 +378,6 @@ p, ul {
   }
 }
 
-
 @media (max-width: 450px), (max-height: 530px) {
   #logo img {
     width: 180px;
@@ -360,10 +388,10 @@ p, ul {
   .contactBtnText {
     display: none;
   }
-  
+
   .contactBtnIcons {
     display: flex;
-    gap: 5px
+    gap: 5px;
   }
 
   #logo img {
