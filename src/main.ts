@@ -20,22 +20,28 @@ window.addEventListener("resize", () => {
 
 //Dynamically update panel styles and UI elements based on the scroll position.
 window.addEventListener("scroll", () => {
-  const panelTopHigh = [];
-  const panelBottomHigh = [];
+  const panelTopHigh: boolean[] = [];
+  const panelBottomHigh: boolean[] = [];
+  const navElement = document.querySelector("nav") as HTMLElement | null;
+
   for (let i = 2; i <= derivedValues.numPanels - 1; i++) {
     const panel = panelManager.getPanel(i);
-    if (!panel) continue;
+    if (!panel || !navElement) {
+      continue;
+    }
+
     panelTopHigh.push(
       panel.element.getBoundingClientRect().y <
-        document.querySelector("nav").clientHeight - CONFIG.topHighOffset,
+        navElement.clientHeight - CONFIG.topHighOffset,
     );
+
     panelBottomHigh.push(
       panel.element.getBoundingClientRect().bottom <
         window.innerHeight - CONFIG.bottomHighOffset,
     );
   }
 
-  const screenTop = window.scrollY;
+  const screenTop: number = window.scrollY;
 
   //Based on the scroll position, determine which panel to highlight and what colors to set.
   if (screenTop < CONFIG.firstTransition) {
