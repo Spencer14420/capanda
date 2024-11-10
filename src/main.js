@@ -1,7 +1,12 @@
 import { CONFIG } from "./constants/config.js";
+import { ContactForm } from "./classes/ContactForm.js";
 import { derivedValues } from "./constants/derivedValues.js";
 import { PanelManager } from "./classes/PanelManager.js";
 import { UIManager } from "./classes/UIManager.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  new ContactForm("assets/js/email-handler.php");
+});
 
 const panelManager = new PanelManager();
 
