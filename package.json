@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "nodemon -w src -w assets -w index.html -e css,html,js --ignore dist/ -x npm run build",
-    "build": "npx purgecss --config purgecss.config.js && npx esbuild src/main.js --bundle --minify --outfile=dist/js/script.js"
+    "build": "npx purgecss --config purgecss.config.js && npx esbuild src/main.ts --bundle --minify --outfile=dist/js/script.js"
   },
   "repository": {
     "type": "git",
@@ -21,12 +21,19 @@
   "devDependencies": {
     "@eslint/js": "^9.14.0",
     "@fullhuman/postcss-purgecss": "^6.0.0",
+    "@types/bootstrap": "^5.2.10",
+    "@typescript-eslint/eslint-plugin": "^8.13.0",
+    "@typescript-eslint/parser": "^8.13.0",
     "esbuild": "^0.24.0",
     "eslint": "^9.14.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "globals": "^15.12.0",
     "nodemon": "^3.1.7",
-    "prettier": "3.3.3"
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3"
   }
 }

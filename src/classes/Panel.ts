@@ -1,8 +1,11 @@
-import { Utils } from "../utils/utils.js";
+import { Utils } from "../utils/utils";
 
 //Provides methods to manipulate Panel properties like height, position, and styles.
 export class Panel {
-  constructor(element, index) {
+  element: HTMLElement;
+  index: number;
+
+  constructor(element: HTMLElement, index: number) {
     this.element = element;
     this.index = index;
   }
@@ -15,15 +18,15 @@ export class Panel {
     return Utils.getElementY(this.element);
   }
 
-  setMarginTop(marginTop) {
+  setMarginTop(marginTop: number): void {
     this.element.style.marginTop = `${marginTop}px`;
   }
 
-  setBackgroundColor(color) {
+  setBackgroundColor(color: string): void {
     this.element.style.backgroundColor = color;
   }
 
-  setOpacity(opacity) {
-    this.element.style.opacity = opacity;
+  setOpacity(opacity: number): void {
+    this.element.style.opacity = opacity.toString();
   }
 }
