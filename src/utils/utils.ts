@@ -1,4 +1,4 @@
-import { CONFIG } from "../constants/config.js";
+import { CONFIG } from "../constants/config";
 
 //Contains helper methods for DOM manipulation and calculations.
 export class Utils {

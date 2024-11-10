@@ -1,4 +1,4 @@
-import { Utils } from "../utils/utils.js";
+import { Utils } from "../utils/utils";
 
 //Provides methods to manipulate Panel properties like height, position, and styles.
 export class Panel {

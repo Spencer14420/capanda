@@ -1,6 +1,6 @@
-import { Utils } from "../utils/utils.js";
-import { Panel } from "./Panel.js";
-import { CONFIG } from "../constants/config.js";
+import { Utils } from "../utils/utils";
+import { Panel } from "./Panel";
+import { CONFIG } from "../constants/config";
 
 //Responsible for managing UI-related operations such as panel visibility, text color, and header link highlighting.
 export class UIManager {

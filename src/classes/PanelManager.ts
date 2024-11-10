@@ -1,7 +1,7 @@
-import { CONFIG } from "../constants/config.js";
-import { derivedValues } from "../constants/derivedValues.js";
-import { Panel } from "./Panel.js";
-import { Utils } from "../utils/utils.js";
+import { CONFIG } from "../constants/config";
+import { derivedValues } from "../constants/derivedValues";
+import { Panel } from "./Panel";
+import { Utils } from "../utils/utils";
 
 //Responsible for managing multiple panels, including positioning, setting margins, and handling interactions.
 export class PanelManager {

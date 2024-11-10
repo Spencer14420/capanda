@@ -1,8 +1,8 @@
-import { CONFIG } from "./constants/config.js";
-import { ContactForm } from "./classes/ContactForm.js";
-import { derivedValues } from "./constants/derivedValues.js";
-import { PanelManager } from "./classes/PanelManager.js";
-import { UIManager } from "./classes/UIManager.js";
+import { CONFIG } from "./constants/config";
+import { ContactForm } from "./classes/ContactForm";
+import { derivedValues } from "./constants/derivedValues";
+import { PanelManager } from "./classes/PanelManager";
+import { UIManager } from "./classes/UIManager";
 
 document.addEventListener("DOMContentLoaded", () => {
   new ContactForm("dist/php/email-handler.php");
