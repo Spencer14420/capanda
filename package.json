@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "nodemon -w src -w assets -w index.html -e css,html,js --ignore assets/slimmed-bootstrap.css --ignore script.js -x npm run build",
-    "build": "npx purgecss --config purgecss.config.js && npx esbuild src/main.js --bundle --minify --outfile=script.js"
+    "watch": "nodemon -w src -w assets -w index.html -e css,html,js --ignore dist/ -x npm run build",
+    "build": "npx purgecss --config purgecss.config.js && npx esbuild src/main.js --bundle --minify --outfile=dist/js/script.js"
   },
   "repository": {
     "type": "git",

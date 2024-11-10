@@ -5,7 +5,7 @@ import { PanelManager } from "./classes/PanelManager.js";
 import { UIManager } from "./classes/UIManager.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  new ContactForm("assets/js/email-handler.php");
+  new ContactForm("dist/php/email-handler.php");
 });
 
 const panelManager = new PanelManager();

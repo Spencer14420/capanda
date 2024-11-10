@@ -1,3 +1,3 @@
 node_modules/
-assets/slimmed-bootstrap.css
-script.js
+dist/css/bootstrap.css
+dist/js/script.js

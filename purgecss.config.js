@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["index.html", "src/**/*.js", "assets/**/*.js"],
+  content: ["index.html", "src/**/*.js", "assets/**/*.js", "dist/**/*.js"],
   css: ["assets/bootstrap.min.css"],
-  output: "assets/slimmed-bootstrap.css",
+  output: "dist/css/bootstrap.css",
 };
