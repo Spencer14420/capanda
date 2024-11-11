@@ -8,8 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$email = $_POST["email"] ?? null;
-$message = $_POST["message"] ?? null;
+//Sanitize inputs
+$email = filter_var($_POST["email"] ?? "", FILTER_SANITIZE_EMAIL);
+$message = htmlspecialchars($_POST["message"] ?? "");
+$name = htmlspecialchars($_POST["name"] ?? "somebody");
 
 if (empty($email) || empty($message)) {
     echo json_encode(['status' => 'error', 'message' => 'Error: Missing required fields.']);
