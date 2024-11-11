@@ -73,9 +73,10 @@ export class ContactForm {
       if (responseData.status === "success") {
         this.messageSuccess();
       } else {
-        this.displayAlert(
-          responseData.message || "An error occured. Please try again later.",
-        );
+        //Show error message from the server response, if provided
+        const errorMessage =
+          responseData.message || "An error occurred. Please try again later.";
+        this.displayAlert(errorMessage);
       }
     } catch (error) {
       console.error("Error sending message", error);

@@ -3,12 +3,12 @@ require_once __DIR__ . "/email-config.php";
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
-    echo json_encode(['status' => 'error', 'message' => 'Invalid request method.']);
+    echo json_encode(['status' => 'error', 'message' => 'Error: Invalid request method.']);
     exit;
 }
 
 if (!isset($_POST["email"]) || !isset($_POST["message"])) {
-    echo json_encode(['status' => 'error', 'message' => 'Missing required fields.']);
+    echo json_encode(['status' => 'error', 'message' => 'Error: Missing required fields.']);
     exit;
 }
 
