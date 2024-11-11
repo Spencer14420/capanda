@@ -15,11 +15,13 @@ $name = htmlspecialchars($_POST["name"] ?? "somebody");
 
 if (empty($email) || empty($message)) {
     echo json_encode(['status' => 'error', 'message' => 'Error: Missing required fields.']);
+    http_response_code(422);
     exit;
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo json_encode(['status' => 'error', 'message' => 'Error: Invalid email address.']);
+    http_response_code(422);
     exit;
 }
 
@@ -31,6 +33,7 @@ $messageSent = mail($mailboxEmail, "Message from {$name} via {$siteDomain}", $bo
 
 if (!$messageSent) {
     echo json_encode(['status' => 'error', 'message' => 'Failed to send the message. Please try again later.']);
+    http_response_code(500);
     exit;
 }
 
