@@ -1,25 +1,32 @@
 <?php
 require_once __DIR__ . "/email-config.php";
 
+header('Content-Type: application/json');
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
-    echo json_encode(['status' => 'error', 'message' => 'Error: Invalid request method.']);
     exit;
 }
 
-if (!isset($_POST["email"]) || !isset($_POST["message"])) {
+$email = $_POST["email"] ?? null;
+$message = $_POST["message"] ?? null;
+
+if (empty($email) || empty($message)) {
     echo json_encode(['status' => 'error', 'message' => 'Error: Missing required fields.']);
     exit;
 }
 
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo json_encode(['status' => 'error', 'message' => 'Error: Invalid email address.']);
+    exit;
+}
 
 $name = !empty($_POST["name"]) ? $_POST["name"] : "somebody";
-$email = $_POST["email"];
 $headers = "From: {$siteName} <{$fromEmail}>\r\nReply-To: $email";
-$message = "From: {$name} ({$email})\n\nMessage:\n" . wordwrap($_POST["message"], 70);
+$body = "From: {$name} ({$email})\n\nMessage:\n" . wordwrap($message, 70);
 
 //Send message to the mailbox
-$messageSent = mail($mailboxEmail, "Message from {$name} via {$siteDomain}", $message, $headers);
+$messageSent = mail($mailboxEmail, "Message from {$name} via {$siteDomain}", $body, $headers);
 
 if (!$messageSent) {
     echo json_encode(['status' => 'error', 'message' => 'Failed to send the message. Please try again later.']);
