@@ -60,11 +60,28 @@ export class ContactForm {
         method: "POST",
         body: formData,
       });
-      if (response.ok) {
+
+      if (!response.ok) {
+        this.displayAlert(
+          "Failed to send the message. Please check your internet connection and try again.",
+        );
+        return;
+      }
+
+      const responseData = await response.json();
+
+      if (responseData.status === "success") {
         this.messageSuccess();
+      } else {
+        this.displayAlert(
+          responseData.message || "An error occured. Please try again later.",
+        );
       }
     } catch (error) {
       console.error("Error sending message", error);
+      this.displayAlert(
+        "An unexpected error occurred. Please try again later.",
+      );
     }
   }
 
