@@ -3,43 +3,71 @@ require_once __DIR__ . "/email-config.php";
 
 header('Content-Type: application/json');
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
+// Function to send a JSON error response
+function jsonErrorResponse($message = "An error occurred. Please try again later.", $code = 500) {
+    echo json_encode(['status' => 'error', 'message' => $message]);
+    http_response_code($code);
     exit;
 }
 
-//Sanitize inputs
+// Function to validate that an email variable is set and properly formatted
+function validateEmail($emailVar) {
+    if (!isset($emailVar) || empty($emailVar) || !filter_var($emailVar, FILTER_VALIDATE_EMAIL)) {
+        jsonErrorResponse("Error: Server configuration error.", 500);
+    }
+}
+
+// Function to set a default email if the email variable is not set or is empty
+function setDefaultEmailIfEmpty(&$emailVar, $defaultEmail) {
+    if (!isset($emailVar) || empty($emailVar)) {
+        $emailVar = $defaultEmail;
+    }
+}
+
+// Validate email variables
+validateEmail($mailboxEmail);
+setDefaultEmailIfEmpty($fromEmail, $mailboxEmail);
+validateEmail($fromEmail);
+setDefaultEmailIfEmpty($replyToEmail, $mailboxEmail);
+validateEmail($replyToEmail);
+
+// Set defaults for $siteDomain and $siteName if they are not set
+if (!isset($siteDomain) || empty($siteDomain)) {
+    $siteDomain = parse_url($_SERVER['HTTP_HOST'], PHP_URL_HOST);
+}
+if (!isset($siteName) || empty($siteName)) {
+    $siteName = ucfirst(explode('.', $siteDomain)[0]);
+}
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    jsonErrorResponse("Error: Method not allowed", 405);
+}
+
+// Sanitize user inputs
 $email = filter_var($_POST["email"] ?? "", FILTER_SANITIZE_EMAIL);
 $message = htmlspecialchars($_POST["message"] ?? "");
 $name = htmlspecialchars($_POST["name"] ?? "somebody");
 
 if (empty($email) || empty($message)) {
-    echo json_encode(['status' => 'error', 'message' => 'Error: Missing required fields.']);
-    http_response_code(422);
-    exit;
+    jsonErrorResponse("Error: Missing required fields.", 422);
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo json_encode(['status' => 'error', 'message' => 'Error: Invalid email address.']);
-    http_response_code(422);
-    exit;
+    jsonErrorResponse("Error: Invalid email address.", 422);
 }
 
+// Prepare and send the main email to the mailbox
 $headers = "From: {$siteName} <{$fromEmail}>\r\nReply-To: $email";
 $body = "From: {$name} ({$email})\n\nMessage:\n" . wordwrap($message, 70);
-
-//Send message to the mailbox
 $messageSent = mail($mailboxEmail, "Message from {$name} via {$siteDomain}", $body, $headers);
 
 if (!$messageSent) {
-    echo json_encode(['status' => 'error', 'message' => 'Failed to send the message. Please try again later.']);
-    http_response_code(500);
-    exit;
+    jsonErrorResponse("Failed to send the message. Please try again later.", 500);
 }
 
-//Send confirmation email to sender
+// Prepare and send the confirmation email to the sender
 $headers = "From: {$siteName} <{$fromEmail}>\r\nReply-To: $replyToEmail";
-$message = "Dear {$name} ({$email}),\n\nYour message (shown below) has been received. We will get back to you as soon as possible.\n\nSincerely,\n{$siteName}\n\nPlease note: This message was sent to the email address provided in our contact form. If you did not enter your email, please disregard this message.\n\nYour message:\n" . wordwrap($_POST["message"], 70);
-mail($email, "Your message to {$siteName} has been received", $message, $headers);
+$confirmationMessage = "Dear {$name} ({$email}),\n\nYour message (shown below) has been received. We will get back to you as soon as possible.\n\nSincerely,\n{$siteName}\n\nPlease note: This message was sent to the email address provided in our contact form. If you did not enter your email, please disregard this message.\n\nYour message:\n" . wordwrap($message, 70);
+mail($email, "Your message to {$siteName} has been received", $confirmationMessage, $headers);
 
 echo json_encode(['status' => 'success']);
