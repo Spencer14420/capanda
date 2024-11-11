@@ -21,7 +21,7 @@ $message = "From: {$name} ({$email})\n\nMessage:\n" . wordwrap($_POST["message"]
 //Send message to the mailbox
 $messageSent = mail($mailboxEmail, "Message from {$name} via {$siteDomain}", $message, $headers);
 
-if (!$mailSent) {
+if (!$messageSent) {
     echo json_encode(['status' => 'error', 'message' => 'Failed to send the message. Please try again later.']);
     exit;
 }
