@@ -11,7 +11,7 @@ function jsonErrorResponse($message = "An error occurred. Please try again later
 }
 
 // Function to validate that an email variable is set and properly formatted
-function validateEmail($emailVar) {
+function validateEmailVar($emailVar) {
     if (!isset($emailVar) || empty($emailVar) || !filter_var($emailVar, FILTER_VALIDATE_EMAIL)) {
         jsonErrorResponse("Error: Server configuration error.", 500);
     }
@@ -25,11 +25,11 @@ function setDefaultEmailIfEmpty(&$emailVar, $defaultEmail) {
 }
 
 // Validate email variables
-validateEmail($mailboxEmail);
+validateEmailVar($mailboxEmail);
 setDefaultEmailIfEmpty($fromEmail, $mailboxEmail);
-validateEmail($fromEmail);
+validateEmailVar($fromEmail);
 setDefaultEmailIfEmpty($replyToEmail, $mailboxEmail);
-validateEmail($replyToEmail);
+validateEmailVar($replyToEmail);
 
 // Set defaults for $siteDomain and $siteName if they are not set
 if (!isset($siteDomain) || empty($siteDomain)) {
