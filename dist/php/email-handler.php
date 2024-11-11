@@ -5,8 +5,8 @@ header('Content-Type: application/json');
 
 // Function to send a JSON error response
 function jsonErrorResponse($message = "An error occurred. Please try again later.", $code = 500) {
-    echo json_encode(['status' => 'error', 'message' => $message]);
     http_response_code($code);
+    echo json_encode(['status' => 'error', 'message' => $message]);
     exit;
 }
 
