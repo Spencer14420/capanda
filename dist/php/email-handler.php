@@ -23,7 +23,6 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-$name = !empty($_POST["name"]) ? $_POST["name"] : "somebody";
 $headers = "From: {$siteName} <{$fromEmail}>\r\nReply-To: $email";
 $body = "From: {$name} ({$email})\n\nMessage:\n" . wordwrap($message, 70);
 
