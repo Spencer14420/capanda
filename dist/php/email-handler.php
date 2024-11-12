@@ -33,7 +33,7 @@ validateEmailVar($replyToEmail);
 
 // Set defaults for $siteDomain and $siteName if they are not set
 if (!isset($siteDomain) || empty($siteDomain)) {
-    $siteDomain = parse_url($_SERVER['HTTP_HOST'], PHP_URL_HOST);
+    $siteDomain = $_SERVER['HTTP_HOST'];
 }
 if (!isset($siteName) || empty($siteName)) {
     $siteName = ucfirst(explode('.', $siteDomain)[0]);
