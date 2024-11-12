@@ -61,23 +61,16 @@ export class ContactForm {
         body: formData,
       });
 
-      if (!response.ok) {
-        this.displayAlert(
-          "Failed to send the message. Please check your internet connection and try again.",
-        );
+      const responseData = await response.json();
+      const errorMessage =
+        responseData.message || "An error occurred. Please try again later.";
+
+      if (!response.ok || responseData.status !== "success") {
+        this.displayAlert(errorMessage);
         return;
       }
 
-      const responseData = await response.json();
-
-      if (responseData.status === "success") {
-        this.messageSuccess();
-      } else {
-        //Show error message from the server response, if provided
-        const errorMessage =
-          responseData.message || "An error occurred. Please try again later.";
-        this.displayAlert(errorMessage);
-      }
+      this.messageSuccess();
     } catch (error) {
       console.error("Error sending message", error);
       this.displayAlert(
