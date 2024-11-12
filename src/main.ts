@@ -1,5 +1,5 @@
 import { CONFIG } from "./constants/config";
-import { ContactForm } from "./classes/ContactForm";
+import { ContactForm } from "spemailhandler";
 import { derivedValues } from "./constants/derivedValues";
 import { PanelManager } from "./classes/PanelManager";
 import { UIManager } from "./classes/UIManager";
