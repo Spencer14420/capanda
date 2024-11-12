@@ -1,0 +1,52 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "ce4cc574ea311861fae53c2940157a4e",
+    "packages": [
+        {
+            "name": "spencer14420/sp-php-email-handler",
+            "version": "1.0.0-alpha",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Spencer14420/SPEmailHandler-PHP.git",
+                "reference": "ae5412bc8a5d5b318b8606d8a16a42e058eb23a3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Spencer14420/SPEmailHandler-PHP/zipball/ae5412bc8a5d5b318b8606d8a16a42e058eb23a3",
+                "reference": "ae5412bc8a5d5b318b8606d8a16a42e058eb23a3",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "spencer14420"
+                }
+            ],
+            "description": "A server-side PHP handler for contact forms. Handles form submissions, validates user inputs, sends emails to a mailbox, and sends confirmation emails to users.",
+            "support": {
+                "issues": "https://github.com/Spencer14420/SPEmailHandler-PHP/issues",
+                "source": "https://github.com/Spencer14420/SPEmailHandler-PHP/tree/1.0.0-alpha"
+            },
+            "time": "2024-11-12T20:23:36+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "alpha",
+    "stability-flags": {
+        "spencer14420/sp-php-email-handler": 15
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}
