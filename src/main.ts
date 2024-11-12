@@ -5,7 +5,7 @@ import { PanelManager } from "./classes/PanelManager";
 import { UIManager } from "./classes/UIManager";
 
 document.addEventListener("DOMContentLoaded", () => {
-  new ContactForm("api.php?action=sendMessage");
+  const contactForm = new ContactForm("api.php?action=sendMessage");
 });
 
 const panelManager = new PanelManager();

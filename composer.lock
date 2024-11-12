@@ -8,19 +8,24 @@
     "packages": [
         {
             "name": "spencer14420/sp-php-email-handler",
-            "version": "1.0.0-alpha",
+            "version": "1.0.0-alpha3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spencer14420/SPEmailHandler-PHP.git",
-                "reference": "ae5412bc8a5d5b318b8606d8a16a42e058eb23a3"
+                "reference": "bd28f5805633f942c3e48f5d8ac06241567c4f5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spencer14420/SPEmailHandler-PHP/zipball/ae5412bc8a5d5b318b8606d8a16a42e058eb23a3",
-                "reference": "ae5412bc8a5d5b318b8606d8a16a42e058eb23a3",
+                "url": "https://api.github.com/repos/Spencer14420/SPEmailHandler-PHP/zipball/bd28f5805633f942c3e48f5d8ac06241567c4f5a",
+                "reference": "bd28f5805633f942c3e48f5d8ac06241567c4f5a",
                 "shasum": ""
             },
             "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "spencer14420\\PhpEmailHandler\\": "src/"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -33,9 +38,9 @@
             "description": "A server-side PHP handler for contact forms. Handles form submissions, validates user inputs, sends emails to a mailbox, and sends confirmation emails to users.",
             "support": {
                 "issues": "https://github.com/Spencer14420/SPEmailHandler-PHP/issues",
-                "source": "https://github.com/Spencer14420/SPEmailHandler-PHP/tree/1.0.0-alpha"
+                "source": "https://github.com/Spencer14420/SPEmailHandler-PHP/tree/1.0.0-alpha3"
             },
-            "time": "2024-11-12T20:23:36+00:00"
+            "time": "2024-11-12T22:11:43+00:00"
         }
     ],
     "packages-dev": [],
@@ -46,7 +51,7 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
