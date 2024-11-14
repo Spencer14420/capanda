@@ -3,3 +3,4 @@ dist/css/bootstrap.css
 dist/js/script.js
 
 /vendor/
+dist/php/turnstile-config.php
