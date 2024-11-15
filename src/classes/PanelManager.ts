@@ -129,10 +129,5 @@ export class PanelManager {
     this.setPanelMargins();
     this.setNavbarVisibility();
     this.positionScrollPoints();
-
-    const topPanel = document.querySelector(".top-panel") as HTMLElement | null;
-    if (topPanel) {
-      topPanel.style.paddingTop = `${this.headerHeight}px`;
-    }
   }
 }
