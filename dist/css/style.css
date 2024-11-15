@@ -41,6 +41,7 @@ h3 {
   display: flex;
   align-items: center;
   z-index: 1;
+  padding-top: 82px;
   background-image: url(https://ik.imagekit.io/capanda/tr:w-1920,q-85/capanda.ca/server-room);
   background-size: contain;
   background-repeat: no-repeat;
