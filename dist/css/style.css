@@ -184,6 +184,10 @@ ul {
   height: auto;
 }
 
+div:has(> .contact-info) {
+  display: none;
+}
+
 /* #### Media Queries ##### */
 
 /* Top panel text and image adjustments */
@@ -309,6 +313,11 @@ ul {
 }
 
 /* Contact modal adjustments */
+@media (max-width: 600px) {
+  div:has(> .contact-info) {
+    display: flex;
+  }
+}
 @media (max-width: 575px), (max-height: 600px) {
   div:has(> .contact-info) {
     align-items: center;
