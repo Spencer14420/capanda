@@ -1,8 +1,16 @@
 <?php
 require_once __DIR__ . "/../../vendor/autoload.php";
 require_once __DIR__ . "/turnstile-config.php";
+require_once __DIR__ . "/token-handler.php";
 
 use spencer14420\PhpEmailHandler\EmailHandler;
+
+//CSRF Token verification
+if (!$tokenHandler->tokenIsValid($_POST["tokenInputToken"])) {
+    http_response_code(403);
+    echo json_encode(['status' => 'error', 'message' => 'Error: There was a issue with your session. Please refresh the page and try again.']);
+    exit();
+}
 
 //Cloudflare Turnstile verification
 $remote_addr = $_SERVER['REMOTE_ADDR'];
@@ -23,7 +31,7 @@ curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($curl);
 
 if (curl_errno($curl)) {
-    http_response_code(500);
+    http_response_code(403);
     echo json_encode(['status' => 'error', 'message' => 'Error: Could not verify CAPTCHA']);
     exit();
 }
@@ -31,7 +39,7 @@ if (curl_errno($curl)) {
 $response = json_decode($response, true);
 
 if ($response['error-codes'] && count($response['error-codes']) > 0) {
-    http_response_code(500);
+    http_response_code(403);
     echo json_encode(['status' => 'error', 'message' => "Error: Could not verify CAPTCHA", 'turnstileError' => $response['error-codes']]);
     exit();
 }
