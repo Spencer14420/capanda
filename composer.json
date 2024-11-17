@@ -3,6 +3,7 @@
   "type": "project",
   "minimum-stability": "alpha",
   "require": {
-    "spencer14420/sp-php-email-handler": "^1.0@alpha"
+    "spencer14420/sp-php-email-handler": "^1.0@alpha",
+    "spencer14420/sp-anti-csrf": "^1.0@alpha"
   }
 }

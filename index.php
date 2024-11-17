@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once __DIR__ . "/dist/php/token-handler.php";
+$token = $tokenHandler->generateToken();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -267,6 +272,7 @@
                             <textarea class="form-control" id="message" name="message" rows="5"></textarea>
                         </div>
                     </div>
+                    <input type="hidden" id="SpCsrfToken" name="SpCsrfToken" value="<?php echo $token ?>">
                     <div class="row py-0 align-items-center justify-content-center modal-body">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-10">

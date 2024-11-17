@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce4cc574ea311861fae53c2940157a4e",
+    "content-hash": "b957a287c395c1679e4d3785d8f951bc",
     "packages": [
         {
             "name": "phpmailer/phpmailer",
@@ -88,6 +88,42 @@
             "time": "2024-10-09T10:07:50+00:00"
         },
         {
+            "name": "spencer14420/sp-anti-csrf",
+            "version": "1.0.0-alpha3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Spencer14420/SPAntiCSRF.git",
+                "reference": "f584adb34554d4ab5ca616200f44b8c39078def9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Spencer14420/SPAntiCSRF/zipball/f584adb34554d4ab5ca616200f44b8c39078def9",
+                "reference": "f584adb34554d4ab5ca616200f44b8c39078def9",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "spencer14420\\SpAntiCsrf\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "spencer14420"
+                }
+            ],
+            "description": "Can be used to generate and validate anti-CSRF tokens",
+            "support": {
+                "issues": "https://github.com/Spencer14420/SPAntiCSRF/issues",
+                "source": "https://github.com/Spencer14420/SPAntiCSRF/tree/1.0.0-alpha3"
+            },
+            "time": "2024-11-16T21:19:00+00:00"
+        },
+        {
             "name": "spencer14420/sp-php-email-handler",
             "version": "1.0.0-alpha4",
             "source": {
@@ -131,6 +167,7 @@
     "aliases": [],
     "minimum-stability": "alpha",
     "stability-flags": {
+        "spencer14420/sp-anti-csrf": 15,
         "spencer14420/sp-php-email-handler": 15
     },
     "prefer-stable": false,

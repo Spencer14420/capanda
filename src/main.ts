@@ -5,7 +5,10 @@ import { PanelManager } from "./classes/PanelManager";
 import { UIManager } from "./classes/UIManager";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const contactForm = new ContactForm("api.php?action=sendMessage");
+  const contactForm = new ContactForm(
+    "api.php?action=sendMessage",
+    "SpCsrfToken",
+  );
 });
 
 const panelManager = new PanelManager();
