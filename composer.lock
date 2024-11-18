@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b957a287c395c1679e4d3785d8f951bc",
+    "content-hash": "9bff3ac6c7ef22408a7fe7fb9e7b214b",
     "packages": [
         {
             "name": "phpmailer/phpmailer",
@@ -125,20 +125,21 @@
         },
         {
             "name": "spencer14420/sp-php-email-handler",
-            "version": "1.0.0-alpha4",
+            "version": "1.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spencer14420/SPEmailHandler-PHP.git",
-                "reference": "4d87b642c0afeef3b353a38e40843cf9f9fa66f3"
+                "reference": "457556e0128eb87fb388c1f0e46549a3d610e6eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spencer14420/SPEmailHandler-PHP/zipball/4d87b642c0afeef3b353a38e40843cf9f9fa66f3",
-                "reference": "4d87b642c0afeef3b353a38e40843cf9f9fa66f3",
+                "url": "https://api.github.com/repos/Spencer14420/SPEmailHandler-PHP/zipball/457556e0128eb87fb388c1f0e46549a3d610e6eb",
+                "reference": "457556e0128eb87fb388c1f0e46549a3d610e6eb",
                 "shasum": ""
             },
             "require": {
-                "phpmailer/phpmailer": "^6.9"
+                "phpmailer/phpmailer": "^6.9",
+                "spencer14420/sp-anti-csrf": "^1.0@alpha"
             },
             "type": "library",
             "autoload": {
@@ -158,9 +159,9 @@
             "description": "A server-side PHP handler for contact forms. Handles form submissions, validates user inputs, sends emails to a mailbox, and sends confirmation emails to users.",
             "support": {
                 "issues": "https://github.com/Spencer14420/SPEmailHandler-PHP/issues",
-                "source": "https://github.com/Spencer14420/SPEmailHandler-PHP/tree/1.0.0-alpha4"
+                "source": "https://github.com/Spencer14420/SPEmailHandler-PHP/tree/1.0.0-beta1"
             },
-            "time": "2024-11-13T16:13:52+00:00"
+            "time": "2024-11-18T16:47:52+00:00"
         }
     ],
     "packages-dev": [],
@@ -168,7 +169,7 @@
     "minimum-stability": "alpha",
     "stability-flags": {
         "spencer14420/sp-anti-csrf": 15,
-        "spencer14420/sp-php-email-handler": 15
+        "spencer14420/sp-php-email-handler": 10
     },
     "prefer-stable": false,
     "prefer-lowest": false,
