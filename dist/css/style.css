@@ -1,12 +1,15 @@
-/* Bootstrap theme overrides */
+/* Bootstrap theme overrides and variables*/
 :root {
   --bs-danger: #aa0000;
+  --capanda-light-grey: #ededed;
+  --capanda-dark-grey: #14171c;
+  --capanda-navy: #0e2c57;
+  --capanda-light: #f0f0f0;
 }
 
 .btn-danger {
   background-color: var(--bs-danger) !important;
 }
-
 .text-danger,
 .alert-danger {
   color: var(--bs-danger) !important;
@@ -14,10 +17,10 @@
 
 /* General styling */
 h1,
-h3,
 h2,
+h3,
 #openingpara {
-  font-family: roboto, sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 h3 {
@@ -36,40 +39,37 @@ h3 {
 }
 
 .top-panel {
-  min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   display: flex;
   align-items: center;
   z-index: 1;
-  padding-top: 82px;
-  background-image: url(https://ik.imagekit.io/capanda/tr:w-1920,q-85/capanda.ca/server-room);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  padding-block-start: 82px;
+  background: url("https://ik.imagekit.io/capanda/tr:w-1920,q-85/capanda.ca/server-room")
+    center / cover no-repeat;
   transition:
     background-color 400ms,
     opacity 400ms;
-  color: #f0f0f0;
+  color: var(--capanda-light);
   text-shadow: 0 0 15px black;
 }
 
 .top-panel div {
-  height: 50%;
+  block-size: 50%;
 }
 
 .btn-capanda1 {
   border-radius: 0;
-  border: 3px solid #000;
+  border: 3px solid black;
 }
 
 .btn-capanda1:hover {
-  background-color: #000;
-  color: #fff;
+  background-color: black;
+  color: white;
 }
 
 nav {
-  border-bottom: 3px solid #ededed;
+  border-block-end: 3px solid var(--capanda-light-grey);
 }
 
 .panel-row {
@@ -90,41 +90,39 @@ nav {
 }
 
 .panel3 {
-  background-color: #fff;
+  background-color: white;
 }
 
 .panel4 {
-  background-color: #14171c;
+  background-color: var(--capanda-dark-grey);
 }
 
 .panel5 {
-  background-color: #ededed;
+  background-color: var(--capanda-light-grey);
 }
 
 body {
-  background-color: #0e2c57;
+  background-color: var(--capanda-navy);
   transition:
     background-color 400ms ease-in-out,
     opacity 400ms ease-in-out;
 }
 
 footer {
-  margin-top: 200px;
+  margin-block-start: 200px;
 }
 
 p,
 ul {
-  font-family:
-    open sans,
-    sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 500;
   font-size: 18px;
-  margin-bottom: 40px;
+  margin-block-end: 40px;
 }
 
 .panel-row p,
 .panel-row h1 {
-  margin-bottom: 22px;
+  margin-block-end: 22px;
 }
 
 .navbar-nav .text-danger {
@@ -158,7 +156,7 @@ ul {
 }
 
 #openingpara {
-  margin-bottom: 8px;
+  margin-block-end: 8px;
   line-height: 1.2;
   font-size: 1.25rem;
 }
@@ -175,14 +173,10 @@ ul {
   text-align: center;
 }
 
-#logo img {
-  max-width: 100%;
-  height: auto;
-}
-
+#logo img,
 .panel-img img {
-  max-width: 100%;
-  height: auto;
+  max-inline-size: 100%;
+  block-size: auto;
 }
 
 div:has(> .contact-info) {
@@ -309,17 +303,17 @@ div:has(> .contact-info) {
 @media (max-width: 575px), (max-height: 600px) {
   div:has(> .contact-info) {
     align-items: center;
-    margin-bottom: -17px !important;
+    margin-block-end: -17px !important;
   }
   .contact-info {
-    width: max-content;
+    inline-size: max-content;
     font-size: 1.1rem;
     padding: 3px 6px;
     border: 1px solid black;
   }
   .contact-info img {
-    height: 20px;
-    width: 20px;
+    block-size: 20px;
+    inline-size: 20px;
   }
 }
 
@@ -328,7 +322,7 @@ div:has(> .contact-info) {
     flex-direction: column !important;
   }
   .contact-info:first-of-type {
-    margin-bottom: 2px;
+    margin-block-end: 2px;
     flex-direction: row-reverse;
   }
 }
@@ -353,31 +347,31 @@ div:has(> .contact-info) {
 
 @media (max-width: 1000px) {
   .panel-img img {
-    width: 430px;
+    inline-size: 430px;
   }
 }
 
 @media (max-width: 900px) {
   .panel-img img {
-    width: 380px;
+    inline-size: 380px;
   }
 }
 
 @media (max-width: 800px) {
   .panel-img img {
-    width: 330px;
+    inline-size: 330px;
   }
 }
 
 @media (max-width: 700px) {
   .panel-img img {
-    width: 280px;
+    inline-size: 280px;
   }
 }
 
 @media (max-width: 450px), (max-height: 530px) {
   #logo img {
-    width: 180px;
+    inline-size: 180px;
   }
 }
 
@@ -392,6 +386,6 @@ div:has(> .contact-info) {
   }
 
   #logo img {
-    width: 163px;
+    inline-size: 163px;
   }
 }
