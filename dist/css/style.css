@@ -20,15 +20,15 @@
 }
 
 /* General styling */
-h1,
-h2,
-h3,
-#openingpara {
-  font-family: "Roboto", sans-serif;
-}
-
-h3 {
-  font-size: 1.25rem;
+body {
+  background-color: var(--capanda-navy);
+  transition:
+    background-color 400ms ease-in-out,
+    opacity 400ms ease-in-out;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.2rem;
 }
 
 #mantra,
@@ -65,9 +65,6 @@ h3 {
 .btn-capanda {
   display: inline-block;
   padding: 12px 24px;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
   text-align: center;
   border: none;
   border-radius: 8px;
@@ -193,23 +190,8 @@ nav {
   background-color: var(--capanda-light-grey);
 }
 
-body {
-  background-color: var(--capanda-navy);
-  transition:
-    background-color 400ms ease-in-out,
-    opacity 400ms ease-in-out;
-}
-
 footer {
   margin-block-start: 200px;
-}
-
-p,
-ul {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  margin-block-end: 40px;
 }
 
 .panel-row p,
@@ -243,14 +225,12 @@ ul {
   text-decoration: none;
   border-radius: 0.2rem;
   padding: 0.375rem 0.75rem;
-  font-size: 1.25rem;
   gap: 6px;
 }
 
 #openingpara {
   margin-block-end: 8px;
   line-height: 1.2;
-  font-size: 1.25rem;
 }
 
 .contactBtnIcons {
@@ -291,9 +271,6 @@ div:has(> .contact-info) {
   }
   #companyname {
     letter-spacing: -4px;
-  }
-  #openingpara {
-    font-size: 1.2rem;
   }
 }
 
@@ -337,11 +314,6 @@ div:has(> .contact-info) {
 @media (max-width: 370px) {
   #mantra {
     font-size: 1.4rem !important;
-  }
-}
-@media (max-width: 327px) {
-  #mantra {
-    font-size: 1.2rem !important;
   }
 }
 

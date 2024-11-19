@@ -13,10 +13,9 @@ $token = $tokenHandler->generateToken();
     <title>CAPANDA - Build Sustainable Services</title>
     <link rel="stylesheet" href="dist/css/bootstrap.css">
     <link rel="stylesheet" href="dist/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@300;400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script type="module" src="dist/js/script.js"></script>
 
