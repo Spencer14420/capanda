@@ -13,9 +13,10 @@ $token = $tokenHandler->generateToken();
     <title>CAPANDA - Build Sustainable Services</title>
     <link rel="stylesheet" href="dist/css/bootstrap.css">
     <link rel="stylesheet" href="dist/css/style.css">
-    <<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=trending_flat" />
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script type="module" src="dist/js/script.js"></script>
 
@@ -78,8 +79,8 @@ $token = $tokenHandler->generateToken();
                 <p id="openingpara">Through hands-on Corporate leadership, CAPANDA will advance your Product,
                     Program, Business-Process, and Software Asset Management needs by applying experience in
                     sustainable digital architecture via service delivery principles & best practices</p>
-                <button type="button" class="mt-4 btn-capanda btn-capanda-yellow" data-bs-toggle="modal"
-                    data-bs-target="#contact"><strong>Hire Us</strong></a>
+                <button type="button" class="mt-4 btn-capanda btn-capanda-large btn-capanda-yellow" data-bs-toggle="modal"
+                    data-bs-target="#contact"><span class="btn-flex-content"><span>Learn More</span><span class="material-symbols-outlined">trending_flat</span></span></a>
             </div>
         </section>
 
