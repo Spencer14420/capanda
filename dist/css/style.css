@@ -64,6 +64,7 @@ body {
 
 .btn-capanda {
   display: inline-block;
+  background-color: var(--button-color);
   padding: 8px 16px;
   font-size: 1rem;
   text-align: center;
@@ -80,94 +81,35 @@ body {
   font-size: 1.2rem;
 }
 
-.btn-flex-content {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
 .btn-capanda-red {
   color: white;
-  background-color: var(--capanda-red);
-}
-
-.btn-capanda-red:hover {
-  background-color: color-mix(in srgb, var(--capanda-red) 70%, black 30%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}
-
-.btn-capanda-red:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-}
-
-.btn-capanda-red:focus {
-  outline: 2px solid color-mix(in srgb, var(--capanda-red) 70%, black 30%);
-  outline-offset: 4px;
+  --button-color: var(--capanda-red);
 }
 
 .btn-capanda-yellow {
   color: black;
-  background-color: var(--capanda-yellow);
-}
-
-.btn-capanda-yellow:hover {
-  background-color: color-mix(in srgb, var(--capanda-yellow) 70%, black 30%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}
-
-.btn-capanda-yellow:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-}
-
-.btn-capanda-yellow:focus {
-  outline: 2px solid color-mix(in srgb, var(--capanda-yellow) 70%, black 30%);
-  outline-offset: 4px;
+  --button-color: var(--capanda-yellow);
 }
 
 .btn-capanda-blue {
   color: white;
-  background-color: var(--capanda-blue);
-}
-
-.btn-capanda-blue:hover {
-  background-color: color-mix(in srgb, var(--capanda-blue) 70%, black 30%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}
-
-.btn-capanda-blue:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-}
-
-.btn-capanda-blue:focus {
-  outline: 2px solid color-mix(in srgb, var(--capanda-blue) 70%, black 30%);
-  outline-offset: 4px;
+  --button-color: var(--capanda-blue);
 }
 
 .btn-capanda-grey {
   color: white;
-  background-color: var(--capanda-grey);
+  --button-color: var(--capanda-grey);
 }
 
-.btn-capanda-grey:hover {
-  background-color: color-mix(in srgb, var(--capanda-grey) 70%, black 30%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+.btn-capanda:hover,
+.btn-capanda:focus {
+  background-color: color-mix(in srgb, var(--background-color) 70%, black 30%);
 }
 
-.btn-capanda-grey:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-}
-
-.btn-capanda-grey:focus {
-  outline: 2px solid color-mix(in srgb, var(--capanda-grey) 70%, black 30%);
-  outline-offset: 4px;
+.btn-flex-content {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 nav {
