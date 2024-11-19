@@ -211,9 +211,15 @@ h2 {
   font-weight: 500;
 }
 
-#contact .modal-body {
-  font-size: 1rem;
-  font-weight: 700;
+.form-group {
+  margin-bottom: 2rem;
+
+  label {
+    margin-bottom: 0.4rem;
+    margin-left: 0.4rem;
+    font-size: 1rem;
+    font-weight: 700;
+  }
 }
 
 /* #### Media Queries ##### */

@@ -242,8 +242,8 @@ $token = $tokenHandler->generateToken();
                     <h3 class="modal-title" id="contactModalLabel">Contact Us</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="d-flex flex-column justify-content-center modal-body">
-                    <div class="flex-row mb-0 py-2 justify-content-center modal-body">
+                <div class="modal-body">
+                    <div>
                         <a href="tel:613-831-7639" class="d-flex align-items-center text-dark mx-1 contact-info">
                             <span>613-831-7639</span>
                             <img alt="Phone" src="https://ik.imagekit.io/capanda/tr:w-26/Icons/phone-sm.png">
@@ -253,38 +253,23 @@ $token = $tokenHandler->generateToken();
                             <span>info@capanda.ca</span>
                         </a>
                     </div>
-                    <div class="row mb-3 align-items-center justify-content-center modal-body">
-                        <label class="col-sm-2 col-form-label" for="name">Name</label>
-                        <div class="col-sm-10">
-                            <input class="col-sm-10 form-control" type="text" id="name">
-                        </div>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input class="form-control" type="text" id="name">
                     </div>
-                    <div class="row mb-3 align-items-center justify-content-center modal-body">
-                        <label class="col-sm-2 col-form-label" for="email">Email</label>
-                        <div class="col-sm-10">
-                            <input class="col-sm-10 form-control" placeholder="name@example.com" type="text" id="email">
-                        </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input class="form-control" placeholder="name@example.com" type="text" id="email">
                     </div>
-                    <div class="row align-items-center justify-content-center modal-body">
-                        <label class="col-sm-2 col-form-label" for="Message">Message</label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" id="message" name="message" rows="5"></textarea>
-                        </div>
+                    <div class="form-group">
+                        <label for="Message">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="5"></textarea>
                     </div>
+                    <div style="text-align: center;" class="cf-turnstile" data-sitekey="0x4AAAAAAAyvgzXqVhbwOBo6"></div>
                     <input type="hidden" id="SpCsrfToken" name="SpCsrfToken" value="<?php echo $token ?>">
-                    <div class="row py-0 align-items-center justify-content-center modal-body">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-10">
-                            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAyvgzXqVhbwOBo6"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div id="message-alert" class="alert alert-danger" role="alert"></div>
-                    </div>
+                    <div id="message-alert" class="alert alert-danger" role="alert"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="contactCancel" class="btn-capanda btn-capanda-grey messagecancel"
-                        data-bs-dismiss="modal">Cancel</button>
                     <button type="button" class="btn-capanda btn-capanda-blue" id="sendmessage">Send Message</button>
                 </div>
             </div>
