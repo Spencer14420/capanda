@@ -104,7 +104,7 @@ $token = $tokenHandler->generateToken();
                         </picture>
                     </div>
                     <div class="col px-5 panel-txt">
-                        <h2 class="display-5 mb-4"><strong>Our Value</strong></h2>
+                        <h2 class="mb-4">Our Value</h2>
                         <p>Sustainability is our Mantra</p>
                         <p>Whether through the delivery of proven digital architectures, or via Organizational Change
                             Management practices (including everything in-between), sustainable practices will ensure
@@ -127,7 +127,7 @@ $token = $tokenHandler->generateToken();
             <div id="leadership-panel" class="container-xxl">
                 <div class="row panel-row">
                     <div class="col px-5 panel-txt">
-                        <h2 class="display-5 mb-4"><strong>We Lead the Way</strong></h2>
+                        <h2 class="mb-4">We Lead the Way</h2>
                         <p>Through recognition that demonstrates hands-on experience & results, real-world delivery has
                             proven that we are more than just words</p>
                         <p>Through all aspects of the system development & product lifecycle, and via extensive
@@ -178,7 +178,7 @@ $token = $tokenHandler->generateToken();
                         </picture>
                     </div>
                     <div class="col px-5 panel-txt">
-                        <h2 class="display-5 mb-4"><strong>Our Dedication</strong></h2>
+                        <h2 class="mb-4">Our Dedication</h2>
                         <p>Through the delivery of numerous corporate-level Federal Government requirements such as
                             International Service Delivery, departmental Software Asset Management Program, and Product
                             Management, Millions of dollars of savings to the tax-payer have been realized</p>
@@ -198,7 +198,7 @@ $token = $tokenHandler->generateToken();
             <div id="focus-panel" class="container-xxl">
                 <div class="row panel-row">
                     <div class="col px-5 panel-txt">
-                        <h2 class="display-5 mb-4"><strong>Advanced Focus</strong></h2>
+                        <h2 class="mb-4">Advanced Focus</h2>
                         <p>Through further corporate focus, and as witnessed throughout numerous Public & Private sector
                             organizations, you will realize value from our extensive experience to resolve ongoing
                             Software Asset Management challenges</p>
@@ -254,19 +254,19 @@ $token = $tokenHandler->generateToken();
                         </a>
                     </div>
                     <div class="row mb-3 align-items-center justify-content-center modal-body">
-                        <label class="col-sm-2 col-form-label" for="name"><strong>Name</strong></label>
+                        <label class="col-sm-2 col-form-label" for="name">Name</label>
                         <div class="col-sm-10">
                             <input class="col-sm-10 form-control" type="text" id="name">
                         </div>
                     </div>
                     <div class="row mb-3 align-items-center justify-content-center modal-body">
-                        <label class="col-sm-2 col-form-label" for="email"><strong>Email</strong></label>
+                        <label class="col-sm-2 col-form-label" for="email">Email</label>
                         <div class="col-sm-10">
                             <input class="col-sm-10 form-control" placeholder="name@example.com" type="text" id="email">
                         </div>
                     </div>
                     <div class="row align-items-center justify-content-center modal-body">
-                        <label class="col-sm-2 col-form-label" for="Message"><strong>Message</strong></label>
+                        <label class="col-sm-2 col-form-label" for="Message">Message</label>
                         <div class="col-sm-10">
                             <textarea class="form-control" id="message" name="message" rows="5"></textarea>
                         </div>
@@ -318,8 +318,8 @@ $token = $tokenHandler->generateToken();
     </div>
     <footer>
         <div class="container-fluid bg-dark copyright">
-            <div class=" d-flex align-items-center justify-content-evenly">
-                <h3 class="mb-0 py-2 text-white">© C.A. Pavia & Associates Inc.</h3>
+            <div class="d-flex align-items-center justify-content-evenly">
+                <span class="mb-0 py-2 text-white">© C.A. Pavia & Associates Inc.</span>
             </div>
         </div>
     </footer>
