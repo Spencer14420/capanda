@@ -11,6 +11,21 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 });
 
+//Learn more button
+const learnmoreBtn = document.querySelector(
+  "#learnmore-btn",
+) as HTMLButtonElement;
+const firstSection = document.querySelector("#value") as HTMLElement;
+
+if (learnmoreBtn && firstSection) {
+  learnmoreBtn.addEventListener("click", () => {
+    firstSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
+}
+
 const panelManager = new PanelManager();
 
 //Set panel positions when the page loads or the window is resized

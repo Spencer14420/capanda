@@ -15,8 +15,8 @@ $token = $tokenHandler->generateToken();
     <link rel="stylesheet" href="dist/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@300;400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=trending_flat" />
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script type="module" src="dist/js/script.js"></script>
 
@@ -59,7 +59,7 @@ $token = $tokenHandler->generateToken();
                         height="18px">
                 </a>
             </div>
-            <button type="button" class="btn btn-danger ms-0" data-bs-toggle="modal" data-bs-target="#contact">
+            <button type="button" class="btn-capanda btn-capanda-red ms-0" data-bs-toggle="modal" data-bs-target="#contact">
                 <span class="contactBtnText">Contact Us</span>
                 <span class="contactBtnIcons"><img alt="Phone"
                         src="https://ik.imagekit.io/capanda/tr:w-26/Icons/phone-sm.png" width="18px" height="18px"><img
@@ -79,8 +79,7 @@ $token = $tokenHandler->generateToken();
                 <p id="openingpara">Through hands-on Corporate leadership, CAPANDA will advance your Product,
                     Program, Business-Process, and Software Asset Management needs by applying experience in
                     sustainable digital architecture via service delivery principles & best practices</p>
-                <button type="button" class="mt-4 btn btn-light btn-lg btn-capanda1" data-bs-toggle="modal"
-                    data-bs-target="#contact"><strong>Hire Us</strong></a>
+                <button id="learnmore-btn" class="mt-4 btn-capanda btn-capanda-large btn-capanda-yellow"><span class="btn-flex-content"><span>Learn More</span><span class="material-symbols-outlined">trending_flat</span></span></a>
             </div>
         </section>
 
@@ -105,7 +104,7 @@ $token = $tokenHandler->generateToken();
                         </picture>
                     </div>
                     <div class="col px-5 panel-txt">
-                        <h2 class="display-5 mb-4"><strong>Our Value</strong></h2>
+                        <h2 class="mb-4">Our Value</h2>
                         <p>Sustainability is our Mantra</p>
                         <p>Whether through the delivery of proven digital architectures, or via Organizational Change
                             Management practices (including everything in-between), sustainable practices will ensure
@@ -128,7 +127,7 @@ $token = $tokenHandler->generateToken();
             <div id="leadership-panel" class="container-xxl">
                 <div class="row panel-row">
                     <div class="col px-5 panel-txt">
-                        <h2 class="display-5 mb-4"><strong>We Lead the Way</strong></h2>
+                        <h2 class="mb-4">We Lead the Way</h2>
                         <p>Through recognition that demonstrates hands-on experience & results, real-world delivery has
                             proven that we are more than just words</p>
                         <p>Through all aspects of the system development & product lifecycle, and via extensive
@@ -179,7 +178,7 @@ $token = $tokenHandler->generateToken();
                         </picture>
                     </div>
                     <div class="col px-5 panel-txt">
-                        <h2 class="display-5 mb-4"><strong>Our Dedication</strong></h2>
+                        <h2 class="mb-4">Our Dedication</h2>
                         <p>Through the delivery of numerous corporate-level Federal Government requirements such as
                             International Service Delivery, departmental Software Asset Management Program, and Product
                             Management, Millions of dollars of savings to the tax-payer have been realized</p>
@@ -199,7 +198,7 @@ $token = $tokenHandler->generateToken();
             <div id="focus-panel" class="container-xxl">
                 <div class="row panel-row">
                     <div class="col px-5 panel-txt">
-                        <h2 class="display-5 mb-4"><strong>Advanced Focus</strong></h2>
+                        <h2 class="mb-4">Advanced Focus</h2>
                         <p>Through further corporate focus, and as witnessed throughout numerous Public & Private sector
                             organizations, you will realize value from our extensive experience to resolve ongoing
                             Software Asset Management challenges</p>
@@ -243,8 +242,8 @@ $token = $tokenHandler->generateToken();
                     <h3 class="modal-title" id="contactModalLabel">Contact Us</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="d-flex flex-column justify-content-center modal-body">
-                    <div class="flex-row mb-0 py-2 justify-content-center modal-body">
+                <div class="modal-body">
+                    <div>
                         <a href="tel:613-831-7639" class="d-flex align-items-center text-dark mx-1 contact-info">
                             <span>613-831-7639</span>
                             <img alt="Phone" src="https://ik.imagekit.io/capanda/tr:w-26/Icons/phone-sm.png">
@@ -254,39 +253,24 @@ $token = $tokenHandler->generateToken();
                             <span>info@capanda.ca</span>
                         </a>
                     </div>
-                    <div class="row mb-3 align-items-center justify-content-center modal-body">
-                        <label class="col-sm-2 col-form-label" for="name"><strong>Name</strong></label>
-                        <div class="col-sm-10">
-                            <input class="col-sm-10 form-control" type="text" id="name">
-                        </div>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input class="form-control" type="text" id="name">
                     </div>
-                    <div class="row mb-3 align-items-center justify-content-center modal-body">
-                        <label class="col-sm-2 col-form-label" for="email"><strong>Email</strong></label>
-                        <div class="col-sm-10">
-                            <input class="col-sm-10 form-control" placeholder="name@example.com" type="text" id="email">
-                        </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input class="form-control" placeholder="name@example.com" type="text" id="email">
                     </div>
-                    <div class="row align-items-center justify-content-center modal-body">
-                        <label class="col-sm-2 col-form-label" for="Message"><strong>Message</strong></label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" id="message" name="message" rows="5"></textarea>
-                        </div>
+                    <div class="form-group">
+                        <label for="Message">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="5"></textarea>
                     </div>
+                    <div style="text-align: center;" class="cf-turnstile" data-sitekey="0x4AAAAAAAyvgzXqVhbwOBo6"></div>
                     <input type="hidden" id="SpCsrfToken" name="SpCsrfToken" value="<?php echo $token ?>">
-                    <div class="row py-0 align-items-center justify-content-center modal-body">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-10">
-                            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAyvgzXqVhbwOBo6"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div id="message-alert" class="alert alert-danger" role="alert"></div>
-                    </div>
+                    <div id="message-alert" class="alert alert-danger" role="alert"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="contactCancel" class="btn btn-secondary messagecancel"
-                        data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" id="sendmessage">Send Message</button>
+                    <button type="button" class="btn-capanda btn-capanda-blue" id="sendmessage">Send Message</button>
                 </div>
             </div>
         </div>
@@ -312,15 +296,15 @@ $token = $tokenHandler->generateToken();
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary messagecancel" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn-capanda btn-capanda-grey messagecancel" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
     <footer>
         <div class="container-fluid bg-dark copyright">
-            <div class=" d-flex align-items-center justify-content-evenly">
-                <h3 class="mb-0 py-2 text-white">© C.A. Pavia & Associates Inc.</h3>
+            <div class="d-flex align-items-center justify-content-evenly">
+                <span class="mb-0 py-2 text-white">© C.A. Pavia & Associates Inc.</span>
             </div>
         </div>
     </footer>
