@@ -79,7 +79,7 @@ $token = $tokenHandler->generateToken();
                 <p id="openingpara">Through hands-on Corporate leadership, CAPANDA will advance your Product,
                     Program, Business-Process, and Software Asset Management needs by applying experience in
                     sustainable digital architecture via service delivery principles & best practices</p>
-                <button type="#value" class="mt-4 btn-capanda btn-capanda-large btn-capanda-yellow"><span class="btn-flex-content"><span>Learn More</span><span class="material-symbols-outlined">trending_flat</span></span></a>
+                <button id="learnmore-btn" class="mt-4 btn-capanda btn-capanda-large btn-capanda-yellow"><span class="btn-flex-content"><span>Learn More</span><span class="material-symbols-outlined">trending_flat</span></span></a>
             </div>
         </section>
 
