@@ -1,6 +1,10 @@
 /* Bootstrap theme overrides and variables*/
 :root {
   --bs-danger: #aa0000;
+  --capanda-red: #aa0000;
+  --capanda-yellow: #ffc107;
+  --capanda-blue: #1976d2;
+  --capanda-grey: #6c757d;
   --capanda-light-grey: #ededed;
   --capanda-dark-grey: #14171c;
   --capanda-navy: #0e2c57;
@@ -58,14 +62,102 @@ h3 {
   block-size: 50%;
 }
 
-.btn-capanda1 {
-  border-radius: 0;
-  border: 3px solid black;
+.btn-capanda {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.btn-capanda1:hover {
-  background-color: black;
+.btn-capanda-red {
   color: white;
+  background-color: var(--capanda-red);
+}
+
+.btn-capanda-red:hover {
+  background-color: color-mix(in srgb, var(--capanda-red) 70%, black 30%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-capanda-red:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-capanda-red:focus {
+  outline: 2px solid color-mix(in srgb, var(--capanda-red) 70%, black 30%);
+  outline-offset: 4px;
+}
+
+.btn-capanda-yellow {
+  color: black;
+  background-color: var(--capanda-yellow);
+}
+
+.btn-capanda-yellow:hover {
+  background-color: color-mix(in srgb, var(--capanda-yellow) 70%, black 30%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-capanda-yellow:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-capanda-yellow:focus {
+  outline: 2px solid color-mix(in srgb, var(--capanda-yellow) 70%, black 30%);
+  outline-offset: 4px;
+}
+
+.btn-capanda-blue {
+  color: white;
+  background-color: var(--capanda-blue);
+}
+
+.btn-capanda-blue:hover {
+  background-color: color-mix(in srgb, var(--capanda-blue) 70%, black 30%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-capanda-blue:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-capanda-blue:focus {
+  outline: 2px solid color-mix(in srgb, var(--capanda-blue) 70%, black 30%);
+  outline-offset: 4px;
+}
+
+.btn-capanda-grey {
+  color: white;
+  background-color: var(--capanda-grey);
+}
+
+.btn-capanda-grey:hover {
+  background-color: color-mix(in srgb, var(--capanda-grey) 70%, black 30%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-capanda-grey:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-capanda-grey:focus {
+  outline: 2px solid color-mix(in srgb, var(--capanda-grey) 70%, black 30%);
+  outline-offset: 4px;
 }
 
 nav {
@@ -159,10 +251,6 @@ ul {
   margin-block-end: 8px;
   line-height: 1.2;
   font-size: 1.25rem;
-}
-
-.contactBtnText {
-  font-weight: bold;
 }
 
 .contactBtnIcons {

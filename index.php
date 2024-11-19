@@ -59,7 +59,7 @@ $token = $tokenHandler->generateToken();
                         height="18px">
                 </a>
             </div>
-            <button type="button" class="btn btn-danger ms-0" data-bs-toggle="modal" data-bs-target="#contact">
+            <button type="button" class="btn-capanda btn-capanda-red ms-0" data-bs-toggle="modal" data-bs-target="#contact">
                 <span class="contactBtnText">Contact Us</span>
                 <span class="contactBtnIcons"><img alt="Phone"
                         src="https://ik.imagekit.io/capanda/tr:w-26/Icons/phone-sm.png" width="18px" height="18px"><img
@@ -79,7 +79,7 @@ $token = $tokenHandler->generateToken();
                 <p id="openingpara">Through hands-on Corporate leadership, CAPANDA will advance your Product,
                     Program, Business-Process, and Software Asset Management needs by applying experience in
                     sustainable digital architecture via service delivery principles & best practices</p>
-                <button type="button" class="mt-4 btn btn-light btn-lg btn-capanda1" data-bs-toggle="modal"
+                <button type="button" class="mt-4 btn-capanda btn-capanda-yellow" data-bs-toggle="modal"
                     data-bs-target="#contact"><strong>Hire Us</strong></a>
             </div>
         </section>
@@ -284,9 +284,9 @@ $token = $tokenHandler->generateToken();
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="contactCancel" class="btn btn-secondary messagecancel"
+                    <button type="button" id="contactCancel" class="btn-capanda btn-capanda-grey messagecancel"
                         data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" id="sendmessage">Send Message</button>
+                    <button type="button" class="btn-capanda btn-capanda-blue" id="sendmessage">Send Message</button>
                 </div>
             </div>
         </div>
@@ -312,7 +312,7 @@ $token = $tokenHandler->generateToken();
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary messagecancel" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn-capanda btn-capanda-grey messagecancel" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
