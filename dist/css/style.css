@@ -69,7 +69,7 @@ body {
   font-size: 1rem;
   text-align: center;
   font-weight: 600;
-  border: 2px solid color-mix(in srgb, var(--button-color) 75%, black 25%);
+  border: 2px solid color-mix(in srgb, var(--button-color) 85%, black 15%);
   border-radius: 8px;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
@@ -103,6 +103,7 @@ body {
 .btn-capanda:hover,
 .btn-capanda:focus {
   background-color: color-mix(in srgb, var(--button-color) 75%, black 25%);
+  border: 2px solid color-mix(in srgb, var(--button-color) 75%, black 25%);
 }
 
 .btn-flex-content {
