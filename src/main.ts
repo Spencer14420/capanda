@@ -3,6 +3,7 @@ import { ContactForm } from "spemailhandler";
 import { derivedValues } from "./constants/derivedValues";
 import { PanelManager } from "./classes/PanelManager";
 import { UIManager } from "./classes/UIManager";
+import { ScrollButton } from "./classes/ScrollButton";
 
 document.addEventListener("DOMContentLoaded", () => {
   const contactForm = new ContactForm(
@@ -17,14 +18,7 @@ const learnmoreBtn = document.querySelector(
 ) as HTMLButtonElement;
 const firstSection = document.querySelector("#value") as HTMLElement;
 
-if (learnmoreBtn && firstSection) {
-  learnmoreBtn.addEventListener("click", () => {
-    firstSection.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  });
-}
+new ScrollButton(learnmoreBtn, firstSection);
 
 const panelManager = new PanelManager();
 
