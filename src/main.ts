@@ -18,10 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // ScrollButton for each navbar link
   const navLinks = document.querySelectorAll(".navbar-nav a");
   navLinks.forEach((link, i) => {
-    if (derivedValues.panels[i]) {
+    if (derivedValues.panels[i + 1]) {
       new ScrollButton(
         link as HTMLElement,
-        derivedValues.panels[i] as HTMLElement,
+        derivedValues.panels[i + 1] as HTMLElement,
+        "center",
       );
     }
   });
