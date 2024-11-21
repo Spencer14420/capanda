@@ -6,19 +6,26 @@ import { UIManager } from "./classes/UIManager";
 import { ScrollButton } from "./classes/ScrollButton";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const contactForm = new ContactForm(
-    "api.php?action=sendMessage",
-    "SpCsrfToken",
-  );
+  new ContactForm("api.php?action=sendMessage", "SpCsrfToken");
+
+  // ScrollButton for the learn more button
+  const learnmoreBtn = document.querySelector(
+    "#learnmore-btn",
+  ) as HTMLButtonElement;
+  const firstSection = document.querySelector("#value") as HTMLElement;
+  new ScrollButton(learnmoreBtn, firstSection);
+
+  // ScrollButton for each navbar link
+  const navLinks = document.querySelectorAll(".navbar-nav a");
+  navLinks.forEach((link, i) => {
+    if (derivedValues.panels[i]) {
+      new ScrollButton(
+        link as HTMLElement,
+        derivedValues.panels[i] as HTMLElement,
+      );
+    }
+  });
 });
-
-//Learn more button
-const learnmoreBtn = document.querySelector(
-  "#learnmore-btn",
-) as HTMLButtonElement;
-const firstSection = document.querySelector("#value") as HTMLElement;
-
-new ScrollButton(learnmoreBtn, firstSection);
 
 const panelManager = new PanelManager();
 
