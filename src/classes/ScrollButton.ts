@@ -1,9 +1,9 @@
 type ScrollPosition = "start" | "center" | "end" | "nearest";
 
 export class ScrollButton {
-  clickElement: HTMLElement;
-  scrollToElement: HTMLElement;
-  scrollPosition: ScrollPosition;
+  private clickElement: HTMLElement;
+  private scrollToElement: HTMLElement;
+  private scrollPosition: ScrollPosition;
 
   constructor(
     clickElement: HTMLElement,
