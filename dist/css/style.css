@@ -151,7 +151,7 @@ footer {
 
 .panel-row p,
 .panel-row h1 {
-  margin-block-end: 22px;
+  margin-block-end: 1.2rem;
 }
 
 .navbar-nav .text-danger {
