@@ -244,11 +244,11 @@ $token = $tokenHandler->generateToken();
                 </div>
                 <div class="modal-body">
                     <div>
-                        <a href="tel:613-831-7639" class="d-flex align-items-center text-dark mx-1 contact-info">
+                        <a href="tel:613-831-7639" class="d-flex align-items-center text-dark contact-info">
                             <span>613-831-7639</span>
                             <img alt="Phone" src="https://ik.imagekit.io/capanda/tr:w-26/Icons/phone-sm.png">
                         </a>
-                        <a href="mailto:info@capanda.ca" class="d-flex align-items-center text-dark mx-1 contact-info">
+                        <a href="mailto:info@capanda.ca" class="d-flex align-items-center text-dark contact-info">
                             <img alt="EMail" src="https://ik.imagekit.io/capanda/tr:w-26/Icons/email-sm.png">
                             <span>info@capanda.ca</span>
                         </a>
