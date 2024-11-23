@@ -27,4 +27,44 @@ export class Utils {
       ? CONFIG.shortScreenAddition
       : CONFIG.largeScreenAddition;
   }
+
+  // Changes the turnstile widget size based on the screen width.
+  static updateTurnstileWidget(): void {
+    const container = document.querySelector(
+      "#turnstile-container",
+    ) as HTMLElement;
+
+    if (!container) {
+      return;
+    }
+
+    const screenWidth = window.innerWidth;
+    const widgetSize =
+      screenWidth < CONFIG.turnstileCompactSize ? "compact" : "normal";
+
+    if (container.getAttribute("data-size") === widgetSize) {
+      return;
+    }
+
+    // Re-render the Turnstile widget with the new size
+    container.innerHTML = "";
+    turnstile.render(container, {
+      sitekey: CONFIG.turnstileSiteKey,
+      size: widgetSize,
+    });
+  }
+
+  static debounce<T extends (...args: any[]) => any>(
+    func: T,
+    delay: number,
+  ): (...args: Parameters<T>) => void {
+    let timeoutId: number | undefined;
+
+    return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        func.apply(this, args);
+      }, delay);
+    };
+  }
 }
