@@ -84,11 +84,11 @@ export class PanelManager {
     index: number,
     panelY: number,
   ): number {
-    const addition = Utils.calculateAddition(
-      this.useableArea,
-      this.largestPanelHeight,
-    );
     const centeredMargin = (window.innerHeight - panelHeight) / 2;
+    const addition =
+      this.useableArea < this.largestPanelHeight + CONFIG.minTopBottomSpace * 2
+        ? CONFIG.shortScreenAddition
+        : CONFIG.largeScreenAddition;
 
     // The first panel after the .top-panel is index === 2
     if (index === 2) {
