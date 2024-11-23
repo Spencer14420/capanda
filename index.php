@@ -265,7 +265,7 @@ $token = $tokenHandler->generateToken();
                         <label for="Message">Message</label>
                         <textarea class="form-control" id="message" name="message" rows="5"></textarea>
                     </div>
-                    <div style="text-align: center;" class="cf-turnstile" data-sitekey="0x4AAAAAAAyvgzXqVhbwOBo6"></div>
+                    <div style="text-align: center;" id="turnstile-container"></div>
                     <input type="hidden" id="SpCsrfToken" name="SpCsrfToken" value="<?php echo $token ?>">
                     <div id="message-alert" class="alert alert-danger" role="alert"></div>
                 </div>

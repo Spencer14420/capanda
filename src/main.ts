@@ -3,6 +3,7 @@ import { ContactForm } from "spemailhandler";
 import { derivedValues } from "./constants/derivedValues";
 import { PanelManager } from "./classes/PanelManager";
 import { UIManager } from "./classes/UIManager";
+import { Utils } from "./utils/utils";
 
 document.addEventListener("DOMContentLoaded", () => {
   const contactForm = new ContactForm(
@@ -28,12 +29,15 @@ if (learnmoreBtn && firstSection) {
 
 const panelManager = new PanelManager();
 
-//Set panel positions when the page loads or the window is resized
+// Set panel positions and update Turnstile widget when the page loads or the window is resized
 window.addEventListener("load", () => {
   panelManager.setPositions();
+  Utils.updateTurnstileWidget();
 });
+
 window.addEventListener("resize", () => {
   panelManager.setPositions();
+  Utils.updateTurnstileWidget();
 });
 
 //Dynamically update panel styles and UI elements based on the scroll position.
