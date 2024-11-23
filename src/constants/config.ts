@@ -16,7 +16,7 @@ export const CONFIG: Config = {
   topHighOffset: 50, // Minimum amount to scroll before each subsequent transition occurs.
   bottomHighOffset: 100, // Minimum amount of blank space below each panel before transition can occur.
   minTopBottomSpace: 80, // Minimum space required above and below the tallest panel to consider the screen "large".
-  shortScreenAddition: 300, // Pushes the panels down by this amount on short screens.
+  shortScreenAddition: window.screen.height, // Pushes the panels down by this amount on short screens.
   largeScreenAddition: 25, // Pushes the panels down by this amount on large screens.
   panelPrefix: ".panel",
   colors: {

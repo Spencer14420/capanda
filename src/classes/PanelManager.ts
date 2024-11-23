@@ -84,16 +84,20 @@ export class PanelManager {
     index: number,
     panelY: number,
   ): number {
-    return this.useableArea > panelHeight
-      ? index === 2
-        ? -(this.useableArea + panelHeight) / 2 +
-          CONFIG.firstTransition +
-          Utils.calculateAddition(this.useableArea, panelHeight)
-        : this.transitionY[index - 3] -
-          panelY +
-          (window.innerHeight - panelHeight) / 2 +
-          Utils.calculateAddition(this.useableArea, panelHeight)
-      : -this.useableArea / 2;
+    const addition = Utils.calculateAddition(
+      this.useableArea,
+      this.largestPanelHeight,
+    );
+    const centeredMargin = (window.innerHeight - panelHeight) / 2;
+
+    // The first panel after the .top-panel is index === 2
+    if (index === 2) {
+      const centeredPosition = -(this.useableArea + panelHeight) / 2;
+      return centeredPosition + CONFIG.firstTransition + addition;
+    }
+
+    const relativePosition = this.transitionY[index - 3] - panelY;
+    return relativePosition + centeredMargin + addition;
   }
 
   //Position #value element, etc. (for header links)
