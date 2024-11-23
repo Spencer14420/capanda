@@ -35,10 +35,11 @@ window.addEventListener("load", () => {
   Utils.updateTurnstileWidget();
 });
 
-window.addEventListener("resize", () => {
+const debouncedResize = Utils.debounce(function () {
   panelManager.setPositions();
   Utils.updateTurnstileWidget();
-});
+}, 200);
+window.addEventListener("resize", debouncedResize);
 
 //Dynamically update panel styles and UI elements based on the scroll position.
 window.addEventListener("scroll", () => {
