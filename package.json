@@ -35,6 +35,6 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
-    "spemailhandler": "^1.2.0"
+    "spemailhandler": "^1.3.0"
   }
 }
