@@ -240,7 +240,7 @@ $token = $tokenHandler->generateToken();
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title" id="contactModalLabel">Contact Us</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="contactCancel"></button>
                 </div>
                 <div class="modal-body">
                     <div>
