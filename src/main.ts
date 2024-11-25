@@ -3,14 +3,18 @@ import { ContactForm } from "spemailhandler";
 import { derivedValues } from "./constants/derivedValues";
 import { PanelManager } from "./classes/PanelManager";
 import { UIManager } from "./classes/UIManager";
+import { Modal } from "./classes/Modal";
 import { Utils } from "./utils/utils";
 
-document.addEventListener("DOMContentLoaded", () => {
-  const contactForm = new ContactForm(
-    "api.php?action=sendMessage",
-    "SpCsrfToken",
-  );
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   const contactForm = new ContactForm(
+//     "api.php?action=sendMessage",
+//     "SpCsrfToken",
+//   );
+// });
+
+// Modal test
+const modal = new Modal("#contact");
 
 //Learn more button
 const learnmoreBtn = document.querySelector(
