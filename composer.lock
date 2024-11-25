@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "phpmailer/phpmailer",
-            "version": "v6.9.2",
+            "version": "v6.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "a7b17b42fa4887c92146243f3d2f4ccb962af17c"
+                "reference": "2f5c94fe7493efc213f643c23b1b1c249d40f47e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/a7b17b42fa4887c92146243f3d2f4ccb962af17c",
-                "reference": "a7b17b42fa4887c92146243f3d2f4ccb962af17c",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/2f5c94fe7493efc213f643c23b1b1c249d40f47e",
+                "reference": "2f5c94fe7493efc213f643c23b1b1c249d40f47e",
                 "shasum": ""
             },
             "require": {
@@ -77,7 +77,7 @@
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
             "support": {
                 "issues": "https://github.com/PHPMailer/PHPMailer/issues",
-                "source": "https://github.com/PHPMailer/PHPMailer/tree/v6.9.2"
+                "source": "https://github.com/PHPMailer/PHPMailer/tree/v6.9.3"
             },
             "funding": [
                 {
@@ -85,7 +85,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-10-09T10:07:50+00:00"
+            "time": "2024-11-24T18:04:13+00:00"
         },
         {
             "name": "spencer14420/sp-anti-csrf",
@@ -125,21 +125,24 @@
         },
         {
             "name": "spencer14420/sp-php-email-handler",
-            "version": "1.0.0-beta1",
+            "version": "1.0.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spencer14420/SPEmailHandler-PHP.git",
-                "reference": "457556e0128eb87fb388c1f0e46549a3d610e6eb"
+                "reference": "85197061fe53ee5897ecb729474a1be19f752da9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spencer14420/SPEmailHandler-PHP/zipball/457556e0128eb87fb388c1f0e46549a3d610e6eb",
-                "reference": "457556e0128eb87fb388c1f0e46549a3d610e6eb",
+                "url": "https://api.github.com/repos/Spencer14420/SPEmailHandler-PHP/zipball/85197061fe53ee5897ecb729474a1be19f752da9",
+                "reference": "85197061fe53ee5897ecb729474a1be19f752da9",
                 "shasum": ""
             },
             "require": {
                 "phpmailer/phpmailer": "^6.9",
                 "spencer14420/sp-anti-csrf": "^1.0@alpha"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^11.4"
             },
             "type": "library",
             "autoload": {
@@ -159,9 +162,9 @@
             "description": "A server-side PHP handler for contact forms. Handles form submissions, validates user inputs, sends emails to a mailbox, and sends confirmation emails to users.",
             "support": {
                 "issues": "https://github.com/Spencer14420/SPEmailHandler-PHP/issues",
-                "source": "https://github.com/Spencer14420/SPEmailHandler-PHP/tree/1.0.0-beta1"
+                "source": "https://github.com/Spencer14420/SPEmailHandler-PHP/tree/1.0.0-beta2"
             },
-            "time": "2024-11-18T16:47:52+00:00"
+            "time": "2024-11-25T13:06:46+00:00"
         }
     ],
     "packages-dev": [],
