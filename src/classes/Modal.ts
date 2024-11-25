@@ -7,21 +7,19 @@ export class Modal {
   private isTransitioning: boolean = false;
 
   constructor(selector: string) {
-    this.element = document.querySelector(selector) as HTMLElement;
-    if (!this.element) {
+    const modalElement = document.querySelector(selector);
+    if (!(modalElement instanceof HTMLElement)) {
       throw new Error(`Modal element with selector "${selector}" not found.`);
     }
+    this.element = modalElement;
 
-    this.modalContent = this.element.querySelector(
-      ".modal-content",
-    ) as HTMLElement;
-    if (!this.modalContent) {
+    const modalContent = this.element.querySelector(".modal-content");
+    if (!(modalContent instanceof HTMLElement)) {
       throw new Error(`Modal content element not found inside "${selector}".`);
     }
+    this.modalContent = modalContent;
 
-    this.showButton = document.querySelector(
-      `[data-bs-target="${selector}"]`,
-    ) as HTMLElement | null;
+    this.showButton = document.querySelector(`[data-bs-target="${selector}"]`);
     this.closeButton = this.element.querySelector(".btn-close");
 
     this.outsideClickHandler = this.handleOutsideClick.bind(this);
@@ -92,24 +90,12 @@ export class Modal {
   }
 
   private initializeEventListeners(): void {
-    if (this.showButton) {
-      this.showButton.addEventListener("click", () => this.show());
-    } else {
-      console.warn("Show button not found.");
-    }
-
-    if (this.closeButton) {
-      this.closeButton.addEventListener("click", () => this.hide());
-    } else {
-      console.warn("Close button not found.");
-    }
+    this.showButton?.addEventListener("click", () => this.show());
+    this.closeButton?.addEventListener("click", () => this.hide());
   }
 
   private handleOutsideClick(event: MouseEvent): void {
-    const target = event.target as HTMLElement;
-
-    // Check if the click is outside the modal content
-    if (!this.modalContent.contains(target)) {
+    if (!this.modalContent.contains(event.target as Node)) {
       this.hide();
     }
   }
