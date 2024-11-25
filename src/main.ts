@@ -3,6 +3,7 @@ import { ContactForm } from "spemailhandler";
 import { derivedValues } from "./constants/derivedValues";
 import { PanelManager } from "./classes/PanelManager";
 import { UIManager } from "./classes/UIManager";
+import { Modal } from "sp14420-modal";
 import { Utils } from "./utils/utils";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -11,6 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "SpCsrfToken",
   );
 });
+
+// Modal test
+const modal = new Modal("#contact");
 
 //Learn more button
 const learnmoreBtn = document.querySelector(
