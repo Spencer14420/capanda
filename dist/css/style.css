@@ -58,10 +58,6 @@ body {
   text-shadow: 0 0 15px black;
 }
 
-.top-panel div {
-  block-size: 50%;
-}
-
 .btn-capanda {
   display: inline-block;
   background-color: var(--button-color);
