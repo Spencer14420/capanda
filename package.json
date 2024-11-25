@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "nodemon -w src -w assets -w index.html -e css,html,js --ignore dist/ -x npm run build",
-    "build": "npx purgecss --config purgecss.config.js && npx esbuild src/main.ts --bundle --minify --outfile=dist/js/script.js --keep-names"
+    "build": "npx purgecss --content \"index.php\" \"dist/**/*.js\" --css \"assets/bootstrap.min.css\" --output \"dist/css/bootstrap.css\" && npx esbuild src/main.ts --bundle --minify --outfile=dist/js/script.js --keep-names"
   },
   "repository": {
     "type": "git",
@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "purgecss": "^7.0.2",
     "spemailhandler": "^1.3.0"
   }
 }
