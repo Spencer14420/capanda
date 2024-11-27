@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60a28404acab375b2bb6e92a495902dc",
+    "content-hash": "951fcad218a057fc1d4fb5fab3ff53d3",
     "packages": [
         {
             "name": "phpmailer/phpmailer",
@@ -171,8 +171,7 @@
     "aliases": [],
     "minimum-stability": "alpha",
     "stability-flags": {
-        "spencer14420/sp-anti-csrf": 15,
-        "spencer14420/sp-php-email-handler": 10
+        "spencer14420/sp-anti-csrf": 15
     },
     "prefer-stable": true,
     "prefer-lowest": false,
