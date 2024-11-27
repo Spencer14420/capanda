@@ -28,7 +28,7 @@ export class Utils {
       : CONFIG.largeScreenAddition;
   }
 
-  // Changes the turnstile widget size based on the screen width.
+  // Renders the turnstile widget size based on the screen width.
   static updateTurnstileWidget(): void {
     const container = document.querySelector(
       "#turnstile-container",
