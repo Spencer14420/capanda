@@ -59,7 +59,7 @@ $token = $tokenHandler->generateToken();
                         height="18px">
                 </a>
             </div>
-            <button type="button" class="btn-capanda btn-capanda-red ms-0" data-bs-toggle="modal" data-bs-target="#contact">
+            <button type="button" class="btn-capanda btn-capanda-red ms-0" data-showModal="#contact">
                 <span class="contactBtnText">Contact Us</span>
                 <span class="contactBtnIcons"><img alt="Phone"
                         src="https://ik.imagekit.io/capanda/tr:w-26/Icons/phone-sm.png" width="18px" height="18px"><img
@@ -240,7 +240,7 @@ $token = $tokenHandler->generateToken();
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title" id="contactModalLabel">Contact Us</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="contactCancel"></button>
+                    <button type="button" class="btn-close" data-closeModal="#contact" aria-label="Close" id="contactCancel"></button>
                 </div>
                 <div class="modal-body">
                     <div>
@@ -281,7 +281,7 @@ $token = $tokenHandler->generateToken();
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title" id="successModalLabel">Contact Us</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-closeModal="#success" aria-label="Close"></button>
                 </div>
                 <div class="d-flex flex-column justify-content-center align-items-center modal-body text-center">
                     <svg class="mb-4" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
@@ -296,7 +296,7 @@ $token = $tokenHandler->generateToken();
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn-capanda btn-capanda-grey messagecancel" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn-capanda btn-capanda-grey messagecancel" data-closeModal="#success">Close</button>
                 </div>
             </div>
         </div>
