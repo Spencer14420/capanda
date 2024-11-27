@@ -4,7 +4,7 @@
   "minimum-stability": "alpha",
   "prefer-stable": true,
   "require": {
-    "spencer14420/sp-php-email-handler": "^1.0@beta",
+    "spencer14420/sp-php-email-handler": "^1.0",
     "spencer14420/sp-anti-csrf": "^1.0@alpha"
   }
 }
