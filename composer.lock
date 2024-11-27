@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9bff3ac6c7ef22408a7fe7fb9e7b214b",
+    "content-hash": "951fcad218a057fc1d4fb5fab3ff53d3",
     "packages": [
         {
             "name": "phpmailer/phpmailer",
@@ -125,16 +125,16 @@
         },
         {
             "name": "spencer14420/sp-php-email-handler",
-            "version": "1.0.0-beta2",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spencer14420/SPEmailHandler-PHP.git",
-                "reference": "85197061fe53ee5897ecb729474a1be19f752da9"
+                "reference": "6f00dd0d44ff27889aed2980a5ba06e60d83549d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spencer14420/SPEmailHandler-PHP/zipball/85197061fe53ee5897ecb729474a1be19f752da9",
-                "reference": "85197061fe53ee5897ecb729474a1be19f752da9",
+                "url": "https://api.github.com/repos/Spencer14420/SPEmailHandler-PHP/zipball/6f00dd0d44ff27889aed2980a5ba06e60d83549d",
+                "reference": "6f00dd0d44ff27889aed2980a5ba06e60d83549d",
                 "shasum": ""
             },
             "require": {
@@ -162,19 +162,18 @@
             "description": "A server-side PHP handler for contact forms. Handles form submissions, validates user inputs, sends emails to a mailbox, and sends confirmation emails to users.",
             "support": {
                 "issues": "https://github.com/Spencer14420/SPEmailHandler-PHP/issues",
-                "source": "https://github.com/Spencer14420/SPEmailHandler-PHP/tree/1.0.0-beta2"
+                "source": "https://github.com/Spencer14420/SPEmailHandler-PHP/tree/1.0.0"
             },
-            "time": "2024-11-25T13:06:46+00:00"
+            "time": "2024-11-27T20:26:01+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "alpha",
     "stability-flags": {
-        "spencer14420/sp-anti-csrf": 15,
-        "spencer14420/sp-php-email-handler": 10
+        "spencer14420/sp-anti-csrf": 15
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {},
     "platform-dev": {},
