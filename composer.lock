@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "951fcad218a057fc1d4fb5fab3ff53d3",
+    "content-hash": "42f1a888aa54abc5df402fc9e6c898d4",
     "packages": [
         {
             "name": "phpmailer/phpmailer",
@@ -89,16 +89,16 @@
         },
         {
             "name": "spencer14420/sp-anti-csrf",
-            "version": "1.0.0-alpha3",
+            "version": "1.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spencer14420/SPAntiCSRF.git",
-                "reference": "f584adb34554d4ab5ca616200f44b8c39078def9"
+                "reference": "e109cdd671257b1dcdecc09eaf37cb6dbd4ce5b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spencer14420/SPAntiCSRF/zipball/f584adb34554d4ab5ca616200f44b8c39078def9",
-                "reference": "f584adb34554d4ab5ca616200f44b8c39078def9",
+                "url": "https://api.github.com/repos/Spencer14420/SPAntiCSRF/zipball/e109cdd671257b1dcdecc09eaf37cb6dbd4ce5b6",
+                "reference": "e109cdd671257b1dcdecc09eaf37cb6dbd4ce5b6",
                 "shasum": ""
             },
             "type": "library",
@@ -119,27 +119,27 @@
             "description": "Can be used to generate and validate anti-CSRF tokens",
             "support": {
                 "issues": "https://github.com/Spencer14420/SPAntiCSRF/issues",
-                "source": "https://github.com/Spencer14420/SPAntiCSRF/tree/1.0.0-alpha3"
+                "source": "https://github.com/Spencer14420/SPAntiCSRF/tree/1.0.0-beta1"
             },
-            "time": "2024-11-16T21:19:00+00:00"
+            "time": "2024-11-28T21:53:22+00:00"
         },
         {
             "name": "spencer14420/sp-php-email-handler",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spencer14420/SPEmailHandler-PHP.git",
-                "reference": "6f00dd0d44ff27889aed2980a5ba06e60d83549d"
+                "reference": "11686d20843fcb5d6cd7f52b10cd8eb7fe9c2998"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spencer14420/SPEmailHandler-PHP/zipball/6f00dd0d44ff27889aed2980a5ba06e60d83549d",
-                "reference": "6f00dd0d44ff27889aed2980a5ba06e60d83549d",
+                "url": "https://api.github.com/repos/Spencer14420/SPEmailHandler-PHP/zipball/11686d20843fcb5d6cd7f52b10cd8eb7fe9c2998",
+                "reference": "11686d20843fcb5d6cd7f52b10cd8eb7fe9c2998",
                 "shasum": ""
             },
             "require": {
                 "phpmailer/phpmailer": "^6.9",
-                "spencer14420/sp-anti-csrf": "^1.0@alpha"
+                "spencer14420/sp-anti-csrf": "^1.0@beta"
             },
             "require-dev": {
                 "phpunit/phpunit": "^11.4"
@@ -162,16 +162,16 @@
             "description": "A server-side PHP handler for contact forms. Handles form submissions, validates user inputs, sends emails to a mailbox, and sends confirmation emails to users.",
             "support": {
                 "issues": "https://github.com/Spencer14420/SPEmailHandler-PHP/issues",
-                "source": "https://github.com/Spencer14420/SPEmailHandler-PHP/tree/1.0.0"
+                "source": "https://github.com/Spencer14420/SPEmailHandler-PHP/tree/1.0.1"
             },
-            "time": "2024-11-27T20:26:01+00:00"
+            "time": "2024-11-28T22:26:21+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "alpha",
     "stability-flags": {
-        "spencer14420/sp-anti-csrf": 15
+        "spencer14420/sp-anti-csrf": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,
