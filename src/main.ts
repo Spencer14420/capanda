@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const contactForm = new ContactForm(
     "api.php?action=sendMessage",
     "SpCsrfToken",
+    Utils.updateTurnstileWidget,
   );
 });
 
