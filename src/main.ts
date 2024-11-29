@@ -7,10 +7,14 @@ import { Modal } from "sp14420-modal";
 import { Utils } from "./utils/utils";
 
 document.addEventListener("DOMContentLoaded", () => {
+  //Sets the CSRF token in the contact form input field
+  Utils.setCsrfToken();
+
+  // Initialize the contact form
   const contactForm = new ContactForm(
     "api.php?action=sendMessage",
     "SpCsrfToken",
-    Utils.updateTurnstileWidget,
+    Utils.refreshContactForm,
   );
 });
 

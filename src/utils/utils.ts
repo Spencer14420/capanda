@@ -54,6 +54,61 @@ export class Utils {
     });
   }
 
+  // Gets and a CSRF token from the server
+  static async getCsrfToken(): Promise<string | null> {
+    const apiEndpoint = "/api.php?action=getCSRFToken";
+
+    try {
+      const response = await fetch(apiEndpoint);
+
+      if (!response.ok) {
+        console.error(`Error, status: ${response.status}`);
+        return null;
+      }
+
+      const data = await response.json();
+
+      if (data && data.token) {
+        return data.token;
+      } else {
+        console.error("Token not found in the response.");
+        return null;
+      }
+    } catch (error) {
+      console.error("Error fetching the CSRF token:", error);
+      return null;
+    }
+  }
+
+  // Sets the CSRF token in the contact form input field
+  static async setCsrfToken(): Promise<void> {
+    const csrfTokenInput = document.getElementById(
+      "SpCsrfToken",
+    ) as HTMLInputElement;
+    if (!csrfTokenInput) {
+      console.error('Input element with id "SpCsrfToken" not found.');
+      return;
+    }
+
+    try {
+      const token = await Utils.getCsrfToken();
+      if (!token) {
+        console.error("Failed to fetch a valid CSRF token.");
+        return;
+      }
+
+      csrfTokenInput.value = token;
+    } catch (error) {
+      console.error("Error setting the CSRF token:", error);
+    }
+  }
+
+  //Reloads turnstile and regenerates the CSRF token for the contact form
+  static refreshContactForm() {
+    this.updateTurnstileWidget;
+    this.setCsrfToken;
+  }
+
   static debounce<T extends (...args: any[]) => any>(
     func: T,
     delay: number,
