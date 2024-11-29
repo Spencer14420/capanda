@@ -104,9 +104,11 @@ export class Utils {
   }
 
   //Reloads turnstile and regenerates the CSRF token for the contact form
-  static refreshContactForm() {
-    this.updateTurnstileWidget;
-    this.setCsrfToken;
+  static refreshContactForm(): (responseData: Record<string, any>) => void {
+    return (responseData: Record<string, any>) => {
+      this.updateTurnstileWidget();
+      this.setCsrfToken();
+    };
   }
 
   static debounce<T extends (...args: any[]) => any>(
