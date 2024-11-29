@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . "/../../vendor/autoload.php";
-require_once __DIR__ . "/token-handler.php";
 
 use spencer14420\PhpEmailHandler\EmailHandler;
 
@@ -9,5 +8,5 @@ try {
     $emailHandler = new EmailHandler(__DIR__ . "/email-config.php");
     $emailHandler->handleRequest();
 } catch(Exception $e) {
-    echo json_encode(['status' => 'error', 'message' => $e->getMessage()]); 
+    echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
 }

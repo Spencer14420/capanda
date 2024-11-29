@@ -8,6 +8,10 @@ switch ($action) {
     case "sendMessage":
         require_once __DIR__ . "/dist/php/email-handler.php";
         break;
+
+    case "getCSRFToken":
+        require_once __DIR__ . "/dist/php/token-handler.php";
+        break;
     
     default:
         http_response_code(400);
