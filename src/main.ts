@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 });
 
-// Modal test
+// Contact Modal
 const modal = new Modal("#contact");
 
 //Learn more button
