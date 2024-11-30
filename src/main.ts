@@ -37,20 +37,31 @@ if (learnmoreBtn && firstSection) {
 const contactBtn = document.querySelector<HTMLButtonElement>(
   `[data-showModal="#contact"]`,
 );
+
 if (contactBtn) {
-  let loaded = false;
-  contactBtn.addEventListener("click", async () => {
-    // Loads and sets the CSRF token and loads the Turnstile widget
-    if (!loaded) {
-      try {
-        await Utils.setCsrfToken();
-        Utils.updateTurnstileWidget();
-        loaded = true;
-      } catch (error) {
-        console.error("Failed to load CSRF or Turnstile:", error);
-      }
+  let isPreloading = false;
+  let isLoaded = false;
+
+  // Load the CSRF token and the Turnstile widget
+  const loadCsrfAndTurnstile = async () => {
+    if (isLoaded || isPreloading) return; // Prevent redundant calls
+    isPreloading = true;
+    try {
+      await Utils.setCsrfToken(); // Async function to set CSRF token
+      Utils.updateTurnstileWidget(); // Synchronous function to update Turnstile widget
+      isLoaded = true;
+    } catch (error) {
+      console.error("CSRF and Turnstile loading failed:", error);
+    } finally {
+      isPreloading = false;
     }
+  };
+
+  contactBtn.addEventListener("mouseenter", loadCsrfAndTurnstile);
+  contactBtn.addEventListener("touchstart", loadCsrfAndTurnstile, {
+    passive: true,
   });
+  contactBtn.addEventListener("click", loadCsrfAndTurnstile);
 }
 
 const panelManager = new PanelManager();
