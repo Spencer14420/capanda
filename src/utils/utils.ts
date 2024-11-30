@@ -54,7 +54,7 @@ export class Utils {
     });
   }
 
-  // Gets and a CSRF token from the server
+  // Gets a CSRF token from the server
   static async getCsrfToken(): Promise<string | null> {
     const apiEndpoint = "./api.php?action=getCSRFToken";
 

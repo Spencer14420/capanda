@@ -7,9 +7,6 @@ import { Modal } from "sp14420-modal";
 import { Utils } from "./utils/utils";
 
 document.addEventListener("DOMContentLoaded", () => {
-  //Sets the CSRF token in the contact form input field
-  Utils.setCsrfToken();
-
   // Initialize the contact form
   const contactForm = new ContactForm(
     "api.php?action=sendMessage",
@@ -18,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 });
 
-// Modal test
+// Contact Modal
 const modal = new Modal("#contact");
 
 //Learn more button
@@ -36,12 +33,42 @@ if (learnmoreBtn && firstSection) {
   });
 }
 
+// Contact Us button
+const contactBtn = document.querySelector<HTMLButtonElement>(
+  `[data-showModal="#contact"]`,
+);
+
+if (contactBtn) {
+  let isPreloading = false;
+  let isLoaded = false;
+
+  // Load the CSRF token and the Turnstile widget
+  const loadCsrfAndTurnstile = async () => {
+    if (isLoaded || isPreloading) return; // Prevent redundant calls
+    isPreloading = true;
+    try {
+      await Utils.setCsrfToken(); // Async function to set CSRF token
+      Utils.updateTurnstileWidget(); // Synchronous function to update Turnstile widget
+      isLoaded = true;
+    } catch (error) {
+      console.error("CSRF and Turnstile loading failed:", error);
+    } finally {
+      isPreloading = false;
+    }
+  };
+
+  contactBtn.addEventListener("mouseenter", loadCsrfAndTurnstile);
+  contactBtn.addEventListener("touchstart", loadCsrfAndTurnstile, {
+    passive: true,
+  });
+  contactBtn.addEventListener("click", loadCsrfAndTurnstile);
+}
+
 const panelManager = new PanelManager();
 
-// Set panel positions and update Turnstile widget when the page loads or the window is resized
+// Set panel positions when the page loads or the window is resized
 window.addEventListener("load", () => {
   panelManager.setPositions();
-  Utils.updateTurnstileWidget();
 });
 
 const debouncedResize = Utils.debounce(function () {
