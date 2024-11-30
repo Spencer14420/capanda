@@ -7,9 +7,6 @@ import { Modal } from "sp14420-modal";
 import { Utils } from "./utils/utils";
 
 document.addEventListener("DOMContentLoaded", () => {
-  //Sets the CSRF token in the contact form input field
-  Utils.setCsrfToken();
-
   // Initialize the contact form
   const contactForm = new ContactForm(
     "api.php?action=sendMessage",
@@ -36,12 +33,31 @@ if (learnmoreBtn && firstSection) {
   });
 }
 
+// Contact Us button
+const contactBtn = document.querySelector<HTMLButtonElement>(
+  `[data-showModal="#contact"]`,
+);
+if (contactBtn) {
+  let loaded = false;
+  contactBtn.addEventListener("click", async () => {
+    // Loads and sets the CSRF token and loads the Turnstile widget
+    if (!loaded) {
+      try {
+        await Utils.setCsrfToken();
+        Utils.updateTurnstileWidget();
+        loaded = true;
+      } catch (error) {
+        console.error("Failed to load CSRF or Turnstile:", error);
+      }
+    }
+  });
+}
+
 const panelManager = new PanelManager();
 
-// Set panel positions and update Turnstile widget when the page loads or the window is resized
+// Set panel positions when the page loads or the window is resized
 window.addEventListener("load", () => {
   panelManager.setPositions();
-  Utils.updateTurnstileWidget();
 });
 
 const debouncedResize = Utils.debounce(function () {
