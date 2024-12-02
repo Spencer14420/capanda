@@ -37,6 +37,6 @@
   "dependencies": {
     "purgecss": "^7.0.2",
     "sp14420-modal": "^1.1.0",
-    "spemailhandler": "^1.3.0"
+    "spemailhandler": "^1.5.0"
   }
 }
