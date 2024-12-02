@@ -5,6 +5,40 @@ import { PanelManager } from "./classes/PanelManager";
 import { UIManager } from "./classes/UIManager";
 import { Modal } from "sp14420-modal";
 import { Utils } from "./utils/utils";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Select all panels and the body element
+const panels: NodeListOf<HTMLElement> = document.querySelectorAll(".panel");
+const body: HTMLElement = document.body;
+
+panels.forEach((panel: HTMLElement, index: number) => {
+  const panelBgColor: string = getComputedStyle(panel).backgroundColor;
+
+  ScrollTrigger.create({
+    trigger: panel,
+    start: () =>
+      `top+=${window.innerHeight / 2 - panel.offsetHeight / 2} center`, // Panel center aligns with viewport center
+    end: () => `bottom+=${window.innerHeight / 2 - panel.offsetHeight / 2} top`, // Next panel starts entering as this panel exits
+    scrub: true, // Smooth transitions
+    onEnter: () => {
+      gsap.to(body, { backgroundColor: panelBgColor, duration: 0.5 });
+      gsap.to(panel, { opacity: 1, scale: 1, duration: 0.5 });
+    },
+    onLeave: () => {
+      gsap.to(panel, { opacity: 0, scale: 0.95, duration: 0.5 });
+    },
+    onEnterBack: () => {
+      gsap.to(body, { backgroundColor: panelBgColor, duration: 0.5 });
+      gsap.to(panel, { opacity: 1, scale: 1, duration: 0.5 });
+    },
+    onLeaveBack: () => {
+      gsap.to(panel, { opacity: 0, scale: 0.95, duration: 0.5 });
+    },
+  });
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize the contact form

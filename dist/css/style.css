@@ -128,10 +128,15 @@ nav {
 .panel4,
 .panel5 {
   z-index: 0;
-  /* opacity: 0; */
+  opacity: 0;
   transition:
     background-color 400ms ease-in-out,
     opacity 400ms ease-in-out;
+}
+
+.top-panel,
+.panel2 {
+  background-color: var(--capanda-navy);
 }
 
 .panel3 {
