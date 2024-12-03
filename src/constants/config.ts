@@ -11,6 +11,12 @@ export interface Config {
   colors: {
     [key: string]: string;
   };
+  panelProperties: {
+    id: number;
+    bgColor: Config["colors"][keyof Config["colors"]];
+    textColor: Config["colors"][keyof Config["colors"]];
+    headerLink: number | false;
+  }[];
 }
 
 export const CONFIG: Config = {
@@ -27,5 +33,41 @@ export const CONFIG: Config = {
     blue: "#0e2c57",
     white: "#ededed",
     black: "#14171c",
+    pureWhite: "#ffffff",
+    pureBlack: "#000000",
   },
+  panelProperties: [],
 };
+
+CONFIG.panelProperties = [
+  {
+    id: 0,
+    bgColor: CONFIG.colors.blue,
+    textColor: CONFIG.colors.pureWhite,
+    headerLink: false,
+  },
+  {
+    id: 1,
+    bgColor: CONFIG.colors.blue,
+    textColor: CONFIG.colors.pureWhite,
+    headerLink: 0,
+  },
+  {
+    id: 2,
+    bgColor: CONFIG.colors.white,
+    textColor: CONFIG.colors.pureBlack,
+    headerLink: 1,
+  },
+  {
+    id: 3,
+    bgColor: CONFIG.colors.black,
+    textColor: CONFIG.colors.pureWhite,
+    headerLink: 2,
+  },
+  {
+    id: 4,
+    bgColor: CONFIG.colors.white,
+    textColor: CONFIG.colors.pureBlack,
+    headerLink: 3,
+  },
+];

@@ -104,23 +104,14 @@ window.addEventListener("scroll", () => {
 
   //Based on the scroll position, determine which panel to highlight and what colors to set.
   if (screenTop < CONFIG.firstTransition) {
-    UIManager.toggleTopPanel(1);
-    UIManager.headerLinks(-1);
+    UIManager.showPanel(0);
   } else if (screenTop >= CONFIG.firstTransition && !panelTopHigh[0]) {
-    UIManager.setPanelBackgroundColour(CONFIG.colors.blue);
-    UIManager.showText(1);
-    UIManager.headerLinks(0);
+    UIManager.showPanel(1);
   } else if (panelTopHigh[0] && !panelTopHigh[1] && panelBottomHigh[0]) {
-    UIManager.setPanelBackgroundColour(CONFIG.colors.white);
-    UIManager.showText(2);
-    UIManager.headerLinks(1);
+    UIManager.showPanel(2);
   } else if (panelTopHigh[1] && !panelTopHigh[2] && panelBottomHigh[1]) {
-    UIManager.setPanelBackgroundColour(CONFIG.colors.black);
-    UIManager.showText(3);
-    UIManager.headerLinks(2);
+    UIManager.showPanel(3);
   } else if (panelTopHigh[2] && panelBottomHigh[2]) {
-    UIManager.setPanelBackgroundColour(CONFIG.colors.white);
-    UIManager.showText(4);
-    UIManager.headerLinks(3);
+    UIManager.showPanel(4);
   }
 });

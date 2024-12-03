@@ -24,26 +24,12 @@ export class UIManager {
     }
   }
 
-  //Updates the text color of all text within the specified panel.
-  static textColour(colour: string, panel: number): void {
-    const textElements = document.querySelectorAll(
-      `${CONFIG.panelPrefix}${panel} p:not(#openingpara), ${CONFIG.panelPrefix}${panel} h1:not(#openingpara)`,
-    );
-    textElements.forEach((element) => {
-      (element as HTMLElement).classList.toggle(
-        "text-white",
-        colour === "white",
-      );
-    });
-  }
-
   //Shows the specified panel's text while hiding others.
   static showText(panel: number): void {
     const panels = document.querySelectorAll(
       `${CONFIG.panelPrefix}2, ${CONFIG.panelPrefix}3, ${CONFIG.panelPrefix}4, ${CONFIG.panelPrefix}5`,
     );
 
-    this.textColour(panel % 2 ? "white" : "black", panel + 1);
     panels.forEach((p, index) => {
       (p as HTMLElement).style.opacity = index === panel - 1 ? "1" : "0";
     });
@@ -55,14 +41,26 @@ export class UIManager {
       `body, ${CONFIG.panelPrefix}2, ${CONFIG.panelPrefix}3, ${CONFIG.panelPrefix}4, ${CONFIG.panelPrefix}5`,
     );
 
-    this.toggleTopPanel(0);
     panels.forEach((p) => {
       (p as HTMLElement).style.backgroundColor = colour;
     });
   }
 
+  //Updates the text color of all text within the specified panel.
+  static setPanelTextColor(colour: string): void {
+    const panels = document.querySelectorAll(
+      `${CONFIG.panelPrefix}2, ${CONFIG.panelPrefix}3, ${CONFIG.panelPrefix}4, ${CONFIG.panelPrefix}5`,
+    );
+
+    panels.forEach((p) => {
+      (p as HTMLElement).style.color = colour;
+    });
+  }
+
   //Highlights the specified header link and de-highlights others.
-  static headerLinks(highlightLink: number): void {
+  static headerLinks(highlightLink: number | false): void {
+    if (highlightLink === false) highlightLink = -1; // Unhighlight all links
+
     const headerLinks = document.querySelector(".navbar-nav")?.children;
     if (headerLinks) {
       Array.from(headerLinks).forEach((link, index) => {
@@ -75,6 +73,22 @@ export class UIManager {
           index !== highlightLink,
         );
       });
+    }
+  }
+
+  // Shows the specified panel and updates the UI elements based on the panel's properties.
+  static showPanel(panel: number): void {
+    this.toggleTopPanel(panel === 0 ? 1 : 0);
+
+    const panelProperty = CONFIG.panelProperties.find((p) => p.id === panel);
+
+    if (panelProperty) {
+      this.showText(panel);
+      this.setPanelBackgroundColour(panelProperty.bgColor);
+      this.setPanelTextColor(panelProperty.textColor);
+      this.headerLinks(panelProperty.headerLink);
+    } else {
+      console.error(`Panel with ID ${panel} not found.`);
     }
   }
 }
