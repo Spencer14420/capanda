@@ -39,7 +39,7 @@ export class UIManager {
   //Shows the specified panel's text while hiding others.
   private static showText(panel: number): void {
     this.panels.forEach((p, index) => {
-      (p as HTMLElement).style.opacity = index === panel - 1 ? "1" : "0";
+      (p as HTMLElement).classList.toggle("active-panel", index === panel - 1);
     });
   }
 
