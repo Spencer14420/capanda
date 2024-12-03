@@ -35,6 +35,7 @@ export const CONFIG: Config = {
     black: "#14171c",
     pureWhite: "#ffffff",
     pureBlack: "#000000",
+    red: "#aa0000",
   },
   panelProperties: [],
 };
