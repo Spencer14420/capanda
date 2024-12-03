@@ -14,7 +14,7 @@ export class UIManager {
 
   // Shows the specified panel and updates the UI elements based on the panel's properties.
   public static showPanel(panel: number): void {
-    this.showTopPanel(panel === 0 ? true : false);
+    this.showTopPanel(panel === 0);
 
     const panelProperty = CONFIG.panelProperties.find((p) => p.id === panel);
 
@@ -59,14 +59,12 @@ export class UIManager {
   }
 
   //Highlights the specified header link and de-highlights others.
-  private static highlightNavbarLink(highlightLink: number | false): void {
-    if (highlightLink === false) highlightLink = -1; // Unhighlight all links
-
+  private static highlightNavbarLink(highlightLink: number | null): void {
     if (this.navbarLinks) {
       Array.from(this.navbarLinks).forEach((link, index) => {
         (link as HTMLElement).classList.toggle(
           "nav-link-highlighted",
-          index === highlightLink,
+          highlightLink !== null && index === highlightLink,
         );
       });
     }

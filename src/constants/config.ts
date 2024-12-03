@@ -15,7 +15,7 @@ export interface Config {
     id: number;
     bgColor: Config["colors"][keyof Config["colors"]];
     textColor: Config["colors"][keyof Config["colors"]];
-    headerLink: number | false;
+    headerLink: number | null;
   }[];
 }
 
@@ -45,7 +45,7 @@ CONFIG.panelProperties = [
     id: 0,
     bgColor: CONFIG.colors.blue,
     textColor: CONFIG.colors.pureWhite,
-    headerLink: false,
+    headerLink: null,
   },
   {
     id: 1,
