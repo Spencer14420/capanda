@@ -65,12 +65,8 @@ export class UIManager {
     if (this.navbarLinks) {
       Array.from(this.navbarLinks).forEach((link, index) => {
         (link as HTMLElement).classList.toggle(
-          "text-danger",
+          "nav-link-highlighted",
           index === highlightLink,
-        );
-        (link as HTMLElement).classList.toggle(
-          "text-dark",
-          index !== highlightLink,
         );
       });
     }
