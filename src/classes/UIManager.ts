@@ -22,7 +22,7 @@ export class UIManager {
       this.showText(panel);
       this.setPanelBackgroundColour(panelProperty.bgColor);
       this.setPanelTextColor(panelProperty.textColor);
-      this.headerLinks(panelProperty.headerLink);
+      this.highlightNavbarLink(panelProperty.headerLink);
     } else {
       console.error(`Panel with ID ${panel} not found.`);
     }
@@ -59,7 +59,7 @@ export class UIManager {
   }
 
   //Highlights the specified header link and de-highlights others.
-  private static headerLinks(highlightLink: number | false): void {
+  private static highlightNavbarLink(highlightLink: number | false): void {
     if (highlightLink === false) highlightLink = -1; // Unhighlight all links
 
     if (this.navbarLinks) {
