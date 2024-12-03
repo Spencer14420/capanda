@@ -1,7 +1,7 @@
 import { CONFIG } from "../constants/config";
 import { Utils } from "../utils/utils";
 
-//Responsible for managing UI-related operations such as panel visibility, text color, and header link highlighting.
+//Responsible for managing UI-related operations such as panel visibility, text colour, and header link highlighting.
 export class UIManager {
   private static readonly topPanel = document.querySelector(
     ".top-panel",
@@ -21,7 +21,7 @@ export class UIManager {
     if (panelProperty) {
       this.showText(panel);
       this.setPanelBackgroundColour(panelProperty.bgColor);
-      this.setPanelTextColor(panelProperty.textColor);
+      this.setPanelTextColour(panelProperty.textColor);
       this.highlightNavbarLink(panelProperty.headerLink);
     } else {
       console.error(`Panel with ID ${panel} not found.`);
@@ -43,7 +43,7 @@ export class UIManager {
     });
   }
 
-  //Sets the background color for all panels and the body, and hides the top panel.
+  //Sets the background colour for all panels and the body, and hides the top panel.
   private static setPanelBackgroundColour(colour: string): void {
     document.body.style.backgroundColor = colour;
     this.panels.forEach((p) => {
@@ -51,8 +51,8 @@ export class UIManager {
     });
   }
 
-  //Updates the text color of all text within the specified panel.
-  private static setPanelTextColor(colour: string): void {
+  //Updates the text colour of all text within the specified panel.
+  private static setPanelTextColour(colour: string): void {
     this.panels.forEach((p) => {
       (p as HTMLElement).style.color = colour;
     });
