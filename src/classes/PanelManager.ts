@@ -1,7 +1,20 @@
 import { CONFIG } from "../constants/config";
 import { derivedValues } from "../constants/derivedValues";
 import { Panel } from "./Panel";
+import { PanelNew } from "./Panel";
 import { Utils } from "../utils/utils";
+
+export class PanelManagerNew {
+  private panels: PanelNew[];
+
+  constructor() {
+    this.panels = this.initializePanels();
+  }
+
+  private initializePanels(): PanelNew[] {
+    return CONFIG.panelProperties.map((_, i) => new PanelNew(i));
+  }
+}
 
 //Responsible for managing multiple panels, including positioning, setting margins, and handling interactions.
 export class PanelManager {
