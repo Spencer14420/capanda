@@ -123,18 +123,16 @@ nav {
   justify-content: center;
 }
 
-.panel2,
-.panel3,
-.panel4,
-.panel5 {
+.panel:not(.top-panel) {
   z-index: 0;
   opacity: 0;
+  position: absolute;
   transition:
     background-color 400ms ease-in-out,
     opacity 400ms ease-in-out;
 }
 
-.active-panel {
+.panel.active-panel {
   opacity: 1;
   z-index: 1;
 }

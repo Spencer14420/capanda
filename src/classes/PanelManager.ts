@@ -13,6 +13,9 @@ export class PanelManagerNew {
 
   private initializePanels(): PanelNew[] {
     return CONFIG.panelProperties.map((_, i) => new PanelNew(i));
+
+    this.panels.forEach((panel) => {
+      panel.element.style.top = "0";
   }
 }
 

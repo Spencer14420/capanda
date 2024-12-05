@@ -2,6 +2,7 @@ import { CONFIG } from "./constants/config";
 import { ContactForm } from "spemailhandler";
 import { derivedValues } from "./constants/derivedValues";
 import { PanelManager } from "./classes/PanelManager";
+import { PanelManagerNew } from "./classes/PanelManager";
 import { UIManager } from "./classes/UIManager";
 import { Modal } from "sp14420-modal";
 import { Utils } from "./utils/utils";
@@ -71,15 +72,17 @@ function initializeContactButton(): void {
 }
 
 function initializePanels(): void {
+  const panelManagerNew = new PanelManagerNew();
+
   const panelManager = new PanelManager();
 
   // Set panel positions when the page loads or the window is resized
   window.addEventListener("load", () => {
-    panelManager.setPositions();
+    //panelManager.setPositions();
   });
 
   const debouncedResize = Utils.debounce(function () {
-    panelManager.setPositions();
+    //panelManager.setPositions();
     Utils.updateTurnstileWidget();
   }, 200);
   window.addEventListener("resize", debouncedResize);
