@@ -56,6 +56,10 @@ export class PanelManagerNew {
       this.positionPanels();
     });
   }
+
+  public getPanels(): PanelNew[] {
+    return this.panels;
+  }
 }
 
 //Responsible for managing multiple panels, including positioning, setting margins, and handling interactions.
