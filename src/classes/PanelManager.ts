@@ -9,7 +9,7 @@ export class PanelManagerNew {
 
   constructor() {
     this.panels = this.initializePanels();
-    this.testPositioning();
+    this.positionPanels();
     this.setFooterPosition();
   }
 
@@ -17,14 +17,29 @@ export class PanelManagerNew {
     return CONFIG.panelProperties.map((_, i) => new PanelNew(i));
   }
 
-  private testPositioning(): void {
-    let prevY = 0;
-    this.panels.forEach((panel) => {
-      panel.setYPosition(prevY);
-      prevY += panel.height;
+  public positionPanels(): void {
+    const viewportHeight = window.innerHeight;
+
+    this.panels.forEach((panel, i) => {
+      if (i === 0) {
+        // First panel starts at the top of the page
+        panel.setYPosition(0);
+      } else {
+        const previousPanel = this.panels[i - 1];
+
+        // The current panel is centered when the top of the previous panel is at the top of the viewport
+        const centeredY =
+          previousPanel.y +
+          previousPanel.height -
+          viewportHeight / 2 +
+          panel.height / 2;
+
+        panel.setYPosition(centeredY);
+      }
     });
   }
 
+  // Places the footer just below the last panel
   public setFooterPosition(): void {
     const lastPanel = this.panels[this.panels.length - 1];
     const lastPanelBottom = lastPanel.y + lastPanel.height;
