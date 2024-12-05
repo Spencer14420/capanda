@@ -123,6 +123,12 @@ nav {
   justify-content: center;
 }
 
+main {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
 .panel:not(.top-panel) {
   z-index: 0;
   opacity: 0;
