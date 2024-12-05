@@ -9,13 +9,30 @@ export class PanelManagerNew {
 
   constructor() {
     this.panels = this.initializePanels();
+    this.testPositioning();
+    this.setFooterPosition();
   }
 
   private initializePanels(): PanelNew[] {
     return CONFIG.panelProperties.map((_, i) => new PanelNew(i));
+  }
 
+  private testPositioning(): void {
+    let prevY = 0;
     this.panels.forEach((panel) => {
-      panel.element.style.top = "0";
+      panel.setYPosition(prevY);
+      prevY += panel.height;
+    });
+  }
+
+  public setFooterPosition(): void {
+    const lastPanel = this.panels[this.panels.length - 1];
+    const lastPanelBottom = lastPanel.y + lastPanel.height;
+    const footer = document.querySelector("footer") as HTMLElement | null;
+
+    if (footer) {
+      footer.style.top = `${lastPanelBottom}px`;
+    }
   }
 }
 

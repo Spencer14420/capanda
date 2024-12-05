@@ -7,6 +7,8 @@ type PanelProperties = Config["panelProperties"][number];
 
 export class PanelNew {
   public properties: PanelProperties;
+  public y: number = 0;
+  public height: number;
   private element: HTMLElement;
 
   constructor(index: number) {
@@ -22,6 +24,13 @@ export class PanelNew {
     }
 
     this.element = panel;
+    this.setYPosition(0);
+    this.height = this.element.offsetHeight;
+  }
+
+  public setYPosition(y: number): void {
+    this.element.style.top = `${y}px`;
+    this.y = y;
   }
 }
 
