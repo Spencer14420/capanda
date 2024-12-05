@@ -10,14 +10,14 @@ export class PanelManagerNew {
   constructor() {
     this.panels = this.initializePanels();
     this.positionPanels();
-    this.setFooterPosition();
+    this.addResizeListener();
   }
 
   private initializePanels(): PanelNew[] {
     return CONFIG.panelProperties.map((_, i) => new PanelNew(i));
   }
 
-  public positionPanels(): void {
+  private positionPanels(): void {
     const viewportHeight = window.innerHeight;
 
     this.panels.forEach((panel, i) => {
@@ -37,10 +37,11 @@ export class PanelManagerNew {
         panel.setYPosition(centeredY);
       }
     });
+    this.setFooterPosition();
   }
 
   // Places the footer just below the last panel
-  public setFooterPosition(): void {
+  private setFooterPosition(): void {
     const lastPanel = this.panels[this.panels.length - 1];
     const lastPanelBottom = lastPanel.y + lastPanel.height;
     const footer = document.querySelector("footer") as HTMLElement | null;
@@ -48,6 +49,12 @@ export class PanelManagerNew {
     if (footer) {
       footer.style.top = `${lastPanelBottom}px`;
     }
+  }
+
+  private addResizeListener(): void {
+    window.addEventListener("resize", () => {
+      this.positionPanels();
+    });
   }
 }
 
