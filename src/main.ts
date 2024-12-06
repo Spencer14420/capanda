@@ -1,7 +1,6 @@
 import { CONFIG } from "./constants/config";
 import { ContactForm } from "spemailhandler";
 import { derivedValues } from "./constants/derivedValues";
-import { PanelManager } from "./classes/PanelManager";
 import { PanelManagerNew } from "./classes/PanelManager";
 import { UIManager } from "./classes/UIManager";
 import { Modal } from "sp14420-modal";
@@ -72,22 +71,13 @@ function initializeContactButton(): void {
 }
 
 function initializePanels(): void {
-  const panelManagerNew = new PanelManagerNew();
-
-  const panelManager = new PanelManager();
-
-  // Set panel positions when the page loads or the window is resized
-  window.addEventListener("load", () => {
-    //panelManager.setPositions();
-  });
-
   const debouncedResize = Utils.debounce(function () {
-    //panelManager.setPositions();
     Utils.updateTurnstileWidget();
   }, 200);
   window.addEventListener("resize", debouncedResize);
 
   // Dynamically update panel styles and UI elements based on the scroll position
+  const panelManagerNew = new PanelManagerNew();
   window.addEventListener("scroll", () => {
     updatePanelsOnScroll(panelManagerNew);
   });
