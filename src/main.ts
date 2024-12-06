@@ -1,7 +1,7 @@
 import { CONFIG } from "./constants/config";
 import { ContactForm } from "spemailhandler";
 import { derivedValues } from "./constants/derivedValues";
-import { PanelManagerNew } from "./classes/PanelManager";
+import { PanelManager } from "./classes/PanelManager";
 import { UIManager } from "./classes/UIManager";
 import { Modal } from "sp14420-modal";
 import { Utils } from "./utils/utils";
@@ -77,13 +77,13 @@ function initializePanels(): void {
   window.addEventListener("resize", debouncedResize);
 
   // Dynamically update panel styles and UI elements based on the scroll position
-  const panelManagerNew = new PanelManagerNew();
+  const panelManagerNew = new PanelManager();
   window.addEventListener("scroll", () => {
     updatePanelsOnScroll(panelManagerNew);
   });
 }
 
-function updatePanelsOnScroll(panelManager: PanelManagerNew): void {
+function updatePanelsOnScroll(panelManager: PanelManager): void {
   const navElement = document.querySelector("nav") as HTMLElement | null;
   if (!navElement) return;
 

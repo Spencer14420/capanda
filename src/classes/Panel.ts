@@ -1,11 +1,10 @@
-import { Utils } from "../utils/utils";
 import { Config } from "../constants/config";
 import { CONFIG } from "../constants/config";
 import { derivedValues } from "../constants/derivedValues";
 
 type PanelProperties = Config["panelProperties"][number];
 
-export class PanelNew {
+export class Panel {
   public properties: PanelProperties;
   public y: number = 0;
   public height: number;
@@ -35,36 +34,5 @@ export class PanelNew {
 
   public getBoundingClientRect(): DOMRect {
     return this.element.getBoundingClientRect();
-  }
-}
-
-//Provides methods to manipulate Panel properties like height, position, and styles.
-export class Panel {
-  element: HTMLElement;
-  index: number;
-
-  constructor(element: HTMLElement, index: number) {
-    this.element = element;
-    this.index = index;
-  }
-
-  getHeight() {
-    return this.element.offsetHeight;
-  }
-
-  getYPosition() {
-    return Utils.getElementY(this.element);
-  }
-
-  setMarginTop(marginTop: number): void {
-    this.element.style.marginTop = `${marginTop}px`;
-  }
-
-  setBackgroundColor(color: string): void {
-    this.element.style.backgroundColor = color;
-  }
-
-  setOpacity(opacity: number): void {
-    this.element.style.opacity = opacity.toString();
   }
 }
