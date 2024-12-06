@@ -89,22 +89,22 @@ function initializePanels(): void {
 
   // Dynamically update panel styles and UI elements based on the scroll position
   window.addEventListener("scroll", () => {
-    updatePanelsOnScroll(panelManager);
+    updatePanelsOnScroll(panelManagerNew);
   });
 }
 
-function updatePanelsOnScroll(panelManager: PanelManager): void {
+function updatePanelsOnScroll(panelManager: PanelManagerNew): void {
   const navElement = document.querySelector("nav") as HTMLElement | null;
   if (!navElement) return;
 
   const panelTopHigh: boolean[] = [];
   const panelBottomHigh: boolean[] = [];
 
-  for (let i = 2; i <= derivedValues.numPanels - 1; i++) {
-    const panel = panelManager.getPanel(i);
+  for (let i = 1; i < derivedValues.numPanels; i++) {
+    const panel = panelManager.getPanels()[i];
     if (!panel) continue;
 
-    const { y, bottom } = panel.element.getBoundingClientRect();
+    const { y, bottom } = panel.getBoundingClientRect();
     const navHeight = navElement.clientHeight;
 
     panelTopHigh.push(y < navHeight - CONFIG.topHighOffset);

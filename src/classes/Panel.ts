@@ -32,6 +32,10 @@ export class PanelNew {
     this.element.style.top = `${y}px`;
     this.y = y;
   }
+
+  public getBoundingClientRect(): DOMRect {
+    return this.element.getBoundingClientRect();
+  }
 }
 
 //Provides methods to manipulate Panel properties like height, position, and styles.
