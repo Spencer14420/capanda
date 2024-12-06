@@ -7,93 +7,125 @@ import { Modal } from "sp14420-modal";
 import { Utils } from "./utils/utils";
 
 document.addEventListener("DOMContentLoaded", () => {
-  //Sets the CSRF token in the contact form input field
-  Utils.setCsrfToken();
+  initializePage();
+});
 
+function initializePage(): void {
   // Initialize the contact form
   const contactForm = new ContactForm(
     "api.php?action=sendMessage",
     "SpCsrfToken",
     Utils.refreshContactForm(),
   );
-});
 
-// Modal test
-const modal = new Modal("#contact");
+  // Initialize modal and buttons
+  const modal = new Modal("#contact");
+  initializeLearnMoreButton();
+  initializeContactButton();
+  initializePanels();
+}
 
-//Learn more button
-const learnmoreBtn = document.querySelector(
-  "#learnmore-btn",
-) as HTMLButtonElement;
-const firstSection = document.querySelector("#value") as HTMLElement;
+function initializeLearnMoreButton(): void {
+  const learnmoreBtn = document.querySelector("#learnmore-btn");
+  const firstSection = document.querySelector("#value") as HTMLElement;
 
-if (learnmoreBtn && firstSection) {
-  learnmoreBtn.addEventListener("click", () => {
-    firstSection.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
+  if (learnmoreBtn instanceof HTMLButtonElement && firstSection) {
+    learnmoreBtn.addEventListener("click", () => {
+      firstSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     });
+  }
+}
+
+function initializeContactButton(): void {
+  const contactBtn = document.querySelector<HTMLButtonElement>(
+    `[data-showModal="#contact"]`,
+  );
+
+  if (contactBtn) {
+    let isPreloading = false;
+    let isLoaded = false;
+
+    const loadCsrfAndTurnstile = async () => {
+      if (isLoaded || isPreloading) return; // Prevent redundant calls
+      isPreloading = true;
+      try {
+        await Utils.setCsrfToken(); // Async function to set CSRF token
+        Utils.updateTurnstileWidget(); // Synchronous function to update Turnstile widget
+        isLoaded = true;
+      } catch (error) {
+        console.error("CSRF and Turnstile loading failed:", error);
+      } finally {
+        isPreloading = false;
+      }
+    };
+
+    ["mouseenter", "touchstart", "click"].forEach((event) => {
+      contactBtn.addEventListener(event, loadCsrfAndTurnstile, {
+        passive: event === "touchstart",
+      });
+    });
+  }
+}
+
+function initializePanels(): void {
+  const panelManager = new PanelManager();
+
+  // Set panel positions when the page loads or the window is resized
+  window.addEventListener("load", () => {
+    panelManager.setPositions();
+  });
+
+  const debouncedResize = Utils.debounce(function () {
+    panelManager.setPositions();
+    Utils.updateTurnstileWidget();
+  }, 200);
+  window.addEventListener("resize", debouncedResize);
+
+  // Dynamically update panel styles and UI elements based on the scroll position
+  window.addEventListener("scroll", () => {
+    updatePanelsOnScroll(panelManager);
   });
 }
 
-const panelManager = new PanelManager();
+function updatePanelsOnScroll(panelManager: PanelManager): void {
+  const navElement = document.querySelector("nav") as HTMLElement | null;
+  if (!navElement) return;
 
-// Set panel positions and update Turnstile widget when the page loads or the window is resized
-window.addEventListener("load", () => {
-  panelManager.setPositions();
-  Utils.updateTurnstileWidget();
-});
-
-const debouncedResize = Utils.debounce(function () {
-  panelManager.setPositions();
-  Utils.updateTurnstileWidget();
-}, 200);
-window.addEventListener("resize", debouncedResize);
-
-//Dynamically update panel styles and UI elements based on the scroll position.
-window.addEventListener("scroll", () => {
   const panelTopHigh: boolean[] = [];
   const panelBottomHigh: boolean[] = [];
-  const navElement = document.querySelector("nav") as HTMLElement | null;
 
   for (let i = 2; i <= derivedValues.numPanels - 1; i++) {
     const panel = panelManager.getPanel(i);
-    if (!panel || !navElement) {
-      continue;
-    }
+    if (!panel) continue;
 
-    panelTopHigh.push(
-      panel.element.getBoundingClientRect().y <
-        navElement.clientHeight - CONFIG.topHighOffset,
-    );
+    const { y, bottom } = panel.element.getBoundingClientRect();
+    const navHeight = navElement.clientHeight;
 
-    panelBottomHigh.push(
-      panel.element.getBoundingClientRect().bottom <
-        window.innerHeight - CONFIG.bottomHighOffset,
-    );
+    panelTopHigh.push(y < navHeight - CONFIG.topHighOffset);
+    panelBottomHigh.push(bottom < window.innerHeight - CONFIG.bottomHighOffset);
   }
 
-  const screenTop: number = window.scrollY;
+  const screenTop = window.scrollY;
+  const showPanelIndex = determinePanelToShow(
+    screenTop,
+    panelTopHigh,
+    panelBottomHigh,
+  );
+  UIManager.showPanel(showPanelIndex);
+}
 
-  //Based on the scroll position, determine which panel to highlight and what colors to set.
-  if (screenTop < CONFIG.firstTransition) {
-    UIManager.toggleTopPanel(1);
-    UIManager.headerLinks(-1);
-  } else if (screenTop >= CONFIG.firstTransition && !panelTopHigh[0]) {
-    UIManager.setPanelBackgroundColour(CONFIG.colors.blue);
-    UIManager.showText(1);
-    UIManager.headerLinks(0);
-  } else if (panelTopHigh[0] && !panelTopHigh[1] && panelBottomHigh[0]) {
-    UIManager.setPanelBackgroundColour(CONFIG.colors.white);
-    UIManager.showText(2);
-    UIManager.headerLinks(1);
-  } else if (panelTopHigh[1] && !panelTopHigh[2] && panelBottomHigh[1]) {
-    UIManager.setPanelBackgroundColour(CONFIG.colors.black);
-    UIManager.showText(3);
-    UIManager.headerLinks(2);
-  } else if (panelTopHigh[2] && panelBottomHigh[2]) {
-    UIManager.setPanelBackgroundColour(CONFIG.colors.white);
-    UIManager.showText(4);
-    UIManager.headerLinks(3);
-  }
-});
+function determinePanelToShow(
+  screenTop: number,
+  panelTopHigh: boolean[],
+  panelBottomHigh: boolean[],
+): number {
+  if (screenTop < CONFIG.firstTransition) return 0;
+  if (screenTop >= CONFIG.firstTransition && !panelTopHigh[0]) return 1;
+  if (panelTopHigh[0] && !panelTopHigh[1] && panelBottomHigh[0]) return 2;
+  if (panelTopHigh[1] && !panelTopHigh[2] && panelBottomHigh[1]) return 3;
+  if (panelTopHigh[2] && panelBottomHigh[2]) return 4;
+  return 0; // Default case to avoid undefined behavior
+}

@@ -1,78 +1,70 @@
-import { Utils } from "../utils/utils";
-import { Panel } from "./Panel";
 import { CONFIG } from "../constants/config";
+import { Utils } from "../utils/utils";
 
-//Responsible for managing UI-related operations such as panel visibility, text color, and header link highlighting.
+//Responsible for managing UI-related operations such as panel visibility, text colour, and header link highlighting.
 export class UIManager {
-  static toggleTopPanel(state: number): void {
-    const topPanel = document.querySelector(".top-panel") as HTMLElement | null;
-    if (topPanel) {
-      Utils.setElementStyle(topPanel, {
-        opacity: state === 1 ? "1" : "0",
-      });
-    }
+  private static readonly topPanel = document.querySelector(
+    ".top-panel",
+  ) as HTMLElement | null;
+  private static readonly panels = document.querySelectorAll(
+    ".panel:not(.top-panel)",
+  );
+  private static readonly navbarLinks =
+    document.querySelector(".navbar-nav")?.children;
 
-    const panel2Element = document.querySelector(
-      ".panel2",
-    ) as HTMLElement | null;
-    if (panel2Element) {
-      const panel2 = new Panel(panel2Element, 2);
-      Utils.setElementStyle(panel2.element, {
-        opacity: "0",
-        pointerEvents: state === 1 ? "none" : "auto",
-      });
+  // Shows the specified panel and updates the UI elements based on the panel's properties.
+  public static showPanel(panel: number): void {
+    this.showTopPanel(panel === 0);
+
+    const panelProperty = CONFIG.panelProperties.find((p) => p.id === panel);
+
+    if (panelProperty) {
+      this.showText(panel);
+      this.setPanelBackgroundColour(panelProperty.bgColor);
+      this.setPanelTextColour(panelProperty.textColor);
+      this.highlightNavbarLink(panelProperty.headerLink);
+    } else {
+      console.error(`Panel with ID ${panel} not found.`);
     }
   }
 
-  //Updates the text color of all text within the specified panel.
-  static textColour(colour: string, panel: number): void {
-    const textElements = document.querySelectorAll(
-      `${CONFIG.panelPrefix}${panel} p:not(#openingpara), ${CONFIG.panelPrefix}${panel} h1:not(#openingpara)`,
-    );
-    textElements.forEach((element) => {
-      (element as HTMLElement).classList.toggle(
-        "text-white",
-        colour === "white",
-      );
-    });
+  private static showTopPanel(state: boolean): void {
+    if (this.topPanel) {
+      Utils.setElementStyle(this.topPanel, {
+        opacity: state ? "1" : "0",
+      });
+    }
   }
 
   //Shows the specified panel's text while hiding others.
-  static showText(panel: number): void {
-    const panels = document.querySelectorAll(
-      `${CONFIG.panelPrefix}2, ${CONFIG.panelPrefix}3, ${CONFIG.panelPrefix}4, ${CONFIG.panelPrefix}5`,
-    );
-
-    this.textColour(panel % 2 ? "white" : "black", panel + 1);
-    panels.forEach((p, index) => {
-      (p as HTMLElement).style.opacity = index === panel - 1 ? "1" : "0";
+  private static showText(panel: number): void {
+    this.panels.forEach((p, index) => {
+      (p as HTMLElement).classList.toggle("active-panel", index === panel - 1);
     });
   }
 
-  //Sets the background color for all panels and the body, and hides the top panel.
-  static setPanelBackgroundColour(colour: string): void {
-    const panels = document.querySelectorAll(
-      `body, ${CONFIG.panelPrefix}2, ${CONFIG.panelPrefix}3, ${CONFIG.panelPrefix}4, ${CONFIG.panelPrefix}5`,
-    );
-
-    this.toggleTopPanel(0);
-    panels.forEach((p) => {
+  //Sets the background colour for all panels and the body, and hides the top panel.
+  private static setPanelBackgroundColour(colour: string): void {
+    document.body.style.backgroundColor = colour;
+    this.panels.forEach((p) => {
       (p as HTMLElement).style.backgroundColor = colour;
     });
   }
 
+  //Updates the text colour of all text within the specified panel.
+  private static setPanelTextColour(colour: string): void {
+    this.panels.forEach((p) => {
+      (p as HTMLElement).style.color = colour;
+    });
+  }
+
   //Highlights the specified header link and de-highlights others.
-  static headerLinks(highlightLink: number): void {
-    const headerLinks = document.querySelector(".navbar-nav")?.children;
-    if (headerLinks) {
-      Array.from(headerLinks).forEach((link, index) => {
+  private static highlightNavbarLink(highlightLink: number | null): void {
+    if (this.navbarLinks) {
+      Array.from(this.navbarLinks).forEach((link, index) => {
         (link as HTMLElement).classList.toggle(
-          "text-danger",
-          index === highlightLink,
-        );
-        (link as HTMLElement).classList.toggle(
-          "text-dark",
-          index !== highlightLink,
+          "nav-link-highlighted",
+          highlightLink !== null && index === highlightLink,
         );
       });
     }

@@ -134,6 +134,11 @@ nav {
     opacity 400ms ease-in-out;
 }
 
+.active-panel {
+  opacity: 1;
+  z-index: 1;
+}
+
 .panel3 {
   background-color: white;
 }
@@ -155,7 +160,12 @@ footer {
   margin-block-end: 1.2rem;
 }
 
-.navbar-nav .text-danger {
+.navbar-nav .nav-link {
+  color: black;
+}
+
+.navbar-nav .nav-link-highlighted {
+  color: var(--capanda-red);
   text-shadow:
     -0.05ex 0 currentColor,
     0.05ex 0 currentColor;
@@ -228,6 +238,47 @@ h2 {
     margin-left: 0.4rem;
     font-size: 1rem;
     font-weight: 700;
+  }
+}
+
+/* Loading icon */
+.lds-ring,
+.lds-ring div {
+  box-sizing: border-box;
+}
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid currentColor;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: currentColor transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 

@@ -36,10 +36,10 @@
             </a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav">
-                    <a class="nav-link text-dark fs-5" href="#value">Value</a>
-                    <a class="nav-link text-dark fs-5" href="#leadership">Leadership</a>
-                    <a class="nav-link text-dark fs-5 " href="#dedication">Dedication</a>
-                    <a class="nav-link text-dark fs-5" href="#focus">Focus</a>
+                    <a class="nav-link fs-5" href="#value">Value</a>
+                    <a class="nav-link fs-5" href="#leadership">Leadership</a>
+                    <a class="nav-link fs-5 " href="#dedication">Dedication</a>
+                    <a class="nav-link fs-5" href="#focus">Focus</a>
                 </div>
             </div>
             <div id="phoneandemail" class="d-flex flex-column flex-grow-1 align-items-end me-2">
@@ -265,6 +265,9 @@
                     <div id="message-alert" class="alert alert-danger" role="alert"></div>
                 </div>
                 <div class="modal-footer">
+                    <div id="sendmessage-loading" style="display:none;">
+                        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+                    </div>
                     <button type="button" class="btn-capanda btn-capanda-blue" id="sendmessage">Send Message</button>
                 </div>
             </div>
