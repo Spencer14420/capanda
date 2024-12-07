@@ -123,18 +123,22 @@ nav {
   justify-content: center;
 }
 
-.panel2,
-.panel3,
-.panel4,
-.panel5 {
+main {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.panel:not(.top-panel) {
   z-index: 0;
   opacity: 0;
+  position: absolute;
   transition:
     background-color 400ms ease-in-out,
     opacity 400ms ease-in-out;
 }
 
-.active-panel {
+.panel.active-panel {
   opacity: 1;
   z-index: 1;
 }
@@ -152,7 +156,10 @@ nav {
 }
 
 footer {
+  position: absolute;
   margin-block-start: 200px;
+  width: 100%;
+  text-align: center;
 }
 
 .panel-row p,

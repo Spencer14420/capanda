@@ -71,22 +71,15 @@ function initializeContactButton(): void {
 }
 
 function initializePanels(): void {
-  const panelManager = new PanelManager();
-
-  // Set panel positions when the page loads or the window is resized
-  window.addEventListener("load", () => {
-    panelManager.setPositions();
-  });
-
   const debouncedResize = Utils.debounce(function () {
-    panelManager.setPositions();
     Utils.updateTurnstileWidget();
   }, 200);
   window.addEventListener("resize", debouncedResize);
 
   // Dynamically update panel styles and UI elements based on the scroll position
+  const panelManagerNew = new PanelManager();
   window.addEventListener("scroll", () => {
-    updatePanelsOnScroll(panelManager);
+    updatePanelsOnScroll(panelManagerNew);
   });
 }
 
@@ -97,11 +90,11 @@ function updatePanelsOnScroll(panelManager: PanelManager): void {
   const panelTopHigh: boolean[] = [];
   const panelBottomHigh: boolean[] = [];
 
-  for (let i = 2; i <= derivedValues.numPanels - 1; i++) {
-    const panel = panelManager.getPanel(i);
+  for (let i = 1; i < derivedValues.numPanels; i++) {
+    const panel = panelManager.getPanels()[i];
     if (!panel) continue;
 
-    const { y, bottom } = panel.element.getBoundingClientRect();
+    const { y, bottom } = panel.getBoundingClientRect();
     const navHeight = navElement.clientHeight;
 
     panelTopHigh.push(y < navHeight - CONFIG.topHighOffset);
