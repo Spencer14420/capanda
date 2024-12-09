@@ -18,19 +18,20 @@ export class PanelManager {
     const viewportHeight = window.innerHeight;
 
     this.panels.forEach((panel, i) => {
-      console.log(panel);
       if (i === 0) {
         // First panel starts at the top of the page
         panel.setYPosition(0);
       } else {
         const previousPanel = this.panels[i - 1];
+        const navbarHeight = document.querySelector("nav")?.offsetHeight ?? 0;
 
         // The current panel is centered when the top of the previous panel is at the top of the viewport
         const centeredY =
           previousPanel.y +
-          previousPanel.height -
+          previousPanel.height / 2 -
           viewportHeight / 2 +
-          panel.height / 2;
+          panel.height / 2 +
+          navbarHeight;
 
         const y = centeredY + (panel.properties.verticalShift ?? 0); // Include the vertical shift if set
 
