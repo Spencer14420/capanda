@@ -16,6 +16,7 @@ export interface Config {
     bgColor: Config["colors"][keyof Config["colors"]];
     textColor: Config["colors"][keyof Config["colors"]];
     headerLink: number | null;
+    verticalShift?: number;
   }[];
 }
 

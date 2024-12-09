@@ -18,6 +18,7 @@ export class PanelManager {
     const viewportHeight = window.innerHeight;
 
     this.panels.forEach((panel, i) => {
+      console.log(panel);
       if (i === 0) {
         // First panel starts at the top of the page
         panel.setYPosition(0);
@@ -31,7 +32,9 @@ export class PanelManager {
           viewportHeight / 2 +
           panel.height / 2;
 
-        panel.setYPosition(centeredY);
+        const y = centeredY + (panel.properties.verticalShift ?? 0); // Include the vertical shift if set
+
+        panel.setYPosition(y);
       }
     });
     this.setFooterPosition();
