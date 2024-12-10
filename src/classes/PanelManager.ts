@@ -56,7 +56,8 @@ export class PanelManager {
           viewportHeight - // Add the viewport height for the transition
           panel.height / 2 - // Center the current panel
           viewportHeight / 2 + // Center relative to viewport
-          navbarHeight / 2; // Adjust for the navbar height
+          navbarHeight / 2 + // Adjust for the navbar height
+          (panel.properties.verticalShift ?? 0); // Add vertical shift if set
 
         panel.setYPosition(y);
       }
