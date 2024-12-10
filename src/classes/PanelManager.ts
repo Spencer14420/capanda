@@ -48,15 +48,14 @@ export class PanelManager {
       } else {
         const previousPanel = this.panels[i - 1];
 
+        // Calculate the surrounding area above and below the current panel
+        const surroundingArea =
+          (viewportHeight - panel.height - navbarHeight) / 2;
+
         // Calculate Y-position of the current panel
-        // Align the top of the previous panel with the top of the page,
-        // and center the current panel in the viewport
         const y =
           previousPanel.y + // Position of the previous panel
-          viewportHeight - // Add the viewport height for the transition
-          panel.height / 2 - // Center the current panel
-          viewportHeight / 2 + // Center relative to viewport
-          navbarHeight / 2 + // Adjust for the navbar height
+          surroundingArea + // Surrounding area above the current panel
           (panel.properties.verticalShift ?? 0); // Add vertical shift if set
 
         panel.setYPosition(y);
