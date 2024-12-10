@@ -282,6 +282,20 @@ h2 {
 .lds-ring div:nth-child(3) {
   animation-delay: -0.15s;
 }
+
+#line {
+  position: fixed; /* Ensures the line remains fixed in the viewport */
+  top: calc(
+    50% + 86px
+  ); /* Places the line in the middle of the viewport vertically */
+  left: 0; /* Aligns the line to the left edge of the viewport */
+  width: 100%; /* Spans the entire width of the viewport */
+  height: 2px; /* Adjust thickness of the line */
+  background-color: yellow; /* Color of the line */
+  transform: translateY(-50%); /* Adjusts for exact center alignment */
+  z-index: 1000; /* Ensures the line is above other content */
+}
+
 @keyframes lds-ring {
   0% {
     transform: rotate(0deg);
