@@ -6,12 +6,35 @@ export class PanelManager {
 
   constructor() {
     this.panels = this.initializePanels();
-    this.positionPanels();
+
+    // Wait for the page to fully load before calculating heights and positions
+    window.addEventListener("load", () => {
+      this.updateAllHeights();
+      this.normalizeHeights();
+      this.positionPanels();
+    });
+
     this.addResizeListener();
   }
 
   private initializePanels(): Panel[] {
     return CONFIG.panelProperties.map((_, i) => new Panel(i));
+  }
+
+  private updateAllHeights(): void {
+    this.panels.forEach((panel) => panel.updateHeight());
+  }
+
+  private normalizeHeights(): void {
+    const maxHeight = Math.max(
+      ...this.panels.slice(1).map((panel) => panel.height),
+    );
+
+    this.panels.forEach((panel, index) => {
+      if (index !== 0) {
+        panel.setHeight(maxHeight);
+      }
+    });
   }
 
   private positionPanels(): void {
@@ -25,7 +48,7 @@ export class PanelManager {
         const previousPanel = this.panels[i - 1];
         const navbarHeight = document.querySelector("nav")?.offsetHeight ?? 0;
 
-        // The current panel is centered when the top of the previous panel is at the top of the viewport
+        // Calculate the y-position based on the previous panel and viewport
         const centeredY =
           previousPanel.y +
           previousPanel.height / 2 -
@@ -33,7 +56,8 @@ export class PanelManager {
           panel.height / 2 +
           navbarHeight;
 
-        const y = centeredY + (panel.properties.verticalShift ?? 0); // Include the vertical shift if set
+        console.log(`Panel ${i} y: ${panel.y}`);
+        const y = centeredY + (panel.properties.verticalShift ?? 0);
 
         panel.setYPosition(y);
       }
@@ -41,7 +65,6 @@ export class PanelManager {
     this.setFooterPosition();
   }
 
-  // Places the footer just below the last panel
   private setFooterPosition(): void {
     const lastPanel = this.panels[this.panels.length - 1];
     const lastPanelBottom = lastPanel.y + lastPanel.height;
@@ -54,6 +77,7 @@ export class PanelManager {
 
   private addResizeListener(): void {
     window.addEventListener("resize", () => {
+      this.updateAllHeights();
       this.positionPanels();
     });
   }
