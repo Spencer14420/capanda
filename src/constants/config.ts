@@ -53,7 +53,7 @@ CONFIG.panelProperties = [
     bgColor: CONFIG.colors.blue,
     textColor: CONFIG.colors.pureWhite,
     headerLink: 0,
-    verticalShift: 200,
+    verticalShift: CONFIG.firstTransition,
   },
   {
     id: 2,
