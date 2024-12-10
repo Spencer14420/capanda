@@ -52,10 +52,11 @@ export class PanelManager {
         // Align the top of the previous panel with the top of the page,
         // and center the current panel in the viewport
         const y =
-          previousPanel.y +
-          previousPanel.height - // Bottom of the previous panel
-          viewportHeight / 2 + // Offset to center the next panel
-          navbarHeight / 2; // Adjust for navbar height
+          previousPanel.y + // Position of the previous panel
+          viewportHeight - // Add the viewport height for the transition
+          panel.height / 2 - // Center the current panel
+          viewportHeight / 2 + // Center relative to viewport
+          navbarHeight / 2; // Adjust for the navbar height
 
         panel.setYPosition(y);
       }
