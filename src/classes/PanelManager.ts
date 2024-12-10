@@ -39,6 +39,7 @@ export class PanelManager {
 
   private positionPanels(): void {
     const viewportHeight = window.innerHeight;
+    const navbarHeight = document.querySelector("nav")?.offsetHeight ?? 0;
 
     this.panels.forEach((panel, i) => {
       if (i === 0) {
@@ -46,22 +47,20 @@ export class PanelManager {
         panel.setYPosition(0);
       } else {
         const previousPanel = this.panels[i - 1];
-        const navbarHeight = document.querySelector("nav")?.offsetHeight ?? 0;
 
-        // Calculate the y-position based on the previous panel and viewport
-        const centeredY =
+        // Calculate Y-position of the current panel
+        // Align the top of the previous panel with the top of the page,
+        // and center the current panel in the viewport
+        const y =
           previousPanel.y +
-          previousPanel.height / 2 -
-          viewportHeight / 2 +
-          panel.height / 2 +
-          navbarHeight;
-
-        console.log(`Panel ${i} y: ${panel.y}`);
-        const y = centeredY + (panel.properties.verticalShift ?? 0);
+          previousPanel.height - // Bottom of the previous panel
+          viewportHeight / 2 + // Offset to center the next panel
+          navbarHeight / 2; // Adjust for navbar height
 
         panel.setYPosition(y);
       }
     });
+
     this.setFooterPosition();
   }
 

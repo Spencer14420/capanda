@@ -136,6 +136,8 @@ main {
   transition:
     background-color 400ms ease-in-out,
     opacity 400ms ease-in-out;
+  align-content: center;
+  border: 1px solid red;
 }
 
 .panel.active-panel {
