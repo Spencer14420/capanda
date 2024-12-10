@@ -18,16 +18,6 @@ export class Utils {
     });
   }
 
-  //Calculates an additional value based on available area and panel height, used for positioning logic.
-  static calculateAddition(
-    useableArea: number,
-    largestPanelHeight: number,
-  ): number {
-    return useableArea < largestPanelHeight + CONFIG.minTopBottomSpace * 2
-      ? CONFIG.shortScreenAddition
-      : CONFIG.largeScreenAddition;
-  }
-
   // Renders the turnstile widget size based on the screen width.
   static updateTurnstileWidget(): void {
     const container = document.querySelector(
