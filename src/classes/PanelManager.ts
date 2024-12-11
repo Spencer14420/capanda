@@ -1,133 +1,77 @@
 import { CONFIG } from "../constants/config";
-import { derivedValues } from "../constants/derivedValues";
 import { Panel } from "./Panel";
-import { Utils } from "../utils/utils";
 
-//Responsible for managing multiple panels, including positioning, setting margins, and handling interactions.
 export class PanelManager {
-  transitionY: number[];
-  headerHeight: number;
-  navbar: HTMLElement | null;
-  panels: Panel[];
-  largestPanelHeight: number;
-  useableArea: number;
+  private panels: Panel[];
 
   constructor() {
-    this.transitionY = [];
-    const navElement = document.querySelector("nav") as HTMLElement | null;
-    this.headerHeight = navElement ? navElement.clientHeight : 0;
-    this.navbar = document.querySelector(".navbar-nav") as HTMLElement | null;
-    this.panels = this.getPanels();
-    this.largestPanelHeight = Math.max(
-      ...this.panels.map((panel) => panel.getHeight()),
-    );
-    this.useableArea = window.innerHeight - this.headerHeight;
+    this.panels = this.initializePanels();
+
+    // Wait for the page to fully load before calculating heights and positions
+    window.addEventListener("load", () => {
+      this.updateAllHeights();
+      this.positionPanels();
+    });
+
+    this.addResizeListener();
   }
 
-  //Returns a Panel object representing one of the .panel class <section> elements
-  getPanel(index: number): Panel | null {
-    const panelElement = document.querySelector(
-      `${CONFIG.panelPrefix}${index}`,
-    ) as HTMLElement | null;
-    if (!panelElement) {
-      console.error(`Panel ${index} not found.`);
-      return null;
-    }
-    return new Panel(panelElement, index);
+  private initializePanels(): Panel[] {
+    return CONFIG.panelProperties.map((_, i) => new Panel(i));
   }
 
-  //Returns an array consisting Panel objects, each representing the inner divs of each of the .panel <section> elements
-  getPanels(): Panel[] {
-    const panels: Panel[] = [];
-
-    for (let i = 2; i <= derivedValues.numPanels; i++) {
-      const panelElement = document.querySelector(
-        `${CONFIG.panelPrefix}${i} > div`,
-      ) as HTMLElement | null;
-      if (panelElement) {
-        panels.push(new Panel(panelElement, i + 2));
-      }
-    }
-    return panels;
+  private updateAllHeights(): void {
+    this.panels.forEach((panel) => panel.updateHeight());
   }
 
-  //Calculates and sets the top margins for all panels, based on available area and panel height.
-  setPanelMargins(): void {
-    for (let i = 2; i <= derivedValues.numPanels; i++) {
-      const panel = this.getPanel(i);
-      if (!panel) {
-        continue;
-      }
+  private positionPanels(): void {
+    const viewportHeight = window.innerHeight;
+    const navbarHeight = document.querySelector("nav")?.offsetHeight ?? 0;
 
-      const panelHeight = panel.getHeight();
-      const marginTop = this.calculateMarginTop(
-        panelHeight,
-        i,
-        panel.getYPosition(),
-      );
-      panel.setMarginTop(marginTop);
+    this.panels.forEach((panel, i) => {
+      if (i === 0) {
+        // First panel starts at the top of the page
+        panel.setYPosition(0);
+      } else {
+        const previousPanel = this.panels[i - 1];
 
-      if (this.useableArea > this.largestPanelHeight) {
-        this.transitionY.push(
-          panel.element.getBoundingClientRect().y -
-            this.headerHeight +
-            window.scrollY +
-            CONFIG.topHighOffset,
-        );
+        // Calculate the surrounding area above and below the current panel
+        const surroundingArea = (viewportHeight - panel.height) / 2;
+
+        // Determine the base scroll requirement for the current panel
+        const baseScroll = i === 1 ? CONFIG.firstTransition : previousPanel.y;
+
+        // Calculate the extra vertical shift for the panel
+        const verticalShift = panel.properties.verticalShift ?? 0;
+
+        // Compute the final y position
+        const y = baseScroll + surroundingArea + verticalShift;
+
+        panel.setYPosition(y);
       }
+    });
+
+    this.setFooterPosition();
+  }
+
+  private setFooterPosition(): void {
+    const lastPanel = this.panels[this.panels.length - 1];
+    const lastPanelBottom = lastPanel.y + lastPanel.height;
+    const footer = document.querySelector("footer") as HTMLElement | null;
+
+    if (footer) {
+      footer.style.top = `${lastPanelBottom}px`;
     }
   }
 
-  //Calculates the top margin for a specific panel, based on its height, index, and position.
-  calculateMarginTop(
-    panelHeight: number,
-    index: number,
-    panelY: number,
-  ): number {
-    return this.useableArea > panelHeight
-      ? index === 2
-        ? -(this.useableArea + panelHeight) / 2 +
-          CONFIG.firstTransition +
-          Utils.calculateAddition(this.useableArea, panelHeight)
-        : this.transitionY[index - 3] -
-          panelY +
-          (window.innerHeight - panelHeight) / 2 +
-          Utils.calculateAddition(this.useableArea, panelHeight)
-      : -this.useableArea / 2;
+  private addResizeListener(): void {
+    window.addEventListener("resize", () => {
+      this.updateAllHeights();
+      this.positionPanels();
+    });
   }
 
-  //Position #value element, etc. (for header links)
-  positionScrollPoints(): void {
-    for (let i = 2; i <= derivedValues.numPanels; i++) {
-      const panel = this.getPanel(i);
-      if (!panel) {
-        continue;
-      }
-
-      const scrollPoint = panel.element.querySelector(
-        ".scroll-point",
-      ) as HTMLElement | null;
-      if (scrollPoint) {
-        const scrollPositioning =
-          (window.innerHeight - panel.getHeight() + this.headerHeight) / 2 -
-          CONFIG.topHighOffset;
-        scrollPoint.style.height = `${scrollPositioning}px`;
-        scrollPoint.style.marginTop = `-${scrollPositioning}px`;
-      }
-    }
-  }
-
-  //Shows or hides the navbar based on the available space compared to the largest panel height.
-  setNavbarVisibility(): void {
-    if (this.navbar) {
-      this.navbar.style.display =
-        this.useableArea < this.largestPanelHeight + 50 ? "none" : "flex";
-    }
-  }
-
-  setPositions(): void {
-    this.setPanelMargins();
-    this.setNavbarVisibility();
-    this.positionScrollPoints();
+  public getPanels(): Panel[] {
+    return this.panels;
   }
 }
