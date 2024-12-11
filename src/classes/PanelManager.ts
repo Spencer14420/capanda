@@ -36,15 +36,16 @@ export class PanelManager {
         const previousPanel = this.panels[i - 1];
 
         // Calculate the surrounding area above and below the current panel
-        const surroundingArea =
-          (viewportHeight - navbarHeight - panel.height) / 2;
+        const surroundingArea = (viewportHeight - panel.height) / 2;
 
-        console.log(viewportHeight, navbarHeight, panel.height);
+        // Determine the base scroll requirement for the current panel
+        const baseScroll = i === 1 ? CONFIG.firstTransition : previousPanel.y;
 
-        const y =
-          previousPanel.y + // Position of the previous panel
-          surroundingArea + // Surrounding area above the current panel
-          (panel.properties.verticalShift ?? 0); // Add vertical shift if set
+        // Calculate the extra vertical shift for the panel
+        const verticalShift = panel.properties.verticalShift ?? 0;
+
+        // Compute the final y position
+        const y = baseScroll + surroundingArea + verticalShift;
 
         panel.setYPosition(y);
       }

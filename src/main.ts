@@ -107,6 +107,7 @@ function updatePanelsOnScroll(panelManager: PanelManager): void {
     panelTopHigh,
     panelBottomHigh,
   );
+
   UIManager.showPanel(showPanelIndex);
 }
 
