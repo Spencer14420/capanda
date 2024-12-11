@@ -10,7 +10,6 @@ export class PanelManager {
     // Wait for the page to fully load before calculating heights and positions
     window.addEventListener("load", () => {
       this.updateAllHeights();
-      this.normalizeHeights();
       this.positionPanels();
     });
 
@@ -23,18 +22,6 @@ export class PanelManager {
 
   private updateAllHeights(): void {
     this.panels.forEach((panel) => panel.updateHeight());
-  }
-
-  private normalizeHeights(): void {
-    const maxHeight = Math.max(
-      ...this.panels.slice(1).map((panel) => panel.height),
-    );
-
-    this.panels.forEach((panel, index) => {
-      if (index !== 0) {
-        panel.setHeight(maxHeight);
-      }
-    });
   }
 
   private positionPanels(): void {
@@ -50,9 +37,10 @@ export class PanelManager {
 
         // Calculate the surrounding area above and below the current panel
         const surroundingArea =
-          (viewportHeight - panel.height - navbarHeight) / 2;
+          (viewportHeight - navbarHeight - panel.height) / 2;
 
-        // Calculate Y-position of the current panel
+        console.log(viewportHeight, navbarHeight, panel.height);
+
         const y =
           previousPanel.y + // Position of the previous panel
           surroundingArea + // Surrounding area above the current panel
