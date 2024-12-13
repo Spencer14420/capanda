@@ -1,4 +1,5 @@
 import { CONFIG } from "../constants/config";
+import { derivedValues } from "../constants/derivedValues";
 import { Panel } from "./Panel";
 
 export class PanelManager {
@@ -26,7 +27,7 @@ export class PanelManager {
 
   private positionPanels(): void {
     const viewportHeight = window.innerHeight;
-    const isSmall = viewportHeight < this.getTallestPanelHeight();
+    derivedValues.screenIsSmall = viewportHeight < this.getTallestPanelHeight();
 
     this.panels.forEach((panel, i) => {
       if (i === 0) {
@@ -39,8 +40,8 @@ export class PanelManager {
         const baseScroll = i === 1 ? CONFIG.firstTransition : previousPanel.y;
 
         // Calculate the surrounding area above the current panel
-        const surroundingArea = isSmall
-          ? viewportHeight / 2
+        const surroundingArea = derivedValues.screenIsSmall
+          ? viewportHeight
           : (viewportHeight - panel.height) / 2;
 
         // Calculate the extra vertical shift for the panel

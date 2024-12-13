@@ -108,6 +108,8 @@ function updatePanelsOnScroll(panelManager: PanelManager): void {
     panelBottomHigh,
   );
 
+  //console.log(panelTopHigh, panelBottomHigh, showPanelIndex);
+
   UIManager.showPanel(showPanelIndex);
 }
 
@@ -116,10 +118,19 @@ function determinePanelToShow(
   panelTopHigh: boolean[],
   panelBottomHigh: boolean[],
 ): number {
-  if (screenTop < CONFIG.firstTransition) return 0;
-  if (screenTop >= CONFIG.firstTransition && !panelTopHigh[0]) return 1;
-  if (panelTopHigh[0] && !panelTopHigh[1] && panelBottomHigh[0]) return 2;
-  if (panelTopHigh[1] && !panelTopHigh[2] && panelBottomHigh[1]) return 3;
-  if (panelTopHigh[2] && panelBottomHigh[2]) return 4;
-  return 0; // Default case to avoid undefined behavior
+  if (derivedValues.screenIsSmall) {
+    if (screenTop < CONFIG.firstTransition) return 0;
+    if (screenTop >= CONFIG.firstTransition && !panelBottomHigh[0]) return 1;
+    if (panelBottomHigh[0] && !panelBottomHigh[1]) return 2;
+    if (panelBottomHigh[1] && !panelBottomHigh[2]) return 3;
+    if (panelBottomHigh[2]) return 4;
+    return 0; // Default case to avoid undefined behavior
+  } else {
+    if (screenTop < CONFIG.firstTransition) return 0;
+    if (screenTop >= CONFIG.firstTransition && !panelTopHigh[0]) return 1;
+    if (panelTopHigh[0] && !panelTopHigh[1] && panelBottomHigh[0]) return 2;
+    if (panelTopHigh[1] && !panelTopHigh[2] && panelBottomHigh[1]) return 3;
+    if (panelTopHigh[2] && panelBottomHigh[2]) return 4;
+    return 0; // Default case to avoid undefined behavior
+  }
 }
