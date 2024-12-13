@@ -39,9 +39,11 @@ export class PanelManager {
         // Determine the base scroll requirement for the current panel
         const baseScroll = i === 1 ? CONFIG.firstTransition : previousPanel.y;
 
-        // Calculate the surrounding area above the current panel
+        // Calculates the blank area that should appear above the panel when it transitions into view
+        // - On small screens (screenIsSmall is true), it is 2/3 of the viewport height
+        // - On larger screens, center the panel vertically by calculating the space between the viewport height and the panel height, divided by 2.
         const surroundingArea = derivedValues.screenIsSmall
-          ? viewportHeight
+          ? previousPanel.height - viewportHeight / 3
           : (viewportHeight - panel.height) / 2;
 
         // Calculate the extra vertical shift for the panel
