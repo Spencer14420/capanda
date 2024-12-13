@@ -26,7 +26,7 @@ export class PanelManager {
 
   private positionPanels(): void {
     const viewportHeight = window.innerHeight;
-    const navbarHeight = document.querySelector("nav")?.offsetHeight ?? 0;
+    const isSmall = viewportHeight < this.getTallestPanelHeight();
 
     this.panels.forEach((panel, i) => {
       if (i === 0) {
@@ -35,11 +35,13 @@ export class PanelManager {
       } else {
         const previousPanel = this.panels[i - 1];
 
-        // Calculate the surrounding area above and below the current panel
-        const surroundingArea = (viewportHeight - panel.height) / 2;
-
         // Determine the base scroll requirement for the current panel
         const baseScroll = i === 1 ? CONFIG.firstTransition : previousPanel.y;
+
+        // Calculate the surrounding area above the current panel
+        const surroundingArea = isSmall
+          ? viewportHeight / 2
+          : (viewportHeight - panel.height) / 2;
 
         // Calculate the extra vertical shift for the panel
         const verticalShift = panel.properties.verticalShift ?? 0;
@@ -69,6 +71,10 @@ export class PanelManager {
       this.updateAllHeights();
       this.positionPanels();
     });
+  }
+
+  private getTallestPanelHeight(): number {
+    return this.panels.reduce((max, panel) => Math.max(max, panel.height), 0);
   }
 
   public getPanels(): Panel[] {
