@@ -123,18 +123,23 @@ nav {
   justify-content: center;
 }
 
-.panel2,
-.panel3,
-.panel4,
-.panel5 {
+main {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.panel:not(.top-panel) {
   z-index: 0;
   opacity: 0;
+  position: absolute;
   transition:
     background-color 400ms ease-in-out,
     opacity 400ms ease-in-out;
+  align-content: center;
 }
 
-.active-panel {
+.panel.active-panel {
   opacity: 1;
   z-index: 1;
 }
@@ -152,7 +157,10 @@ nav {
 }
 
 footer {
+  position: absolute;
   margin-block-start: 200px;
+  width: 100%;
+  text-align: center;
 }
 
 .panel-row p,
@@ -273,6 +281,21 @@ h2 {
 .lds-ring div:nth-child(3) {
   animation-delay: -0.15s;
 }
+
+#line {
+  position: fixed; /* Ensures the line remains fixed in the viewport */
+  top: calc(
+    50% + 86px
+  ); /* Places the line in the middle of the viewport vertically */
+  left: 0; /* Aligns the line to the left edge of the viewport */
+  width: 100%; /* Spans the entire width of the viewport */
+  height: 2px; /* Adjust thickness of the line */
+  background-color: yellow; /* Color of the line */
+  transform: translateY(-50%); /* Adjusts for exact center alignment */
+  z-index: 1000; /* Ensures the line is above other content */
+  display: none;
+}
+
 @keyframes lds-ring {
   0% {
     transform: rotate(0deg);
