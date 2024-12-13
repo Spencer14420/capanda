@@ -70,9 +70,4 @@ export class Panel {
   public getBoundingClientRect(): DOMRect {
     return this.element.getBoundingClientRect();
   }
-
-  public disconnectObserver(): void {
-    const observer = new MutationObserver(() => {});
-    observer.disconnect();
-  }
 }
