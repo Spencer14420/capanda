@@ -20,23 +20,36 @@ function initializePage(): void {
 
   // Initialize modal and buttons
   const modal = new Modal("#contact");
-  initializeLearnMoreButton();
+  initializeButtons();
   initializeContactButton();
   initializePanels();
 }
 
-function initializeLearnMoreButton(): void {
+function initializeButtons(): void {
   const learnmoreBtn = document.querySelector("#learnmore-btn");
-  const firstSection = document.querySelectorAll(".panel")[1] as HTMLElement;
+  const sections = document.querySelectorAll(".panel");
+  const navbarButtons = document.querySelectorAll(".nav-link");
 
-  if (learnmoreBtn instanceof HTMLButtonElement && firstSection) {
+  if (learnmoreBtn instanceof HTMLButtonElement && sections[1]) {
     learnmoreBtn.addEventListener("click", () => {
-      firstSection.scrollIntoView({
+      sections[1].scrollIntoView({
         behavior: "smooth",
         block: "center",
       });
     });
   }
+
+  navbarButtons.forEach((button, i) => {
+    if (button instanceof HTMLAnchorElement && sections[i + 1]) {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        sections[i + 1].scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      });
+    }
+  });
 }
 
 function initializeContactButton(): void {
