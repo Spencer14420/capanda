@@ -27,13 +27,13 @@ function initializePage(): void {
 
 function initializeLearnMoreButton(): void {
   const learnmoreBtn = document.querySelector("#learnmore-btn");
-  const firstSection = document.querySelector("#value") as HTMLElement;
+  const firstSection = document.querySelectorAll(".panel")[1] as HTMLElement;
 
   if (learnmoreBtn instanceof HTMLButtonElement && firstSection) {
     learnmoreBtn.addEventListener("click", () => {
       firstSection.scrollIntoView({
         behavior: "smooth",
-        block: "start",
+        block: "center",
       });
     });
   }
