@@ -10,11 +10,12 @@ export interface Config {
     [key: string]: string;
   };
   panelProperties: {
-    id: number;
-    bgColor: Config["colors"][keyof Config["colors"]];
-    textColor: Config["colors"][keyof Config["colors"]];
-    headerLink: number | null;
-    verticalShift?: number;
+    id: number; // Unique identifier for the panel
+    bgColor: Config["colors"][keyof Config["colors"]]; // Background color of the panel
+    textColor: Config["colors"][keyof Config["colors"]]; // Text color of the panel
+    headerLink: number | null; // Which header link to highlight when the panel is active
+    verticalShift?: number; // An addition to the "top" style property of the panel
+    fullHeight?: boolean; // Whether the panel takes up the full height of the viewport
   }[];
 }
 
@@ -43,6 +44,7 @@ CONFIG.panelProperties = [
     bgColor: CONFIG.colors.blue,
     textColor: CONFIG.colors.pureWhite,
     headerLink: null,
+    fullHeight: true,
   },
   {
     id: 1,

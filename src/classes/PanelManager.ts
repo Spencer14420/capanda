@@ -27,6 +27,8 @@ export class PanelManager {
 
   private positionPanels(): void {
     const viewportHeight = window.innerHeight;
+
+    // Determine if the screen is small based on the viewport height and the threshold
     derivedValues.screenIsSmall =
       viewportHeight <
       this.getTallestPanelHeight() + CONFIG.smallScreenThreshold;
@@ -79,7 +81,9 @@ export class PanelManager {
   }
 
   private getTallestPanelHeight(): number {
-    return this.panels.reduce((max, panel) => Math.max(max, panel.height), 0);
+    return this.panels
+      .filter((panel) => panel.properties?.fullHeight !== true) // Exclude panels with fullHeight set to true
+      .reduce((max, panel) => Math.max(max, panel.height), 0); // Calculate the tallest height
   }
 
   public getPanels(): Panel[] {
