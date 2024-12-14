@@ -2,6 +2,7 @@ export interface Config {
   firstTransition: number;
   topHighOffset: number;
   bottomHighOffset: number;
+  smallScreenThreshold: number;
   turnstileCompactSize: number;
   turnstileSiteKey: string;
   panelPrefix: string;
@@ -21,6 +22,7 @@ export const CONFIG: Config = {
   firstTransition: 200, // Minimum amount to scroll before the first transition occurs.
   topHighOffset: 50, // Minimum amount to scroll before each subsequent transition occurs.
   bottomHighOffset: 100, // Minimum amount of blank space below each panel before transition can occur.
+  smallScreenThreshold: 100, // Viewport must be this many pixels taller than the tallest panel to not be "small".
   turnstileCompactSize: 350, // Width at which the turnstile widget switches to compact mode.
   turnstileSiteKey: "0x4AAAAAAAyvgzXqVhbwOBo6", // Site key for the Turnstile widget.
   panelPrefix: ".panel",

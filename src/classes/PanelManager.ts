@@ -27,7 +27,9 @@ export class PanelManager {
 
   private positionPanels(): void {
     const viewportHeight = window.innerHeight;
-    derivedValues.screenIsSmall = viewportHeight < this.getTallestPanelHeight();
+    derivedValues.screenIsSmall =
+      viewportHeight <
+      this.getTallestPanelHeight() + CONFIG.smallScreenThreshold;
 
     this.panels.forEach((panel, i) => {
       if (i === 0) {
