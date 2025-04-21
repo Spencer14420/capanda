@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/Spencer14420/capanda#readme",
   "devDependencies": {
-    "@eslint/js": "^9.22.0",
+    "@eslint/js": "^9.25.0",
     "@fullhuman/postcss-purgecss": "^7.0.2",
     "@types/bootstrap": "^5.2.10",
     "@typescript-eslint/eslint-plugin": "^8.29.0",
