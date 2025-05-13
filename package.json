@@ -35,7 +35,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "gsap": "^3.12.7",
+    "gsap": "^3.13.0",
     "purgecss": "^7.0.2",
     "sp14420-modal": "^1.1.0",
     "spemailhandler": "^1.5.0"
