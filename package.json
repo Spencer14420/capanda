@@ -23,7 +23,7 @@
     "@fullhuman/postcss-purgecss": "^7.0.2",
     "@types/bootstrap": "^5.2.10",
     "@typescript-eslint/eslint-plugin": "^8.35.0",
-    "@typescript-eslint/parser": "^8.32.1",
+    "@typescript-eslint/parser": "^8.36.0",
     "esbuild": "^0.25.5",
     "eslint": "^9.30.0",
     "eslint-config-prettier": "^10.1.5",
