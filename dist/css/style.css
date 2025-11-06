@@ -144,32 +144,84 @@ main {
   z-index: 1;
 }
 
-/* Slide text into place on sceens wide enough for two-columns */
+/* Slide text into place on screens wide enough for two-columns */
 @media (min-width: 600px) {
-  .panel .panel-txt {
-    opacity: 0;
-    transition: opacity 400ms ease-in-out 100ms;
+  .panel {
+    .panel-txt {
+      opacity: 0;
+      transition: opacity 400ms ease-in-out 150ms;
+
+      h2 {
+        opacity: 0;
+        transition: opacity 400ms ease-in-out 350ms;
+      }
+    }
+
+    .panel-img {
+      opacity: 0;
+      transition: opacity 400ms ease-in-out 250ms;
+    }
+
+    &.active-panel:nth-child(odd) {
+      .panel-txt {
+        opacity: 1;
+        animation: slide-in-left 400ms ease-out 150ms both;
+
+        h2 {
+          opacity: 1;
+          animation: slide-in-left 400ms ease-out 350ms both;
+        }
+      }
+
+      .panel-img {
+        opacity: 1;
+        animation: slide-in-right 400ms ease-out 250ms both;
+      }
+    }
+
+    &.active-panel:nth-child(even) {
+      .panel-txt {
+        opacity: 1;
+        animation: slide-in-right 400ms ease-out 150ms both;
+
+        h2 {
+          opacity: 1;
+          animation: slide-in-right 400ms ease-out 350ms both;
+        }
+      }
+
+      .panel-img {
+        opacity: 1;
+        animation: slide-in-left 400ms ease-out 250ms both;
+      }
+    }
   }
 
-  .panel.active-panel .panel-txt {
-    opacity: 1;
-    animation: slide-in 400ms ease-out 100ms both;
-  }
-
-  @keyframes slide-in {
+  @keyframes slide-in-right {
     from {
-      transform: translateY(-25px);
+      transform: translateX(35px);
     }
     to {
       transform: none;
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .panel .panel-txt,
-    .panel.active-panel .panel-txt {
-      animation: none;
+  @keyframes slide-in-left {
+    from {
+      transform: translateX(-35px);
     }
+    to {
+      transform: none;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel .panel-txt,
+  .panel .panel-txt h2,
+  .panel .panel-img {
+    animation: none !important;
+    transition: opacity 10ms linear !important;
   }
 }
 
