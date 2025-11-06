@@ -144,6 +144,35 @@ main {
   z-index: 1;
 }
 
+/* Slide text into place on sceens wide enough for two-columns */
+@media (min-width: 600px) {
+  .panel .panel-txt {
+    opacity: 0;
+    transition: opacity 400ms ease-in-out 100ms;
+  }
+
+  .panel.active-panel .panel-txt {
+    opacity: 1;
+    animation: slide-in 400ms ease-out 100ms both;
+  }
+
+  @keyframes slide-in {
+    from {
+      transform: translateY(-25px);
+    }
+    to {
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .panel .panel-txt,
+    .panel.active-panel .panel-txt {
+      animation: none;
+    }
+  }
+}
+
 .panel3 {
   background-color: white;
 }
