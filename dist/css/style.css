@@ -9,6 +9,10 @@
   --capanda-dark-grey: #14171c;
   --capanda-navy: #0e2c57;
   --capanda-light: #f0f0f0;
+  --bg-duration: 220ms;
+  --content-duration: 220ms;
+  --content-delay: 100ms;
+  --content-stagger: 80ms;
 }
 
 .btn-danger {
@@ -23,8 +27,8 @@
 body {
   background-color: var(--capanda-navy);
   transition:
-    background-color 400ms ease-in-out,
-    opacity 400ms ease-in-out;
+    background-color var(--bg-duration) cubic-bezier(0.2, 0, 0, 1),
+    opacity var(--bg-duration) cubic-bezier(0.2, 0, 0, 1);
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -52,8 +56,8 @@ body {
   background: url("https://ik.imagekit.io/capanda/tr:w-1920,q-85/capanda.ca/server-room")
     center / cover no-repeat;
   transition:
-    background-color 400ms,
-    opacity 400ms;
+    background-color var(--bg-duration) cubic-bezier(0.2, 0, 0, 1),
+    opacity var(--bg-duration) cubic-bezier(0.2, 0, 0, 1);
   color: var(--capanda-light);
   text-shadow: 0 0 15px black;
 }
@@ -134,8 +138,8 @@ main {
   opacity: 0;
   position: absolute;
   transition:
-    background-color 400ms ease-in-out,
-    opacity 400ms ease-in-out;
+    background-color var(--bg-duration) cubic-bezier(0.2, 0, 0, 1),
+    opacity var(--bg-duration) cubic-bezier(0.2, 0, 0, 1);
   align-content: center;
 }
 
@@ -162,50 +166,64 @@ main {
   .panel {
     .panel-txt {
       opacity: 0;
-      transition: opacity 400ms ease-in-out 150ms;
+      transition: opacity var(--content-duration) cubic-bezier(0.16, 1, 0.3, 1)
+        var(--content-delay);
 
       h2 {
         opacity: 0;
-        transition: opacity 400ms ease-in-out 350ms;
+        transition: opacity var(--content-duration)
+          cubic-bezier(0.16, 1, 0.3, 1)
+          calc(var(--content-delay) + var(--content-stagger) * 2);
       }
     }
 
     .panel-img {
       opacity: 0;
-      transition: opacity 400ms ease-in-out 250ms;
+      transition: opacity var(--content-duration) cubic-bezier(0.16, 1, 0.3, 1)
+        calc(var(--content-delay) + var(--content-stagger));
     }
 
     &.active-panel:nth-child(odd) {
       .panel-txt {
         opacity: 1;
-        animation: slide-in-left 400ms ease-out 150ms both;
+        animation: slide-in-left var(--content-duration)
+          cubic-bezier(0.16, 1, 0.3, 1) var(--content-delay) both;
 
         h2 {
           opacity: 1;
-          animation: slide-in-left 400ms ease-out 350ms both;
+          animation: slide-in-left var(--content-duration)
+            cubic-bezier(0.16, 1, 0.3, 1)
+            calc(var(--content-delay) + var(--content-stagger) * 2) both;
         }
       }
 
       .panel-img {
         opacity: 1;
-        animation: slide-in-right 400ms ease-out 250ms both;
+        animation: slide-in-right var(--content-duration)
+          cubic-bezier(0.16, 1, 0.3, 1)
+          calc(var(--content-delay) + var(--content-stagger)) both;
       }
     }
 
     &.active-panel:nth-child(even) {
       .panel-txt {
         opacity: 1;
-        animation: slide-in-right 400ms ease-out 150ms both;
+        animation: slide-in-right var(--content-duration)
+          cubic-bezier(0.16, 1, 0.3, 1) var(--content-delay) both;
 
         h2 {
           opacity: 1;
-          animation: slide-in-right 400ms ease-out 350ms both;
+          animation: slide-in-right var(--content-duration)
+            cubic-bezier(0.16, 1, 0.3, 1)
+            calc(var(--content-delay) + var(--content-stagger) * 2) both;
         }
       }
 
       .panel-img {
         opacity: 1;
-        animation: slide-in-left 400ms ease-out 250ms both;
+        animation: slide-in-left var(--content-duration)
+          cubic-bezier(0.16, 1, 0.3, 1)
+          calc(var(--content-delay) + var(--content-stagger)) both;
       }
     }
   }
