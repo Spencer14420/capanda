@@ -144,6 +144,19 @@ main {
   z-index: 1;
 }
 
+.panel-txt {
+  text-align: justify;
+}
+
+.panel:nth-child(even) h2 {
+  padding-inline-start: 1rem;
+}
+
+.panel:nth-child(odd) h2 {
+  text-align: right;
+  padding-inline-end: 1rem;
+}
+
 /* Slide text into place on screens wide enough for two-columns */
 @media (min-width: 600px) {
   .panel {
@@ -486,6 +499,11 @@ h2 {
   .panel3 .panel-row,
   .panel5 .panel-row {
     flex-direction: column-reverse;
+  }
+  .panel:nth-child(odd) h2,
+  .panel:nth-child(even) h2 {
+    text-align: left;
+    padding-inline: 0;
   }
 }
 
