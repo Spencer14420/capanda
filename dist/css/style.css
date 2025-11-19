@@ -9,6 +9,10 @@
   --capanda-dark-grey: #14171c;
   --capanda-navy: #0e2c57;
   --capanda-light: #f0f0f0;
+  --bg-duration: 400ms;
+  --content-duration: 250ms;
+  --content-delay: 250ms;
+  --content-stagger: 80ms;
 }
 
 .btn-danger {
@@ -23,8 +27,8 @@
 body {
   background-color: var(--capanda-navy);
   transition:
-    background-color 400ms ease-in-out,
-    opacity 400ms ease-in-out;
+    background-color var(--bg-duration) cubic-bezier(0.4, 0, 0.2, 1),
+    opacity var(--bg-duration) cubic-bezier(0.4, 0, 0.2, 1);
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -52,8 +56,8 @@ body {
   background: url("https://ik.imagekit.io/capanda/tr:w-1920,q-85/capanda.ca/server-room")
     center / cover no-repeat;
   transition:
-    background-color 400ms,
-    opacity 400ms;
+    background-color var(--bg-duration) cubic-bezier(0.4, 0, 0.2, 1),
+    opacity var(--bg-duration) cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--capanda-light);
   text-shadow: 0 0 15px black;
 }
@@ -134,14 +138,120 @@ main {
   opacity: 0;
   position: absolute;
   transition:
-    background-color 400ms ease-in-out,
-    opacity 400ms ease-in-out;
+    background-color var(--bg-duration) cubic-bezier(0.4, 0, 0.2, 1),
+    opacity var(--bg-duration) cubic-bezier(0.4, 0, 0.2, 1);
   align-content: center;
 }
 
 .panel.active-panel {
   opacity: 1;
   z-index: 1;
+}
+
+.panel-txt {
+  text-align: justify;
+}
+
+.panel:nth-child(even) h2 {
+  padding-inline-start: 1rem;
+}
+
+.panel:nth-child(odd) h2 {
+  text-align: right;
+  padding-inline-end: 1rem;
+}
+
+/* Slide text into place on screens wide enough for two-columns */
+@media (min-width: 600px) {
+  .panel {
+    .panel-txt {
+      opacity: 0;
+      transition: opacity var(--content-duration) ease-out var(--content-delay);
+
+      h2 {
+        opacity: 0;
+        transition: opacity var(--content-duration) ease-out
+          calc(var(--content-delay) + var(--content-stagger) * 2);
+      }
+    }
+
+    .panel-img {
+      opacity: 0;
+      transition: opacity var(--content-duration) ease-out
+        calc(var(--content-delay) + var(--content-stagger));
+    }
+
+    &.active-panel:nth-child(odd) {
+      .panel-txt {
+        opacity: 1;
+        animation: slide-in-left var(--content-duration)
+          cubic-bezier(0.25, 1, 0.5, 1) var(--content-delay) both;
+
+        h2 {
+          opacity: 1;
+          animation: slide-in-left var(--content-duration)
+            cubic-bezier(0.25, 1, 0.5, 1)
+            calc(var(--content-delay) + var(--content-stagger) * 2) both;
+        }
+      }
+
+      .panel-img {
+        opacity: 1;
+        animation: slide-in-right var(--content-duration)
+          cubic-bezier(0.25, 1, 0.5, 1)
+          calc(var(--content-delay) + var(--content-stagger)) both;
+      }
+    }
+
+    &.active-panel:nth-child(even) {
+      .panel-txt {
+        opacity: 1;
+        animation: slide-in-right var(--content-duration)
+          cubic-bezier(0.25, 1, 0.5, 1) var(--content-delay) both;
+
+        h2 {
+          opacity: 1;
+          animation: slide-in-right var(--content-duration)
+            cubic-bezier(0.25, 1, 0.5, 1)
+            calc(var(--content-delay) + var(--content-stagger) * 2) both;
+        }
+      }
+
+      .panel-img {
+        opacity: 1;
+        animation: slide-in-left var(--content-duration)
+          cubic-bezier(0.25, 1, 0.5, 1)
+          calc(var(--content-delay) + var(--content-stagger)) both;
+      }
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(22px);
+    }
+    to {
+      transform: none;
+    }
+  }
+
+  @keyframes slide-in-left {
+    from {
+      transform: translateX(-22px);
+    }
+    to {
+      transform: none;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel .panel-txt,
+  .panel .panel-txt h2,
+  .panel .panel-img {
+    animation: none !important;
+    transition: opacity 10ms linear !important;
+  }
 }
 
 .panel3 {
@@ -405,6 +515,11 @@ h2 {
   .panel3 .panel-row,
   .panel5 .panel-row {
     flex-direction: column-reverse;
+  }
+  .panel:nth-child(odd) h2,
+  .panel:nth-child(even) h2 {
+    text-align: left;
+    padding-inline: 0;
   }
 }
 
