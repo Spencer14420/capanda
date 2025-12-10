@@ -1,314 +1,667 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Build Sustainable Services with CAPANDA">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Build Sustainable Services with CAPANDA"
+    />
     <title>CAPANDA - Build Sustainable Services</title>
-    <link rel="stylesheet" href="dist/css/bootstrap.css">
-    <link rel="stylesheet" href="dist/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=trending_flat" />
+    <link rel="stylesheet" href="dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="dist/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=trending_flat"
+    />
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"></script>
     <script type="module" src="dist/js/script.js"></script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light py-1">
-        <div class="container-lg">
-            <a href="#top" role="button" class="navbar-brand py-0">
-                <picture id="logo" class="d-inline-block align-text-top">
-                    <source media="(max-width: 350px)"
-                        srcset="https://ik.imagekit.io/capanda/tr:w-648/Logos/CAPANDA-Logo-Black.png 4x, https://ik.imagekit.io/capanda/tr:w-486/Logos/CAPANDA-Logo-Black.png 3x, https://ik.imagekit.io/capanda/tr:w-324/Logos/CAPANDA-Logo-Black.png 2x, https://ik.imagekit.io/capanda/tr:w-162/Logos/CAPANDA-Logo-Black.png">
-                    <source media="(max-width: 450px)"
-                        srcset="https://ik.imagekit.io/capanda/tr:w-720/Logos/CAPANDA-Logo-Black.png 4x, https://ik.imagekit.io/capanda/tr:w-540/Logos/CAPANDA-Logo-Black.png 3x, https://ik.imagekit.io/capanda/tr:w-360/Logos/CAPANDA-Logo-Black.png 2x, https://ik.imagekit.io/capanda/tr:w-180/Logos/CAPANDA-Logo-Black.png">
-                    <source media="(min-width: 451px)"
-                        srcset="https://ik.imagekit.io/capanda/tr:w-1000/Logos/CAPANDA-Logo-Black.png 4x, https://ik.imagekit.io/capanda/tr:w-750/Logos/CAPANDA-Logo-Black.png 3x, https://ik.imagekit.io/capanda/tr:w-500/Logos/CAPANDA-Logo-Black.png 2x, https://ik.imagekit.io/capanda/tr:w-250/Logos/CAPANDA-Logo-Black.png">
-                    <source media="(max-height: 530px)"
-                        srcset="https://ik.imagekit.io/capanda/tr:w-720/Logos/CAPANDA-Logo-Black.png 4x, https://ik.imagekit.io/capanda/tr:w-540/Logos/CAPANDA-Logo-Black.png 3x, https://ik.imagekit.io/capanda/tr:w-360/Logos/CAPANDA-Logo-Black.png 2x, https://ik.imagekit.io/capanda/tr:w-180/Logos/CAPANDA-Logo-Black.png">
-                    <img src="https://ik.imagekit.io/capanda/Logos/CAPANDA-Logo-Black.png" alt="CAPANDA logo"
-                        width="250" height="72">
-                </picture>
-            </a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="navbar-nav">
-                    <a class="nav-link fs-5" href="#value">Value</a>
-                    <a class="nav-link fs-5" href="#leadership">Leadership</a>
-                    <a class="nav-link fs-5 " href="#dedication">Dedication</a>
-                    <a class="nav-link fs-5" href="#focus">Focus</a>
-                </div>
-            </div>
-            <div id="phoneandemail" class="d-flex flex-column flex-grow-1 align-items-end me-2">
-                <a href="tel:613-831-7639" class="d-flex align-items-center">
-                    <span class="text-dark fs-6 me-1">613-831-7639</span>
-                    <img alt="Phone" src="https://ik.imagekit.io/capanda/tr:w-26/Icons/phone-sm.png" width="18px"
-                        height="18px">
-                </a>
-                <a href="mailto:info@capanda.ca" class="d-flex align-items-center">
-                    <span class="text-dark fs-6 me-1">info@capanda.ca</span>
-                    <img alt="Email" src="https://ik.imagekit.io/capanda/tr:w-26/Icons/email-sm.png" width="18px"
-                        height="18px">
-                </a>
-            </div>
-            <button type="button" class="btn-capanda btn-capanda-red ms-0" data-showModal="#contact">
-                <span class="contactBtnText">Contact Us</span>
-                <span class="contactBtnIcons"><img alt="Phone"
-                        src="https://ik.imagekit.io/capanda/tr:w-26/Icons/phone-sm.png" width="18px" height="18px"><img
-                        alt="Email" src="https://ik.imagekit.io/capanda/tr:w-26/Icons/email-sm.png" width="18px"
-                        height="18px"></span>
-            </button>
+      <div class="container-lg">
+        <a href="#top" role="button" class="navbar-brand py-0">
+          <picture id="logo" class="d-inline-block align-text-top">
+            <source
+              media="(max-width: 350px)"
+              srcset="
+                https://ik.imagekit.io/capanda/tr:w-648/Logos/CAPANDA-Logo-Black.png 4x,
+                https://ik.imagekit.io/capanda/tr:w-486/Logos/CAPANDA-Logo-Black.png 3x,
+                https://ik.imagekit.io/capanda/tr:w-324/Logos/CAPANDA-Logo-Black.png 2x,
+                https://ik.imagekit.io/capanda/tr:w-162/Logos/CAPANDA-Logo-Black.png
+              "
+            />
+            <source
+              media="(max-width: 450px)"
+              srcset="
+                https://ik.imagekit.io/capanda/tr:w-720/Logos/CAPANDA-Logo-Black.png 4x,
+                https://ik.imagekit.io/capanda/tr:w-540/Logos/CAPANDA-Logo-Black.png 3x,
+                https://ik.imagekit.io/capanda/tr:w-360/Logos/CAPANDA-Logo-Black.png 2x,
+                https://ik.imagekit.io/capanda/tr:w-180/Logos/CAPANDA-Logo-Black.png
+              "
+            />
+            <source
+              media="(min-width: 451px)"
+              srcset="
+                https://ik.imagekit.io/capanda/tr:w-1000/Logos/CAPANDA-Logo-Black.png 4x,
+                https://ik.imagekit.io/capanda/tr:w-750/Logos/CAPANDA-Logo-Black.png  3x,
+                https://ik.imagekit.io/capanda/tr:w-500/Logos/CAPANDA-Logo-Black.png  2x,
+                https://ik.imagekit.io/capanda/tr:w-250/Logos/CAPANDA-Logo-Black.png
+              "
+            />
+            <source
+              media="(max-height: 530px)"
+              srcset="
+                https://ik.imagekit.io/capanda/tr:w-720/Logos/CAPANDA-Logo-Black.png 4x,
+                https://ik.imagekit.io/capanda/tr:w-540/Logos/CAPANDA-Logo-Black.png 3x,
+                https://ik.imagekit.io/capanda/tr:w-360/Logos/CAPANDA-Logo-Black.png 2x,
+                https://ik.imagekit.io/capanda/tr:w-180/Logos/CAPANDA-Logo-Black.png
+              "
+            />
+            <img
+              src="https://ik.imagekit.io/capanda/Logos/CAPANDA-Logo-Black.png"
+              alt="CAPANDA logo"
+              width="250"
+              height="72"
+            />
+          </picture>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav">
+            <a class="nav-link fs-5" href="#value">Value</a>
+            <a class="nav-link fs-5" href="#leadership">Leadership</a>
+            <a class="nav-link fs-5" href="#dedication">Dedication</a>
+            <a class="nav-link fs-5" href="#focus">Focus</a>
+          </div>
         </div>
+        <div
+          id="phoneandemail"
+          class="d-flex flex-column flex-grow-1 align-items-end me-2"
+        >
+          <a href="tel:613-831-7639" class="d-flex align-items-center">
+            <span class="text-dark fs-6 me-1">613-831-7639</span>
+            <img
+              alt="Phone"
+              src="https://ik.imagekit.io/capanda/tr:w-26/Icons/phone-sm.png"
+              width="18px"
+              height="18px"
+            />
+          </a>
+          <a href="mailto:info@capanda.ca" class="d-flex align-items-center">
+            <span class="text-dark fs-6 me-1">info@capanda.ca</span>
+            <img
+              alt="Email"
+              src="https://ik.imagekit.io/capanda/tr:w-26/Icons/email-sm.png"
+              width="18px"
+              height="18px"
+            />
+          </a>
+        </div>
+        <button
+          type="button"
+          class="btn-capanda btn-capanda-red ms-0"
+          data-showModal="#contact"
+        >
+          <span class="contactBtnText">Contact Us</span>
+          <span class="contactBtnIcons"
+            ><img
+              alt="Phone"
+              src="https://ik.imagekit.io/capanda/tr:w-26/Icons/phone-sm.png"
+              width="18px"
+              height="18px" /><img
+              alt="Email"
+              src="https://ik.imagekit.io/capanda/tr:w-26/Icons/email-sm.png"
+              width="18px"
+              height="18px"
+          /></span>
+        </button>
+      </div>
     </nav>
 
     <div id="line"></div>
 
     <main>
-        <section class="container-fluid vertical-center panel top-panel" style="height:100vh;">
-            <div class="container-lg text-center">
-                <h1 class="align-self-center display-2">
-                    <div id="mantra">Build Sustainable Services with</div>
-                    <div id="companyname">CAPANDA</div>
-                </h1>
-                <p id="openingpara">Through hands-on Corporate leadership, CAPANDA will advance your Product,
-                    Program, Business-Process, and Software Asset Management needs by applying experience in
-                    sustainable digital architecture via service delivery principles & best practices</p>
-                <button id="learnmore-btn" class="mt-4 btn-capanda btn-capanda-large btn-capanda-yellow"><span class="btn-flex-content"><span>Learn More</span><span class="material-symbols-outlined">trending_flat</span></span></button>
-            </div>
-        </section>
+      <section
+        class="container-fluid vertical-center panel top-panel"
+        style="height: 100vh"
+      >
+        <div class="container-lg text-center">
+          <h1 class="align-self-center display-2">
+            <div id="mantra">Build Sustainable Services with</div>
+            <div id="companyname">CAPANDA</div>
+          </h1>
+          <p id="openingpara">
+            Through hands-on Corporate leadership, CAPANDA will advance your
+            Product, Program, Business-Process, and Software Asset Management
+            needs by applying experience in sustainable digital architecture via
+            service delivery principles & best practices
+          </p>
+          <button
+            id="learnmore-btn"
+            class="mt-4 btn-capanda btn-capanda-large btn-capanda-yellow"
+          >
+            <span class="btn-flex-content"
+              ><span>Learn More</span
+              ><span class="material-symbols-outlined"
+                >trending_flat</span
+              ></span
+            >
+          </button>
+        </div>
+      </section>
 
-        <section class="panel panel2 text-white">
-            <span class="scroll-point" id="value" role="presentation"></span>
-            <div id="value-panel" class="container-xxl">
-                <div class="row panel-row">
-                    <div class="col panel-img">
-                        <picture>
-                            <source media="(max-width: 700px)"
-                                srcset="https://ik.imagekit.io/capanda/capanda.ca/Value.png 3x, https://ik.imagekit.io/capanda/tr:w-560/capanda.ca/Value.png 2x, https://ik.imagekit.io/capanda/tr:w-280/capanda.ca/Value.png">
-                            <source media="(max-width: 800px)"
-                                srcset="https://ik.imagekit.io/capanda/capanda.ca/Value.png 3x, https://ik.imagekit.io/capanda/tr:w-660/capanda.ca/Value.png 2x, https://ik.imagekit.io/capanda/tr:w-330/capanda.ca/Value.png">
-                            <source media="(max-width: 900px)"
-                                srcset="https://ik.imagekit.io/capanda/capanda.ca/Value.png 3x, https://ik.imagekit.io/capanda/tr:w-760/capanda.ca/Value.png 2x, https://ik.imagekit.io/capanda/tr:w-380/capanda.ca/Value.png">
-                            <source media="(max-width: 1000px)"
-                                srcset="https://ik.imagekit.io/capanda/capanda.ca/Value.png 2x, https://ik.imagekit.io/capanda/tr:w-430/capanda.ca/Value.png">
-                            <source media="(min-width: 1200px)"
-                                srcset="https://ik.imagekit.io/capanda/capanda.ca/Value.png 2x, https://ik.imagekit.io/capanda/tr:w-540/capanda.ca/Value.png">
-                            <img loading="lazy" alt="" src="https://ik.imagekit.io/capanda/capanda.ca/Value.png"
-                                width="413" height="500">
-                        </picture>
-                    </div>
-                    <div class="col px-5 panel-txt">
-                        <h2 class="mb-4">Our Value</h2>
-                        <p>Sustainability is our Mantra</p>
-                        <p>Whether through the delivery of proven digital architectures, or via Organizational Change
-                            Management practices (including everything in-between), sustainable practices will ensure
-                            long-term value for your organization</p>
-                        <p>Through the delivery of proven forward-looking practices, your organization will recognize
-                            the value by eliminating the typical cycle of repeating itself</p>
-                        <p>Don’t relive your old ways by seeking heroes to keep your head above water – True value comes
-                            from sustainable & proven architectural practices that bind themselves to your
-                            organization’s DNA</p>
-                        <p>Digital transformation is more than just changing or upgrading, true value is the result of
-                            applying proven practices towards sustainable services that remain nimble to adapt to the
-                            ever-changing digital world</p>
-                    </div>
-                </div>
+      <section class="panel panel2">
+        <span class="scroll-point" id="value" role="presentation"></span>
+        <div id="value-panel" class="container-xxl">
+          <div class="row panel-row">
+            <div class="col panel-img">
+              <picture>
+                <source
+                  media="(max-width: 700px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/capanda.ca/Value.png          3x,
+                    https://ik.imagekit.io/capanda/tr:w-560/capanda.ca/Value.png 2x,
+                    https://ik.imagekit.io/capanda/tr:w-280/capanda.ca/Value.png
+                  "
+                />
+                <source
+                  media="(max-width: 800px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/capanda.ca/Value.png          3x,
+                    https://ik.imagekit.io/capanda/tr:w-660/capanda.ca/Value.png 2x,
+                    https://ik.imagekit.io/capanda/tr:w-330/capanda.ca/Value.png
+                  "
+                />
+                <source
+                  media="(max-width: 900px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/capanda.ca/Value.png          3x,
+                    https://ik.imagekit.io/capanda/tr:w-760/capanda.ca/Value.png 2x,
+                    https://ik.imagekit.io/capanda/tr:w-380/capanda.ca/Value.png
+                  "
+                />
+                <source
+                  media="(max-width: 1000px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/capanda.ca/Value.png          2x,
+                    https://ik.imagekit.io/capanda/tr:w-430/capanda.ca/Value.png
+                  "
+                />
+                <source
+                  media="(min-width: 1200px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/capanda.ca/Value.png          2x,
+                    https://ik.imagekit.io/capanda/tr:w-540/capanda.ca/Value.png
+                  "
+                />
+                <img
+                  loading="lazy"
+                  alt=""
+                  src="https://ik.imagekit.io/capanda/capanda.ca/Value.png"
+                  width="413"
+                  height="500"
+                />
+              </picture>
             </div>
-        </section>
+            <div class="col px-5 panel-txt">
+              <h2 class="mb-4">Our Value</h2>
+              <p>Sustainability is our Mantra</p>
+              <p>
+                Whether through the delivery of proven digital architectures, or
+                via Organizational Change Management practices (including
+                everything in-between), sustainable practices will ensure
+                long-term value for your organization
+              </p>
+              <p>
+                Through the delivery of proven forward-looking practices, your
+                organization will recognize the value by eliminating the typical
+                cycle of repeating itself
+              </p>
+              <p>
+                Don’t relive your old ways by seeking heroes to keep your head
+                above water – True value comes from sustainable & proven
+                architectural practices that bind themselves to your
+                organization’s DNA
+              </p>
+              <p>
+                Digital transformation is more than just changing or upgrading,
+                true value is the result of applying proven practices towards
+                sustainable services that remain nimble to adapt to the
+                ever-changing digital world
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <section class="panel panel3">
-            <span class="scroll-point" id="leadership" role="presentation"></span>
-            <div id="leadership-panel" class="container-xxl">
-                <div class="row panel-row">
-                    <div class="col px-5 panel-txt">
-                        <h2 class="mb-4">We Lead the Way</h2>
-                        <p>Through recognition that demonstrates hands-on experience & results, real-world delivery has
-                            proven that we are more than just words</p>
-                        <p>Through all aspects of the system development & product lifecycle, and via extensive
-                            experience in the development of corporate architecture, systems, solutions, & programs,
-                            your organization can harness the value of sustainability</p>
-                        <p>Via hands-on expertise throughout the systems development lifecycle, your organization can
-                            reap the reward of senior Project Leadership, Human Resource Management, Financial
-                            Management, Change Management, and a wealth of additional key experience</p>
-                    </div>
-                    <div class="col panel-img">
-                        <picture>
-                            <source media="(max-width: 700px)"
-                                srcset="https://ik.imagekit.io/capanda/tr:w-1120/capanda.ca/Leadership.png 4x, https://ik.imagekit.io/capanda/tr:w-840/capanda.ca/Leadership.png 3x, https://ik.imagekit.io/capanda/tr:w-560/capanda.ca/Leadership.png 2x, https://ik.imagekit.io/capanda/tr:w-280/capanda.ca/Leadership.png">
-                            <source media="(max-width: 800px)"
-                                srcset="https://ik.imagekit.io/capanda/tr:w-1320/capanda.ca/Leadership.png 4x, https://ik.imagekit.io/capanda/tr:w-990/capanda.ca/Leadership.png 3x, https://ik.imagekit.io/capanda/tr:w-660/capanda.ca/Leadership.png 2x, https://ik.imagekit.io/capanda/tr:w-330/capanda.ca/Leadership.png">
-                            <source media="(max-width: 900px)"
-                                srcset="https://ik.imagekit.io/capanda/tr:w-1520/capanda.ca/Leadership.png 4x, https://ik.imagekit.io/capanda/tr:w-1140/capanda.ca/Leadership.png 3x, https://ik.imagekit.io/capanda/tr:w-760/capanda.ca/Leadership.png 2x, https://ik.imagekit.io/capanda/tr:w-380/capanda.ca/Leadership.png">
-                            <source media="(max-width: 1000px)"
-                                srcset="https://ik.imagekit.io/capanda/tr:w-1720/capanda.ca/Leadership.png 4x, https://ik.imagekit.io/capanda/tr:w-1290/capanda.ca/Leadership.png 3x, https://ik.imagekit.io/capanda/tr:w-860/capanda.ca/Leadership.png 2x, https://ik.imagekit.io/capanda/tr:w-430/capanda.ca/Leadership.png">
-                            <source media="(min-width: 1200px)"
-                                srcset="https://ik.imagekit.io/capanda/capanda.ca/Leadership.png 4x, https://ik.imagekit.io/capanda/tr:w-1620/capanda.ca/Leadership.png 3x, https://ik.imagekit.io/capanda/tr:w-1080/capanda.ca/Leadership.png 2x, https://ik.imagekit.io/capanda/tr:w-540/capanda.ca/Leadership.png">
-                            <img loading="lazy" alt="" src="https://ik.imagekit.io/capanda/capanda.ca/Leadership.png"
-                                width="540" height="196">
-                        </picture>
-                    </div>
-                </div>
+      <section class="panel panel3">
+        <span class="scroll-point" id="leadership" role="presentation"></span>
+        <div id="leadership-panel" class="container-xxl">
+          <div class="row panel-row">
+            <div class="col px-5 panel-txt">
+              <h2 class="mb-4">We Lead the Way</h2>
+              <p>
+                Through recognition that demonstrates hands-on experience &
+                results, real-world delivery has proven that we are more than
+                just words
+              </p>
+              <p>
+                Through all aspects of the system development & product
+                lifecycle, and via extensive experience in the development of
+                corporate architecture, systems, solutions, & programs, your
+                organization can harness the value of sustainability
+              </p>
+              <p>
+                Via hands-on expertise throughout the systems development
+                lifecycle, your organization can reap the reward of senior
+                Project Leadership, Human Resource Management, Financial
+                Management, Change Management, and a wealth of additional key
+                experience
+              </p>
             </div>
-        </section>
+            <div class="col panel-img">
+              <picture>
+                <source
+                  media="(max-width: 700px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/tr:w-1120/capanda.ca/Leadership.png 4x,
+                    https://ik.imagekit.io/capanda/tr:w-840/capanda.ca/Leadership.png  3x,
+                    https://ik.imagekit.io/capanda/tr:w-560/capanda.ca/Leadership.png  2x,
+                    https://ik.imagekit.io/capanda/tr:w-280/capanda.ca/Leadership.png
+                  "
+                />
+                <source
+                  media="(max-width: 800px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/tr:w-1320/capanda.ca/Leadership.png 4x,
+                    https://ik.imagekit.io/capanda/tr:w-990/capanda.ca/Leadership.png  3x,
+                    https://ik.imagekit.io/capanda/tr:w-660/capanda.ca/Leadership.png  2x,
+                    https://ik.imagekit.io/capanda/tr:w-330/capanda.ca/Leadership.png
+                  "
+                />
+                <source
+                  media="(max-width: 900px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/tr:w-1520/capanda.ca/Leadership.png 4x,
+                    https://ik.imagekit.io/capanda/tr:w-1140/capanda.ca/Leadership.png 3x,
+                    https://ik.imagekit.io/capanda/tr:w-760/capanda.ca/Leadership.png  2x,
+                    https://ik.imagekit.io/capanda/tr:w-380/capanda.ca/Leadership.png
+                  "
+                />
+                <source
+                  media="(max-width: 1000px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/tr:w-1720/capanda.ca/Leadership.png 4x,
+                    https://ik.imagekit.io/capanda/tr:w-1290/capanda.ca/Leadership.png 3x,
+                    https://ik.imagekit.io/capanda/tr:w-860/capanda.ca/Leadership.png  2x,
+                    https://ik.imagekit.io/capanda/tr:w-430/capanda.ca/Leadership.png
+                  "
+                />
+                <source
+                  media="(min-width: 1200px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/capanda.ca/Leadership.png           4x,
+                    https://ik.imagekit.io/capanda/tr:w-1620/capanda.ca/Leadership.png 3x,
+                    https://ik.imagekit.io/capanda/tr:w-1080/capanda.ca/Leadership.png 2x,
+                    https://ik.imagekit.io/capanda/tr:w-540/capanda.ca/Leadership.png
+                  "
+                />
+                <img
+                  loading="lazy"
+                  alt=""
+                  src="https://ik.imagekit.io/capanda/capanda.ca/Leadership.png"
+                  width="540"
+                  height="196"
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <section class="panel panel4 text-white">
-            <span class="scroll-point" id="dedication" role="presentation"></span>
-            <div id="dedication-panel" class="container-xxl">
-                <div class="row panel-row">
-                    <div class="col panel-img">
-                        <picture>
-                            <source media="(max-width: 700px)"
-                                srcset="https://ik.imagekit.io/capanda/tr:w-1120/capanda.ca/Dedication.png 4x, https://ik.imagekit.io/capanda/tr:w-840/capanda.ca/Dedication.png 3x, https://ik.imagekit.io/capanda/tr:w-560/capanda.ca/Dedication.png 2x, https://ik.imagekit.io/capanda/tr:w-280/capanda.ca/Dedication.png">
-                            <source media="(max-width: 800px)"
-                                srcset="https://ik.imagekit.io/capanda/capanda.ca/Dedication.png 4x, https://ik.imagekit.io/capanda/tr:w-990/capanda.ca/Dedication.png 3x, https://ik.imagekit.io/capanda/tr:w-660/capanda.ca/Dedication.png 2x, https://ik.imagekit.io/capanda/tr:w-330/capanda.ca/Dedication.png">
-                            <source media="(max-width: 900px)"
-                                srcset="https://ik.imagekit.io/capanda/capanda.ca/Dedication.png 4x, https://ik.imagekit.io/capanda/tr:w-1140/capanda.ca/Dedication.png 3x, https://ik.imagekit.io/capanda/tr:w-760/capanda.ca/Dedication.png 2x, https://ik.imagekit.io/capanda/tr:w-380/capanda.ca/Dedication.png">
-                            <source media="(max-width: 1000px)"
-                                srcset="https://ik.imagekit.io/capanda/capanda.ca/Dedication.png 3x, https://ik.imagekit.io/capanda/tr:w-860/capanda.ca/Dedication.png 2x, https://ik.imagekit.io/capanda/tr:w-430/capanda.ca/Dedication.png">
-                            <source media="(min-width: 1200px)"
-                                srcset="https://ik.imagekit.io/capanda/capanda.ca/Dedication.png 3x, https://ik.imagekit.io/capanda/tr:w-1080/capanda.ca/Dedication.png 2x, https://ik.imagekit.io/capanda/tr:w-540/capanda.ca/Dedication.png">
-                            <img loading="lazy" alt="" src="https://ik.imagekit.io/capanda/capanda.ca/Dedication.png"
-                                width="540" height="498">
-                        </picture>
-                    </div>
-                    <div class="col px-5 panel-txt">
-                        <h2 class="mb-4">Our Dedication</h2>
-                        <p>Through the delivery of numerous corporate-level Federal Government requirements such as
-                            International Service Delivery, departmental Software Asset Management Program, and Product
-                            Management, Millions of dollars of savings to the tax-payer have been realized</p>
-                        <p>Through our continuing focus and refinement, your organization will value from similar
-                            savings through our advice to your Solution & Program teams</p>
-                        <p>Beyond any of your immediate needs, and through concentration on Architecture and Solution
-                            Advisory services in support of sustainable Business-process automation, Object-Oriented
-                            Systems Design & Development, and corporate Program delivery, we are focused to help you
-                            establish a sustainable future</p>
-                    </div>
-                </div>
+      <section class="panel panel4">
+        <span class="scroll-point" id="dedication" role="presentation"></span>
+        <div id="dedication-panel" class="container-xxl">
+          <div class="row panel-row">
+            <div class="col panel-img">
+              <picture>
+                <source
+                  media="(max-width: 700px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/tr:w-1120/capanda.ca/Dedication.png 4x,
+                    https://ik.imagekit.io/capanda/tr:w-840/capanda.ca/Dedication.png  3x,
+                    https://ik.imagekit.io/capanda/tr:w-560/capanda.ca/Dedication.png  2x,
+                    https://ik.imagekit.io/capanda/tr:w-280/capanda.ca/Dedication.png
+                  "
+                />
+                <source
+                  media="(max-width: 800px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/capanda.ca/Dedication.png          4x,
+                    https://ik.imagekit.io/capanda/tr:w-990/capanda.ca/Dedication.png 3x,
+                    https://ik.imagekit.io/capanda/tr:w-660/capanda.ca/Dedication.png 2x,
+                    https://ik.imagekit.io/capanda/tr:w-330/capanda.ca/Dedication.png
+                  "
+                />
+                <source
+                  media="(max-width: 900px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/capanda.ca/Dedication.png           4x,
+                    https://ik.imagekit.io/capanda/tr:w-1140/capanda.ca/Dedication.png 3x,
+                    https://ik.imagekit.io/capanda/tr:w-760/capanda.ca/Dedication.png  2x,
+                    https://ik.imagekit.io/capanda/tr:w-380/capanda.ca/Dedication.png
+                  "
+                />
+                <source
+                  media="(max-width: 1000px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/capanda.ca/Dedication.png          3x,
+                    https://ik.imagekit.io/capanda/tr:w-860/capanda.ca/Dedication.png 2x,
+                    https://ik.imagekit.io/capanda/tr:w-430/capanda.ca/Dedication.png
+                  "
+                />
+                <source
+                  media="(min-width: 1200px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/capanda.ca/Dedication.png           3x,
+                    https://ik.imagekit.io/capanda/tr:w-1080/capanda.ca/Dedication.png 2x,
+                    https://ik.imagekit.io/capanda/tr:w-540/capanda.ca/Dedication.png
+                  "
+                />
+                <img
+                  loading="lazy"
+                  alt=""
+                  src="https://ik.imagekit.io/capanda/capanda.ca/Dedication.png"
+                  width="540"
+                  height="498"
+                />
+              </picture>
             </div>
-        </section>
+            <div class="col px-5 panel-txt">
+              <h2 class="mb-4">Our Dedication</h2>
+              <p>
+                Through the delivery of numerous corporate-level Federal
+                Government requirements such as International Service Delivery,
+                departmental Software Asset Management Program, and Product
+                Management, Millions of dollars of savings to the tax-payer have
+                been realized
+              </p>
+              <p>
+                Through our continuing focus and refinement, your organization
+                will value from similar savings through our advice to your
+                Solution & Program teams
+              </p>
+              <p>
+                Beyond any of your immediate needs, and through concentration on
+                Architecture and Solution Advisory services in support of
+                sustainable Business-process automation, Object-Oriented Systems
+                Design & Development, and corporate Program delivery, we are
+                focused to help you establish a sustainable future
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <section class="panel panel5">
-            <span class="scroll-point" id="focus" role="presentation"></span>
-            <div id="focus-panel" class="container-xxl">
-                <div class="row panel-row">
-                    <div class="col px-5 panel-txt">
-                        <h2 class="mb-4">Advanced Focus</h2>
-                        <p>Through further corporate focus, and as witnessed throughout numerous Public & Private sector
-                            organizations, you will realize value from our extensive experience to resolve ongoing
-                            Software Asset Management challenges</p>
-                        <p>Whether challenges involve effective policy enactment or advanced program delivery,
-                            real-world experience will be applied to advance your organization’s maturity</p>
-                        <p>By continuing to apply hands-on experience, we are focused to help you:</p>
-                        <ul>
-                            <li>Establish Centres of Expertise through industry best practices;</li>
-                            <li>Save organization & tax-payer dollars by promoting component reuse and data sharing
-                                utilizing environment models for the consolidation of Application layer services; and
-                            </li>
-                            <li>Deliver advanced presentation/leadership direction to your organization’s Senior
-                                Management, IT groups, and Public Forums</li>
-                        </ul>
-                    </div>
-                    <div class="col panel-img">
-                        <picture>
-                            <source media="(max-width: 700px)"
-                                srcset="https://ik.imagekit.io/capanda/tr:w-1120/capanda.ca/Focus.png 4x, https://ik.imagekit.io/capanda/tr:w-840/capanda.ca/Focus.png 3x, https://ik.imagekit.io/capanda/tr:w-560/capanda.ca/Focus.png 2x, https://ik.imagekit.io/capanda/tr:w-280/capanda.ca/Focus.png">
-                            <source media="(max-width: 800px)"
-                                srcset="https://ik.imagekit.io/capanda/tr:w-1320/capanda.ca/Focus.png 4x, https://ik.imagekit.io/capanda/tr:w-990/capanda.ca/Focus.png 3x, https://ik.imagekit.io/capanda/tr:w-660/capanda.ca/Focus.png 2x, https://ik.imagekit.io/capanda/tr:w-330/capanda.ca/Focus.png">
-                            <source media="(max-width: 900px)"
-                                srcset="https://ik.imagekit.io/capanda/tr:w-1520/capanda.ca/Focus.png 4x, https://ik.imagekit.io/capanda/tr:w-1140/capanda.ca/Focus.png 3x, https://ik.imagekit.io/capanda/tr:w-760/capanda.ca/Focus.png 2x, https://ik.imagekit.io/capanda/tr:w-380/capanda.ca/Focus.png">
-                            <source media="(max-width: 1000px)"
-                                srcset="https://ik.imagekit.io/capanda/tr:w-1720/capanda.ca/Focus.png 4x, https://ik.imagekit.io/capanda/tr:w-1290/capanda.ca/Focus.png 3x, https://ik.imagekit.io/capanda/tr:w-860/capanda.ca/Focus.png 2x, https://ik.imagekit.io/capanda/tr:w-430/capanda.ca/Focus.png">
-                            <source media="(min-width: 1200px)"
-                                srcset="https://ik.imagekit.io/capanda/capanda.ca/Focus.png 4x, https://ik.imagekit.io/capanda/tr:w-1620/capanda.ca/Focus.png 3x, https://ik.imagekit.io/capanda/tr:w-1080/capanda.ca/Focus.png 2x, https://ik.imagekit.io/capanda/tr:w-540/capanda.ca/Focus.png">
-                            <img loading="lazy" alt="" src="https://ik.imagekit.io/capanda/capanda.ca/Focus.png"
-                                width="540" height="284">
-                        </picture>
-                    </div>
-                </div>
+      <section class="panel panel5">
+        <span class="scroll-point" id="focus" role="presentation"></span>
+        <div id="focus-panel" class="container-xxl">
+          <div class="row panel-row">
+            <div class="col px-5 panel-txt">
+              <h2 class="mb-4">Advanced Focus</h2>
+              <p>
+                Through further corporate focus, and as witnessed throughout
+                numerous Public & Private sector organizations, you will realize
+                value from our extensive experience to resolve ongoing Software
+                Asset Management challenges
+              </p>
+              <p>
+                Whether challenges involve effective policy enactment or
+                advanced program delivery, real-world experience will be applied
+                to advance your organization’s maturity
+              </p>
+              <p>
+                By continuing to apply hands-on experience, we are focused to
+                help you:
+              </p>
+              <ul>
+                <li>
+                  Establish Centres of Expertise through industry best
+                  practices;
+                </li>
+                <li>
+                  Save organization & tax-payer dollars by promoting component
+                  reuse and data sharing utilizing environment models for the
+                  consolidation of Application layer services; and
+                </li>
+                <li>
+                  Deliver advanced presentation/leadership direction to your
+                  organization’s Senior Management, IT groups, and Public Forums
+                </li>
+              </ul>
             </div>
-        </section>
+            <div class="col panel-img">
+              <picture>
+                <source
+                  media="(max-width: 700px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/tr:w-1120/capanda.ca/Focus.png 4x,
+                    https://ik.imagekit.io/capanda/tr:w-840/capanda.ca/Focus.png  3x,
+                    https://ik.imagekit.io/capanda/tr:w-560/capanda.ca/Focus.png  2x,
+                    https://ik.imagekit.io/capanda/tr:w-280/capanda.ca/Focus.png
+                  "
+                />
+                <source
+                  media="(max-width: 800px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/tr:w-1320/capanda.ca/Focus.png 4x,
+                    https://ik.imagekit.io/capanda/tr:w-990/capanda.ca/Focus.png  3x,
+                    https://ik.imagekit.io/capanda/tr:w-660/capanda.ca/Focus.png  2x,
+                    https://ik.imagekit.io/capanda/tr:w-330/capanda.ca/Focus.png
+                  "
+                />
+                <source
+                  media="(max-width: 900px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/tr:w-1520/capanda.ca/Focus.png 4x,
+                    https://ik.imagekit.io/capanda/tr:w-1140/capanda.ca/Focus.png 3x,
+                    https://ik.imagekit.io/capanda/tr:w-760/capanda.ca/Focus.png  2x,
+                    https://ik.imagekit.io/capanda/tr:w-380/capanda.ca/Focus.png
+                  "
+                />
+                <source
+                  media="(max-width: 1000px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/tr:w-1720/capanda.ca/Focus.png 4x,
+                    https://ik.imagekit.io/capanda/tr:w-1290/capanda.ca/Focus.png 3x,
+                    https://ik.imagekit.io/capanda/tr:w-860/capanda.ca/Focus.png  2x,
+                    https://ik.imagekit.io/capanda/tr:w-430/capanda.ca/Focus.png
+                  "
+                />
+                <source
+                  media="(min-width: 1200px)"
+                  srcset="
+                    https://ik.imagekit.io/capanda/capanda.ca/Focus.png           4x,
+                    https://ik.imagekit.io/capanda/tr:w-1620/capanda.ca/Focus.png 3x,
+                    https://ik.imagekit.io/capanda/tr:w-1080/capanda.ca/Focus.png 2x,
+                    https://ik.imagekit.io/capanda/tr:w-540/capanda.ca/Focus.png
+                  "
+                />
+                <img
+                  loading="lazy"
+                  alt=""
+                  src="https://ik.imagekit.io/capanda/capanda.ca/Focus.png"
+                  width="540"
+                  height="284"
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <div class="modal fade" id="contact" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title" id="contactModalLabel">Contact Us</h3>
-                    <button type="button" class="btn-close" data-closeModal="#contact" aria-label="Close" id="contactCancel"></button>
-                </div>
-                <div class="modal-body">
-                    <div>
-                        <a href="tel:613-831-7639" class="d-flex align-items-center text-dark contact-info">
-                            <span>613-831-7639</span>
-                            <img alt="Phone" src="https://ik.imagekit.io/capanda/tr:w-26/Icons/phone-sm.png">
-                        </a>
-                        <a href="mailto:info@capanda.ca" class="d-flex align-items-center text-dark contact-info">
-                            <img alt="Email" src="https://ik.imagekit.io/capanda/tr:w-26/Icons/email-sm.png">
-                            <span>info@capanda.ca</span>
-                        </a>
-                    </div>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input class="form-control" type="text" id="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input class="form-control" placeholder="name@example.com" type="text" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="Message">Message</label>
-                        <textarea class="form-control" id="message" name="message" rows="5"></textarea>
-                    </div>
-                    <div style="text-align: center;" id="turnstile-container"></div>
-                    <input type="hidden" id="SpCsrfToken" name="SpCsrfToken" value="">
-                    <div id="message-alert" class="alert alert-danger" role="alert"></div>
-                </div>
-                <div class="modal-footer">
-                    <div id="sendmessage-loading" style="display:none;">
-                        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-                    </div>
-                    <button type="button" class="btn-capanda btn-capanda-blue" id="sendmessage">Send Message</button>
-                </div>
+    <div
+      class="modal fade"
+      id="contact"
+      tabindex="-1"
+      aria-labelledby="contactModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="contactModalLabel">Contact Us</h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-closeModal="#contact"
+              aria-label="Close"
+              id="contactCancel"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <a
+                href="tel:613-831-7639"
+                class="d-flex align-items-center text-dark contact-info"
+              >
+                <span>613-831-7639</span>
+                <img
+                  alt="Phone"
+                  src="https://ik.imagekit.io/capanda/tr:w-26/Icons/phone-sm.png"
+                />
+              </a>
+              <a
+                href="mailto:info@capanda.ca"
+                class="d-flex align-items-center text-dark contact-info"
+              >
+                <img
+                  alt="Email"
+                  src="https://ik.imagekit.io/capanda/tr:w-26/Icons/email-sm.png"
+                />
+                <span>info@capanda.ca</span>
+              </a>
             </div>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input class="form-control" type="text" id="name" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                class="form-control"
+                placeholder="name@example.com"
+                type="text"
+                id="email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="Message">Message</label>
+              <textarea
+                class="form-control"
+                id="message"
+                name="message"
+                rows="5"
+              ></textarea>
+            </div>
+            <div style="text-align: center" id="turnstile-container"></div>
+            <input type="hidden" id="SpCsrfToken" name="SpCsrfToken" value="" />
+            <div
+              id="message-alert"
+              class="alert alert-danger"
+              role="alert"
+            ></div>
+          </div>
+          <div class="modal-footer">
+            <div id="sendmessage-loading" style="display: none">
+              <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn-capanda btn-capanda-blue"
+              id="sendmessage"
+            >
+              Send Message
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="success" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title" id="successModalLabel">Contact Us</h3>
-                    <button type="button" class="btn-close" data-closeModal="#success" aria-label="Close"></button>
-                </div>
-                <div class="d-flex flex-column justify-content-center align-items-center modal-body text-center">
-                    <svg class="mb-4" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
-                        class="bi bi-check-square" viewBox="0 0 16 16">
-                        <path
-                            d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-                        <path
-                            d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
-                    </svg>
-                    <p class="mb-0">
-                        Thanks for your message - we will get back to you shortly
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn-capanda btn-capanda-grey messagecancel" data-closeModal="#success">Close</button>
-                </div>
-            </div>
+    <div
+      class="modal fade"
+      id="success"
+      tabindex="-1"
+      aria-labelledby="successModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="successModalLabel">Contact Us</h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-closeModal="#success"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div
+            class="d-flex flex-column justify-content-center align-items-center modal-body text-center"
+          >
+            <svg
+              class="mb-4"
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              fill="currentColor"
+              class="bi bi-check-square"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+              />
+              <path
+                d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z"
+              />
+            </svg>
+            <p class="mb-0">
+              Thanks for your message - we will get back to you shortly
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn-capanda btn-capanda-grey messagecancel"
+              data-closeModal="#success"
+            >
+              Close
+            </button>
+          </div>
         </div>
+      </div>
     </div>
     <footer>
-        <div class="container-fluid bg-dark copyright">
-            <div class="d-flex align-items-center justify-content-evenly">
-                <span class="mb-0 py-2 text-white">© C.A. Pavia & Associates Inc.</span>
-            </div>
+      <div class="container-fluid bg-dark copyright">
+        <div class="d-flex align-items-center justify-content-evenly">
+          <span class="mb-0 py-2 text-white"
+            >© C.A. Pavia & Associates Inc.</span
+          >
         </div>
+      </div>
     </footer>
-
-</body>
-
+  </body>
 </html>

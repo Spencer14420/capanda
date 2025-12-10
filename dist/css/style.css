@@ -118,7 +118,7 @@ body {
 }
 
 nav {
-  border-block-end: 3px solid var(--capanda-light-grey);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.14);
 }
 
 .panel-row {

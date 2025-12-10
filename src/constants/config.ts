@@ -29,8 +29,9 @@ export const CONFIG: Config = {
   panelPrefix: ".panel",
   colors: {
     blue: "#0e2c57",
-    white: "#ededed",
+    white: "#FAFAF7",
     black: "#14171c",
+    dark: "#1E2730",
     pureWhite: "#ffffff",
     pureBlack: "#000000",
     red: "#aa0000",
@@ -38,36 +39,38 @@ export const CONFIG: Config = {
   panelProperties: [],
 };
 
+const darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
 CONFIG.panelProperties = [
   {
     id: 0,
-    bgColor: CONFIG.colors.blue,
+    bgColor: darkMode ? CONFIG.colors.dark : CONFIG.colors.white,
     textColor: CONFIG.colors.pureWhite,
     headerLink: null,
     fullHeight: true,
   },
   {
     id: 1,
-    bgColor: CONFIG.colors.blue,
-    textColor: CONFIG.colors.pureWhite,
+    bgColor: darkMode ? CONFIG.colors.dark : CONFIG.colors.white,
+    textColor: darkMode ? CONFIG.colors.pureWhite : CONFIG.colors.pureBlack,
     headerLink: 0,
   },
   {
     id: 2,
-    bgColor: CONFIG.colors.white,
-    textColor: CONFIG.colors.pureBlack,
+    bgColor: darkMode ? CONFIG.colors.dark : CONFIG.colors.white,
+    textColor: darkMode ? CONFIG.colors.pureWhite : CONFIG.colors.pureBlack,
     headerLink: 1,
   },
   {
     id: 3,
-    bgColor: CONFIG.colors.black,
-    textColor: CONFIG.colors.pureWhite,
+    bgColor: darkMode ? CONFIG.colors.dark : CONFIG.colors.white,
+    textColor: darkMode ? CONFIG.colors.pureWhite : CONFIG.colors.pureBlack,
     headerLink: 2,
   },
   {
     id: 4,
-    bgColor: CONFIG.colors.white,
-    textColor: CONFIG.colors.pureBlack,
+    bgColor: darkMode ? CONFIG.colors.dark : CONFIG.colors.white,
+    textColor: darkMode ? CONFIG.colors.pureWhite : CONFIG.colors.pureBlack,
     headerLink: 3,
   },
 ];
