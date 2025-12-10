@@ -5,10 +5,6 @@
   --capanda-yellow: #ffc107;
   --capanda-blue: #1976d2;
   --capanda-grey: #6c757d;
-  --capanda-light-grey: #ededed;
-  --capanda-dark-grey: #14171c;
-  --capanda-navy: #0e2c57;
-  --capanda-light: #f0f0f0;
   --bg-duration: 400ms;
   --content-duration: 250ms;
   --content-delay: 250ms;
@@ -25,7 +21,6 @@
 
 /* General styling */
 body {
-  background-color: var(--capanda-navy);
   transition:
     background-color var(--bg-duration) cubic-bezier(0.4, 0, 0.2, 1),
     opacity var(--bg-duration) cubic-bezier(0.4, 0, 0.2, 1);
@@ -58,7 +53,7 @@ body {
   transition:
     background-color var(--bg-duration) cubic-bezier(0.4, 0, 0.2, 1),
     opacity var(--bg-duration) cubic-bezier(0.4, 0, 0.2, 1);
-  color: var(--capanda-light);
+  color: white;
   text-shadow: 0 0 15px black;
 }
 
@@ -119,6 +114,7 @@ body {
 
 nav {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.14);
+  background-color: #f8f9fa;
 }
 
 .panel-row {
@@ -254,18 +250,6 @@ main {
   }
 }
 
-.panel3 {
-  background-color: white;
-}
-
-.panel4 {
-  background-color: var(--capanda-dark-grey);
-}
-
-.panel5 {
-  background-color: var(--capanda-light-grey);
-}
-
 footer {
   position: absolute;
   margin-block-start: 200px;
@@ -334,6 +318,10 @@ footer {
 .panel-img img {
   max-inline-size: 100%;
   block-size: auto;
+}
+
+.panel-img img {
+  filter: drop-shadow(0px 12px 16px rgba(0, 0, 0, 0.45));
 }
 
 div:has(> .contact-info) {
