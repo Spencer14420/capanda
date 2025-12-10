@@ -25,10 +25,19 @@
   </head>
 
   <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light py-1">
+    <nav class="navbar fixed-top navbar-expand-lg py-1">
       <div class="container-lg">
         <a href="#top" role="button" class="navbar-brand py-0">
           <picture id="logo" class="d-inline-block align-text-top">
+            <source
+              media="(max-width: 350px) and (prefers-color-scheme: dark)"
+              srcset="
+                https://ik.imagekit.io/capanda/tr:w-648/Logos/CAPANDA-Logo-White.png 4x,
+                https://ik.imagekit.io/capanda/tr:w-486/Logos/CAPANDA-Logo-White.png 3x,
+                https://ik.imagekit.io/capanda/tr:w-324/Logos/CAPANDA-Logo-White.png 2x,
+                https://ik.imagekit.io/capanda/tr:w-162/Logos/CAPANDA-Logo-White.png
+              "
+            />
             <source
               media="(max-width: 350px)"
               srcset="
@@ -36,6 +45,15 @@
                 https://ik.imagekit.io/capanda/tr:w-486/Logos/CAPANDA-Logo-Black.png 3x,
                 https://ik.imagekit.io/capanda/tr:w-324/Logos/CAPANDA-Logo-Black.png 2x,
                 https://ik.imagekit.io/capanda/tr:w-162/Logos/CAPANDA-Logo-Black.png
+              "
+            />
+            <source
+              media="(max-width: 450px) and (prefers-color-scheme: dark)"
+              srcset="
+                https://ik.imagekit.io/capanda/tr:w-720/Logos/CAPANDA-Logo-White.png 4x,
+                https://ik.imagekit.io/capanda/tr:w-540/Logos/CAPANDA-Logo-White.png 3x,
+                https://ik.imagekit.io/capanda/tr:w-360/Logos/CAPANDA-Logo-White.png 2x,
+                https://ik.imagekit.io/capanda/tr:w-180/Logos/CAPANDA-Logo-White.png
               "
             />
             <source
@@ -48,12 +66,30 @@
               "
             />
             <source
+              media="(min-width: 451px) and (prefers-color-scheme: dark)"
+              srcset="
+                https://ik.imagekit.io/capanda/tr:w-1000/Logos/CAPANDA-Logo-White.png 4x,
+                https://ik.imagekit.io/capanda/tr:w-750/Logos/CAPANDA-Logo-White.png  3x,
+                https://ik.imagekit.io/capanda/tr:w-500/Logos/CAPANDA-Logo-White.png  2x,
+                https://ik.imagekit.io/capanda/tr:w-250/Logos/CAPANDA-Logo-White.png
+              "
+            />
+            <source
               media="(min-width: 451px)"
               srcset="
                 https://ik.imagekit.io/capanda/tr:w-1000/Logos/CAPANDA-Logo-Black.png 4x,
                 https://ik.imagekit.io/capanda/tr:w-750/Logos/CAPANDA-Logo-Black.png  3x,
                 https://ik.imagekit.io/capanda/tr:w-500/Logos/CAPANDA-Logo-Black.png  2x,
                 https://ik.imagekit.io/capanda/tr:w-250/Logos/CAPANDA-Logo-Black.png
+              "
+            />
+            <source
+              media="(max-height: 530px) and (prefers-color-scheme: dark)"
+              srcset="
+                https://ik.imagekit.io/capanda/tr:w-720/Logos/CAPANDA-Logo-White.png 4x,
+                https://ik.imagekit.io/capanda/tr:w-540/Logos/CAPANDA-Logo-White.png 3x,
+                https://ik.imagekit.io/capanda/tr:w-360/Logos/CAPANDA-Logo-White.png 2x,
+                https://ik.imagekit.io/capanda/tr:w-180/Logos/CAPANDA-Logo-White.png
               "
             />
             <source
@@ -86,7 +122,7 @@
           class="d-flex flex-column flex-grow-1 align-items-end me-2"
         >
           <a href="tel:613-831-7639" class="d-flex align-items-center">
-            <span class="text-dark fs-6 me-1">613-831-7639</span>
+            <span class="fs-6 me-1">613-831-7639</span>
             <img
               alt="Phone"
               src="https://ik.imagekit.io/capanda/tr:w-26/Icons/phone-sm.png"
@@ -95,7 +131,7 @@
             />
           </a>
           <a href="mailto:info@capanda.ca" class="d-flex align-items-center">
-            <span class="text-dark fs-6 me-1">info@capanda.ca</span>
+            <span class="fs-6 me-1">info@capanda.ca</span>
             <img
               alt="Email"
               src="https://ik.imagekit.io/capanda/tr:w-26/Icons/email-sm.png"
