@@ -28,9 +28,9 @@ export const CONFIG: Config = {
   turnstileSiteKey: "0x4AAAAAAAyvgzXqVhbwOBo6", // Site key for the Turnstile widget.
   panelPrefix: ".panel",
   colors: {
-    white: "#FAFAF7",
+    light: "#FAFAF7",
     dark: "#1E2730",
-    pureWhite: "#ffffff",
+    white: "#ffffff",
     black: "#000000",
   },
   panelProperties: [],
@@ -41,33 +41,33 @@ const darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 CONFIG.panelProperties = [
   {
     id: 0,
-    bgColor: darkMode ? CONFIG.colors.dark : CONFIG.colors.white,
-    textColor: CONFIG.colors.pureWhite,
+    bgColor: darkMode ? CONFIG.colors.dark : CONFIG.colors.light,
+    textColor: CONFIG.colors.white,
     headerLink: null,
     fullHeight: true,
   },
   {
     id: 1,
-    bgColor: darkMode ? CONFIG.colors.dark : CONFIG.colors.white,
-    textColor: darkMode ? CONFIG.colors.pureWhite : CONFIG.colors.black,
+    bgColor: darkMode ? CONFIG.colors.dark : CONFIG.colors.light,
+    textColor: darkMode ? CONFIG.colors.white : CONFIG.colors.black,
     headerLink: 0,
   },
   {
     id: 2,
-    bgColor: darkMode ? CONFIG.colors.dark : CONFIG.colors.white,
-    textColor: darkMode ? CONFIG.colors.pureWhite : CONFIG.colors.black,
+    bgColor: darkMode ? CONFIG.colors.dark : CONFIG.colors.light,
+    textColor: darkMode ? CONFIG.colors.white : CONFIG.colors.black,
     headerLink: 1,
   },
   {
     id: 3,
-    bgColor: darkMode ? CONFIG.colors.dark : CONFIG.colors.white,
-    textColor: darkMode ? CONFIG.colors.pureWhite : CONFIG.colors.black,
+    bgColor: darkMode ? CONFIG.colors.dark : CONFIG.colors.light,
+    textColor: darkMode ? CONFIG.colors.white : CONFIG.colors.black,
     headerLink: 2,
   },
   {
     id: 4,
-    bgColor: darkMode ? CONFIG.colors.dark : CONFIG.colors.white,
-    textColor: darkMode ? CONFIG.colors.pureWhite : CONFIG.colors.black,
+    bgColor: darkMode ? CONFIG.colors.dark : CONFIG.colors.light,
+    textColor: darkMode ? CONFIG.colors.white : CONFIG.colors.black,
     headerLink: 3,
   },
 ];

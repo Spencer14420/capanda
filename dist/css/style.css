@@ -5,10 +5,19 @@
   --capanda-yellow: #ffc107;
   --capanda-blue: #1976d2;
   --capanda-grey: #6c757d;
+  --capanda-light: #fafaf7;
+  --capanda-dark: #1e2730;
+  --bg-color: var(--capanda-light);
   --bg-duration: 400ms;
   --content-duration: 250ms;
   --content-delay: 250ms;
   --content-stagger: 80ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: var(--capanda-dark);
+  }
 }
 
 .btn-danger {
@@ -28,6 +37,7 @@ body {
   font-optical-sizing: auto;
   font-style: normal;
   font-size: 1.2rem;
+  background-color: var(--bg-color);
 }
 
 #mantra,
