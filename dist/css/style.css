@@ -129,10 +129,17 @@ body {
 nav {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.14);
   background-color: var(--nav-color);
+}
 
-  a {
-    color: var(--text-color) !important;
-  }
+.nav-link {
+  color: var(--text-color);
+}
+
+.nav-link-highlighted {
+  color: var(--capanda-red) !important ;
+  text-shadow:
+    -0.05ex 0 currentColor,
+    0.05ex 0 currentColor;
 }
 
 .panel-row {
@@ -278,17 +285,6 @@ footer {
 .panel-row p,
 .panel-row h1 {
   margin-block-end: 1.2rem;
-}
-
-.navbar-nav .nav-link {
-  color: black;
-}
-
-.navbar-nav .nav-link-highlighted {
-  color: var(--capanda-red);
-  text-shadow:
-    -0.05ex 0 currentColor,
-    0.05ex 0 currentColor;
 }
 
 #message-alert {
