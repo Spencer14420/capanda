@@ -18,6 +18,20 @@ export class Utils {
     });
   }
 
+  static updateTheme(darkMode: boolean): void {
+    CONFIG.panelProperties.forEach((panelProperty) => {
+      panelProperty.bgColor = darkMode
+        ? CONFIG.colors.dark
+        : CONFIG.colors.light;
+
+      if (panelProperty.id !== 0) {
+        panelProperty.textColor = darkMode
+          ? CONFIG.colors.white
+          : CONFIG.colors.black;
+      }
+    });
+  }
+
   // Renders the turnstile widget size based on the screen width.
   static updateTurnstileWidget(): void {
     const container = document.querySelector(

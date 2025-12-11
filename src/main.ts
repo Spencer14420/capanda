@@ -94,6 +94,13 @@ function initializePanels(): void {
   window.addEventListener("scroll", () => {
     updatePanelsOnScroll(panelManagerNew);
   });
+
+  //Check for dark mode changes
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+  media.addEventListener("change", () => {
+    Utils.updateTheme(media.matches);
+    updatePanelsOnScroll(panelManagerNew);
+  });
 }
 
 function updatePanelsOnScroll(panelManager: PanelManager): void {
@@ -120,8 +127,6 @@ function updatePanelsOnScroll(panelManager: PanelManager): void {
     panelTopHigh,
     panelBottomHigh,
   );
-
-  //console.log(panelTopHigh, panelBottomHigh, showPanelIndex);
 
   UIManager.showPanel(showPanelIndex);
 }
