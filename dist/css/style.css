@@ -126,9 +126,11 @@ body {
   gap: 5px;
 }
 
-nav {
+nav,
+footer {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.14);
   background-color: var(--nav-color);
+  color: var(--text-color);
 }
 
 .nav-link {
