@@ -135,6 +135,10 @@ nav {
   color: var(--text-color);
 }
 
+.nav-link:hover {
+  color: #808080;
+}
+
 .nav-link-highlighted {
   color: var(--capanda-red) !important ;
   text-shadow:
