@@ -354,6 +354,56 @@ h2 {
   font-weight: 500;
 }
 
+.modal-content,
+.form-control,
+.form-control:focus {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.form-control::placeholder {
+  color: #808080;
+}
+
+.modal-header {
+  justify-content: space-between;
+}
+
+.close-button {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.close-button::before,
+.close-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 30px;
+  background-color: var(--text-color);
+  transform-origin: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.close-button:hover::before,
+.close-button:hover::after {
+  background-color: #808080;
+}
+
+.close-button::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-button::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
 .form-group {
   margin-bottom: 2rem;
 
