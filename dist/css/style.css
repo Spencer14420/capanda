@@ -355,10 +355,12 @@ h2 {
 }
 
 .modal-content,
+.modal-content a,
 .form-control,
 .form-control:focus {
   background-color: var(--bg-color);
   color: var(--text-color);
+  border-color: var(--text-color);
 }
 
 .form-control::placeholder {
