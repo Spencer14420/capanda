@@ -133,7 +133,8 @@ footer {
   color: var(--text-color);
 }
 
-.nav-link {
+.nav-link,
+.nav-link:focus {
   color: var(--text-color);
 }
 
