@@ -453,6 +453,23 @@ h2 {
   animation-delay: -0.15s;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .lds-ring {
+    width: auto;
+    height: auto;
+  }
+
+  .lds-ring div {
+    display: none;
+  }
+
+  .lds-ring::after {
+    content: "Loading…";
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+
 #line {
   position: fixed; /* Ensures the line remains fixed in the viewport */
   top: calc(
