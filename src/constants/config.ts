@@ -5,6 +5,7 @@ export interface Config {
   smallScreenThreshold: number;
   turnstileCompactSize: number;
   reduceMotion: boolean;
+  reduceMotionSpacing: number;
   turnstileSiteKey: string;
   panelPrefix: string;
   colors: {
@@ -29,6 +30,7 @@ export const CONFIG: Config = {
   smallScreenThreshold: 100, // Viewport must be this many pixels taller than the tallest panel to not be "small".
   turnstileCompactSize: 350, // Width at which the turnstile widget switches to compact mode.
   reduceMotion: window.matchMedia("(prefers-reduced-motion: reduce").matches,
+  reduceMotionSpacing: 100, //Distance between panels when reduceMotion is true
   turnstileSiteKey: "0x4AAAAAAAyvgzXqVhbwOBo6", // Site key for the Turnstile widget.
   panelPrefix: ".panel",
   colors: {

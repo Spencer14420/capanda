@@ -104,6 +104,11 @@ function initializePanels(): void {
 }
 
 function updatePanelsOnScroll(panelManager: PanelManager): void {
+  if (CONFIG.reduceMotion) {
+    UIManager.showAllPanels();
+    return;
+  }
+
   const navElement = document.querySelector("nav") as HTMLElement | null;
   if (!navElement) return;
 

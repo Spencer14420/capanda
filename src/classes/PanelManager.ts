@@ -26,6 +26,18 @@ export class PanelManager {
   }
 
   private positionPanels(): void {
+    if (CONFIG.reduceMotion) {
+      let y = 0;
+
+      this.panels.forEach((panel) => {
+        panel.setYPosition(y);
+        y += panel.height + CONFIG.reduceMotionSpacing;
+      });
+
+      this.setFooterPosition();
+      return;
+    }
+
     const viewportHeight = window.innerHeight;
 
     // Determine if the screen is small based on the viewport height and the threshold
