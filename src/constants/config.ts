@@ -4,6 +4,7 @@ export interface Config {
   bottomHighOffset: number;
   smallScreenThreshold: number;
   turnstileCompactSize: number;
+  reduceMotion: boolean;
   turnstileSiteKey: string;
   panelPrefix: string;
   colors: {
@@ -17,6 +18,8 @@ export interface Config {
     verticalShift?: number; // An addition to the "top" style property of the panel
     fullHeight?: boolean; // Whether the panel takes up the full height of the viewport
   }[];
+  unifiedBgColor?: Config["colors"][keyof Config["colors"]]; //Background colour when reduceMotion is true
+  unifiedTextColor?: Config["colors"][keyof Config["colors"]]; //Text colour when reduceMotion is true
 }
 
 export const CONFIG: Config = {
@@ -25,6 +28,7 @@ export const CONFIG: Config = {
   bottomHighOffset: 100, // Minimum amount of blank space below each panel before transition can occur.
   smallScreenThreshold: 100, // Viewport must be this many pixels taller than the tallest panel to not be "small".
   turnstileCompactSize: 350, // Width at which the turnstile widget switches to compact mode.
+  reduceMotion: window.matchMedia("(prefers-reduced-motion: reduce").matches,
   turnstileSiteKey: "0x4AAAAAAAyvgzXqVhbwOBo6", // Site key for the Turnstile widget.
   panelPrefix: ".panel",
   colors: {
@@ -71,3 +75,6 @@ CONFIG.panelProperties = [
     headerLink: 3,
   },
 ];
+
+CONFIG.unifiedBgColor = darkMode ? CONFIG.colors.dark : CONFIG.colors.light;
+CONFIG.unifiedTextColor = darkMode ? CONFIG.colors.white : CONFIG.colors.black;

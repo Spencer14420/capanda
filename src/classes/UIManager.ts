@@ -36,10 +36,34 @@ export class UIManager {
     }
   }
 
+  public static showAllPanels(): void {
+    this.showTopPanel(true);
+
+    this.showAllText();
+
+    if (CONFIG.unifiedBgColor) {
+      this.setPanelBackgroundColour(CONFIG.unifiedBgColor);
+    } else {
+      console.error("No unifiedBgColor has been set");
+    }
+
+    if (CONFIG.unifiedTextColor) {
+      this.setPanelTextColour(CONFIG.unifiedTextColor);
+    } else {
+      console.error("No unifiedTextColor has been set");
+    }
+  }
+
   //Shows the specified panel's text while hiding others.
   private static showText(panel: number): void {
     this.panels.forEach((p, index) => {
       (p as HTMLElement).classList.toggle("active-panel", index === panel - 1);
+    });
+  }
+
+  private static showAllText(): void {
+    this.panels.forEach((p) => {
+      (p as HTMLElement).classList.add("active-panel");
     });
   }
 
